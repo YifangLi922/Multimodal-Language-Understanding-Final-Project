@@ -210,7 +210,8 @@ def card_html(row, family, fixed_family=True):
 </div>'''
 
 
-def build_html(family_rows, other_rows):
+def build_html(family_rows, other_rows, title="RelSim Candidate Review Gallery",
+               storage_key="relsim_gallery_state_v1"):
     sections = []
     for family, rows in family_rows.items():
         cards = "\n".join(card_html(r, family, fixed_family=True) for r in rows)
@@ -219,19 +220,24 @@ def build_html(family_rows, other_rows):
             f'<section><h2>{label} &mdash; {len(rows)} candidates</h2><div class="grid">{cards}</div></section>'
         )
 
-    other_cards = "\n".join(card_html(r, "unmatched", fixed_family=False) for r in other_rows)
-    other_section = (
-        "<details><summary>Other / unmatched captions "
-        f"&mdash; {len(other_rows)} rows (expand only if you need more candidates, "
-        "e.g. for the second relation family)</summary>"
-        f'<div class="grid">{other_cards}</div></details>'
-    )
+    other_section = ""
+    if other_rows:
+        other_cards = "\n".join(card_html(r, "unmatched", fixed_family=False) for r in other_rows)
+        other_section = (
+            "<details><summary>Other / unmatched captions "
+            f"&mdash; {len(other_rows)} rows (expand only if you need more candidates, "
+            "e.g. for the second relation family)</summary>"
+            f'<div class="grid">{other_cards}</div></details>'
+        )
+
+    js = JS.replace("relsim_gallery_state_v1", storage_key)
+    title_esc = html.escape(title)
 
     return f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>RelSim Candidate Review Gallery</title>
+<title>{title_esc}</title>
 <style>{CSS}</style>
 </head>
 <body>
@@ -239,7 +245,7 @@ def build_html(family_rows, other_rows):
   <button id="export-btn">Export labels as CSV</button>
   <span id="save-status">not saved yet</span>
 </div>
-<h1>RelSim Candidate Review Gallery</h1>
+<h1>{title_esc}</h1>
 <p class="instructions">
   For each image, open the codebook criteria for that relation family and decide:
   <b>fits</b> (clearly satisfies inclusion criteria) / <b>boundary_reject</b>
@@ -251,7 +257,7 @@ def build_html(family_rows, other_rows):
 </p>
 {''.join(sections)}
 {other_section}
-<script>{JS}</script>
+<script>{js}</script>
 </body>
 </html>"""
 
