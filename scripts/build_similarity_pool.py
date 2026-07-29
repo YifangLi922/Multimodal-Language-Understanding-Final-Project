@@ -136,11 +136,13 @@ def main():
         batch_imgs = [images[h] for h in batch_hashes]
         inputs = processor(images=batch_imgs, return_tensors="pt").to(DEVICE)
         with torch.no_grad():
-            # NOTE: in this transformers version, get_image_features() returns a
-            # BaseModelOutputWithPooling wrapper rather than a raw tensor; the
-            # projected 512-d CLIP embedding is in .pooler_output (verified against
-            # self-similarity == 1.0), not in last_hidden_state (768-d, unprojected).
-            feats = model.get_image_features(**inputs).pooler_output
+            out = model.get_image_features(**inputs)
+        # NOTE: on some transformers versions, get_image_features() returns a raw
+        # tensor directly; on others (5.14.1, confirmed here) it returns a
+        # BaseModelOutputWithPooling wrapper whose .pooler_output holds the
+        # projected 512-d embedding (verified against self-similarity == 1.0).
+        # Handle both so this keeps working regardless of the installed version.
+        feats = out.pooler_output if hasattr(out, "pooler_output") else out
         feats = feats / feats.norm(dim=-1, keepdim=True)
         all_embeddings.append(feats.cpu().numpy())
         print(f"  embedded {min(i + BATCH_SIZE, len(hashes))}/{len(hashes)}")

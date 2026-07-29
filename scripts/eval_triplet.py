@@ -22,7 +22,13 @@ negative_img = Image.open("tests/images/test_3.jpg")
 def clip_sim(img_a, img_b):
     inputs = clip_processor(images=[img_a, img_b], return_tensors="pt").to("cuda")
     with torch.no_grad():
-        embeds = clip_model.get_image_features(**inputs)
+        out = clip_model.get_image_features(**inputs)
+    # NOTE: on some transformers versions, get_image_features() returns a raw
+    # tensor directly; on others (5.14.1, confirmed here) it returns a
+    # BaseModelOutputWithPooling wrapper whose .pooler_output holds the
+    # projected 512-d embedding (verified against self-similarity == 1.0).
+    # Handle both so this keeps working regardless of the installed version.
+    embeds = out.pooler_output if hasattr(out, "pooler_output") else out
     embeds = embeds / embeds.norm(dim=-1, keepdim=True)
     return (embeds[0] @ embeds[1]).item()
 
