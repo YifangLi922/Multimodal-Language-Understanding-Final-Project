@@ -79,26 +79,44 @@ def build_pool():
     boundary = confirmed[confirmed["decision"] == "boundary_reject"].copy()
     boundary["group"] = "background_boundary"
 
+    cols = ["image_hash", "family", "url_link", "caption", "group"]
+
+    # NOTE: background_random must be APPEND-ONLY across reruns, not just a
+    # fixed-seed resample -- a full fresh resample still silently drops
+    # previously-included images every time this script's own output file
+    # gets overwritten (this happened twice: once from a shrinking-frame
+    # sample() call, once again from a "fixed seed but full regeneration"
+    # version that looked stable but wasn't, since the whole file is
+    # rewritten from scratch each run). Any already-used image that
+    # vanishes from the pool breaks review/triplet_manifest.csv rows that
+    # already have GPU-scored results in review/triplet_results.csv.
+    # Carrying forward every previous background_random row (minus any since
+    # promoted to anchor/boundary) and only sampling NEW rows to top up to
+    # the target is the only version of this that is actually stable.
+    existing_meta_path = os.path.join(OUT_DIR, "similarity_pool_metadata.csv")
+    stable_background = pd.DataFrame(columns=cols)
+    if os.path.exists(existing_meta_path):
+        prev = pd.read_csv(existing_meta_path)
+        stable_background = prev.loc[
+            (prev["group"] == "background_random") & (~prev["image_hash"].isin(confirmed_hashes)), cols
+        ].copy()
+        print(f"Carrying forward {len(stable_background)} background_random rows from the existing pool file")
+
     dataset = load_dataset("thaoshibe/anonymous-captions-114k")
     test_df = dataset["test"].to_pandas()
-    # NOTE: sample from the full, unchanging test_df (not from a "remaining"
-    # frame filtered by the current confirmed_hashes) so the exact same rows
-    # get drawn on every rerun regardless of how large confirmed_candidates.csv
-    # has grown -- sampling from a shrinking frame with a fixed random_state
-    # draws a *different* set of rows each time, which silently broke
-    # referential integrity for already-scored triplets the first time this
-    # pool was rebuilt (74/112 previously-used hashes vanished from the pool).
-    # Filtering after the fixed-size draw keeps previously-included background
-    # images stable across reruns.
-    random_bg = test_df.sample(n=min(FIXED_BACKGROUND_DRAW, len(test_df)), random_state=RANDOM_STATE)
-    random_bg = random_bg.loc[~random_bg["image_hash"].isin(confirmed_hashes)].reset_index(drop=True)
-    random_bg["family"] = ""
-    random_bg["decision"] = ""
-    random_bg["notes"] = ""
-    random_bg["source_batch"] = "random_background"
-    random_bg["group"] = "background_random"
 
-    cols = ["image_hash", "family", "url_link", "caption", "group"]
+    n_needed = max(0, FIXED_BACKGROUND_DRAW - len(stable_background))
+    exclude_for_new_draw = confirmed_hashes | set(stable_background["image_hash"])
+    remaining = test_df.loc[~test_df["image_hash"].isin(exclude_for_new_draw)]
+    new_random_bg = remaining.sample(n=min(n_needed, len(remaining)), random_state=RANDOM_STATE).reset_index(drop=True)
+    new_random_bg["family"] = ""
+    new_random_bg["decision"] = ""
+    new_random_bg["notes"] = ""
+    new_random_bg["source_batch"] = "random_background"
+    new_random_bg["group"] = "background_random"
+
+    random_bg = pd.concat([stable_background, new_random_bg[cols]], ignore_index=True)
+
     pool = pd.concat([anchors[cols], boundary[cols], random_bg[cols]], ignore_index=True)
     pool = pool.drop_duplicates(subset="image_hash").reset_index(drop=True)
 

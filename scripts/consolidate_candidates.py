@@ -2,10 +2,12 @@
 
 Pulls every row marked fits/boundary_reject out of labels/gallery_labels.csv
 (temporal batch 1 + compositional + containment),
-labels/gallery_labels_for_temporal_transformation.csv (temporal batch 2), and
-labels/gallery_labels_temporal_v3.csv (temporal batch 3), and writes a single
-deduplicated review/pool/confirmed_candidates.csv used from here on as the
-source of truth for codebook examples and triplet construction.
+labels/gallery_labels_for_temporal_transformation.csv (temporal batch 2),
+labels/gallery_labels_temporal_v3.csv (temporal batch 3), and
+labels/gallery_labels-compositional_formation_v2.csv (compositional batch 2),
+and writes a single deduplicated review/pool/confirmed_candidates.csv used
+from here on as the source of truth for codebook examples and triplet
+construction.
 """
 import os
 
@@ -15,6 +17,7 @@ SOURCES = [
     ("labels/gallery_labels.csv", "batch1"),
     ("labels/gallery_labels_for_temporal_transformation.csv", "batch2_temporal"),
     ("labels/gallery_labels_temporal_v3.csv", "batch3_temporal"),
+    ("labels/gallery_labels-compositional_formation_v2.csv", "batch2_compositional"),
 ]
 
 KEEP_DECISIONS = {"fits", "boundary_reject"}
