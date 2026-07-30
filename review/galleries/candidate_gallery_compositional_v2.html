@@ -1,0 +1,1957 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>RelSim Compositional Formation Review -- Batch 2</title>
+<style>
+:root { color-scheme: light dark; }
+body { font-family: -apple-system, Segoe UI, Arial, sans-serif; margin: 0; padding: 0 16px 60px; background: #fafafa; color: #111; }
+@media (prefers-color-scheme: dark) { body { background: #1a1a1a; color: #eee; } }
+h1 { font-size: 1.4rem; }
+h2 { font-size: 1.1rem; margin-top: 2rem; border-bottom: 2px solid #ccc; padding-bottom: 4px; }
+.instructions { background: #fff3cd; border: 1px solid #e0c36a; padding: 10px 14px; border-radius: 6px; max-width: 900px; }
+@media (prefers-color-scheme: dark) { .instructions { background: #3a3316; border-color: #6b5b1f; } }
+.toolbar { position: sticky; top: 0; background: inherit; padding: 10px 0; z-index: 10; display: flex; gap: 12px; align-items: center; backdrop-filter: blur(4px); }
+#export-btn { font-size: 1rem; padding: 8px 16px; cursor: pointer; border-radius: 6px; border: 1px solid #888; background: #2563eb; color: white; }
+#save-status { font-size: 0.85rem; color: #666; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; margin: 10px 0 20px; }
+.card { border: 2px solid #ccc; border-radius: 8px; padding: 8px; background: rgba(255,255,255,0.6); display: flex; flex-direction: column; gap: 6px; transition: border-color .15s; }
+@media (prefers-color-scheme: dark) { .card { background: rgba(255,255,255,0.04); border-color: #444; } }
+.card.mark-fits { border-color: #16a34a; }
+.card.mark-boundary_reject { border-color: #d97706; }
+.card.mark-discard { opacity: 0.45; border-color: #888; }
+.card.broken { opacity: 0.3; }
+.card img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; background: #ddd; }
+.card .hash { font-family: monospace; font-size: 0.7rem; color: #888; }
+.card .caption { font-size: 0.82rem; line-height: 1.25; max-height: 4.5em; overflow-y: auto; }
+.family-badge { font-size: 0.72rem; font-weight: 600; color: #2563eb; }
+.family-select { font-size: 0.78rem; }
+.buttons { display: flex; gap: 4px; flex-wrap: wrap; }
+.buttons button { flex: 1; font-size: 0.72rem; padding: 4px 2px; border-radius: 4px; border: 1px solid #999; background: transparent; cursor: pointer; color: inherit; }
+.buttons button.selected[data-choice="fits"] { background: #16a34a; color: white; border-color: #16a34a; }
+.buttons button.selected[data-choice="boundary_reject"] { background: #d97706; color: white; border-color: #d97706; }
+.buttons button.selected[data-choice="discard"] { background: #6b7280; color: white; border-color: #6b7280; }
+.notes { font-size: 0.75rem; resize: vertical; min-height: 32px; }
+details summary { cursor: pointer; font-weight: 600; margin-top: 2rem; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <button id="export-btn">Export labels as CSV</button>
+  <span id="save-status">not saved yet</span>
+</div>
+<h1>RelSim Compositional Formation Review -- Batch 2</h1>
+<p class="instructions">
+  For each image, open the codebook criteria for that relation family and decide:
+  <b>fits</b> (clearly satisfies inclusion criteria) / <b>boundary_reject</b>
+  (looks related but fails inclusion or hits an exclusion criterion) / <b>discard</b>
+  (not relevant, or the image link is broken). Click the original image to open the
+  full-size source in a new tab. Your choices auto-save in this browser
+  (localStorage) as you go, so refreshing the page will not lose progress. When
+  done, click <b>Export labels as CSV</b> to download your decisions.
+</p>
+<section><h2>Compositional formation &mdash; 150 candidates</h2><div class="grid"><div class="card" data-hash="eafce65497f780e2f5ef9faac35af09b" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/thailerd/thailerd1908/thailerd190800012/129212878-school-bus-icon-vector-bus-illustration-design-element-with-four-color-variations-vector-illustratio.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/thailerd/thailerd1908/thailerd190800012/129212878-school-bus-icon-vector-bus-illustration-design-element-with-four-color-variations-vector-illustratio.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">eafce65497f780e2f5ef9faac35af09b</div>
+  <div class="caption">Different versions of a {Symbol} appear in various {Colors} and {Shapes}, creating a cohesive design collection.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e0594a93373cd094b2b0b5b32087666b" data-family="compositional_formation">
+  <a href="https://thumbnails.yayimages.com/e/6a8/e6a85f8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://thumbnails.yayimages.com/e/6a8/e6a85f8.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e0594a93373cd094b2b0b5b32087666b</div>
+  <div class="caption">A visually engaging pattern made by {Flowers} on a {Background}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e069faaf0b2e71c0ec297a3287b304ca" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/versusstudio/versusstudio1910/versusstudio191000151/132068723-concrete-room-wall-construction-on-cloudy-sky-background-abstract-architecture-design-concept-3d-ren.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/versusstudio/versusstudio1910/versusstudio191000151/132068723-concrete-room-wall-construction-on-cloudy-sky-background-abstract-architecture-design-concept-3d-ren.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e069faaf0b2e71c0ec297a3287b304ca</div>
+  <div class="caption">A visually striking design showcasing {Pattern} repeated throughout, with {Element} forming an artistic and dynamic composition.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ef4ec05fa4727c4d73cc48eca310fb95" data-family="compositional_formation">
+  <a href="https://awritetoknow.com/wp-content/uploads/2015/08/Eye-with-Earth-Eyeball-dark-grey-Pupil.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://awritetoknow.com/wp-content/uploads/2015/08/Eye-with-Earth-Eyeball-dark-grey-Pupil.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ef4ec05fa4727c4d73cc48eca310fb95</div>
+  <div class="caption">A creative fusion of a {Symbol} within a human eye, representing {Concept or Idea}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f4740de37b073e4e5f10b52b7abd3576" data-family="compositional_formation">
+  <a href="https://furnish.co.uk/photos/items/regular/cushions/454313/cushions-3148203.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://furnish.co.uk/photos/items/regular/cushions/454313/cushions-3148203.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f4740de37b073e4e5f10b52b7abd3576</div>
+  <div class="caption">An artistic arrangement of {Objects} on a {Surface}, highlighting unique aesthetics and vibrant designs.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f0824151c257b61e9cff9772f8515025" data-family="compositional_formation">
+  <a href="https://ccts.uic.edu/wp-content/uploads/sites/569/2019/10/solution_puzzlepiece-500x500.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://ccts.uic.edu/wp-content/uploads/sites/569/2019/10/solution_puzzlepiece-500x500.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f0824151c257b61e9cff9772f8515025</div>
+  <div class="caption">Visuals of {Hands} connecting matching {Rounded Pieces} to form a {Complete Structure}</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f60a6d5fe7e5536a5011e6fb6efea80a" data-family="compositional_formation">
+  <a href="http://kccm.nl/wp-content/uploads/2015/09/PortraitJoelNieminen-378x476.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://kccm.nl/wp-content/uploads/2015/09/PortraitJoelNieminen-378x476.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f60a6d5fe7e5536a5011e6fb6efea80a</div>
+  <div class="caption">People posing in front of an artistic arrangement of {Shapes} and {Colors} on a {Background}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fe29bcfdada4c456b89ad1b90781e432" data-family="compositional_formation">
+  <a href="https://static.boredpanda.com/blog/wp-content/uploads/2017/08/cover_image_59a523be1b40b__700.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://static.boredpanda.com/blog/wp-content/uploads/2017/08/cover_image_59a523be1b40b__700.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fe29bcfdada4c456b89ad1b90781e432</div>
+  <div class="caption">A color wheel showcasing {Object} arranged by shades of {Color}, paired with its real-life equivalent in {Item/Setting}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f20641eb4879182f536cc9556a4fd008" data-family="compositional_formation">
+  <a href="https://i.pinimg.com/736x/86/8e/a6/868ea6cd929441ade662cf9989a48c5f--guinea-pig-hutch-guinea-pig-house.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/86/8e/a6/868ea6cd929441ade662cf9989a48c5f--guinea-pig-hutch-guinea-pig-house.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f20641eb4879182f536cc9556a4fd008</div>
+  <div class="caption">&quot;Creative integration of {Animal} into a miniature {Structure} to form a whimsical scene.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f7f2191179e226b24aa8a20d9297f0f5" data-family="compositional_formation">
+  <a href="https://cdn.shopify.com/s/files/1/2297/0353/products/United-States-Map-Sticker_600x.jpg?v=1553216844" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/2297/0353/products/United-States-Map-Sticker_600x.jpg?v=1553216844" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f7f2191179e226b24aa8a20d9297f0f5</div>
+  <div class="caption">An artistic depiction of {Region}&#x27;s iconic symbols and landmarks arranged within the map outline, highlighted by diverse {Color} and {Details}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fad73d053ef4388e8e237ce8845db9a5" data-family="compositional_formation">
+  <a href="http://tmp-img-cdn.recycler.com/recycler/listing/500x375/a9dfd658e461015550fab9c42e675051.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://tmp-img-cdn.recycler.com/recycler/listing/500x375/a9dfd658e461015550fab9c42e675051.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fad73d053ef4388e8e237ce8845db9a5</div>
+  <div class="caption">A group of {Animals} gathered closely together in an inviting or communal arrangement.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f3b7f230282e4d94752423bd1dd5cd24" data-family="compositional_formation">
+  <a href="https://mangiarebuono.it/wp-content/uploads/2013/10/Fotolia_19415933_Subscription_Monthly_M.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://mangiarebuono.it/wp-content/uploads/2013/10/Fotolia_19415933_Subscription_Monthly_M.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f3b7f230282e4d94752423bd1dd5cd24</div>
+  <div class="caption">Creative use of {Food Items} to form a representation of {Terrain Features} on a plate.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e602b6e92f6c54573e1bb4ad48667e69" data-family="compositional_formation">
+  <a href="http://cute-n-tiny.com/wp-content/uploads/2010/05/cute-penguin-bento-400x300.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://cute-n-tiny.com/wp-content/uploads/2010/05/cute-penguin-bento-400x300.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e602b6e92f6c54573e1bb4ad48667e69</div>
+  <div class="caption">Imaginative food arrangements transforming {Ingredients} into recognizable {Shapes} or {Characters}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fc683e94cb4be2d131b24505e4c214ee" data-family="compositional_formation">
+  <a href="https://viraldazed.com/wp-content/uploads/2017/08/giant-panda-solar-power-china.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="https://viraldazed.com/wp-content/uploads/2017/08/giant-panda-solar-power-china.jpeg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fc683e94cb4be2d131b24505e4c214ee</div>
+  <div class="caption">Aerial view of solar panels arranged in the shape of {Animal} on a {Surface}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fe7ffeed018a83ddbf9ffd3849e7d15e" data-family="compositional_formation">
+  <a href="https://cdn.superstock.com/1532/Download/1532R-35878.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.superstock.com/1532/Download/1532R-35878.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fe7ffeed018a83ddbf9ffd3849e7d15e</div>
+  <div class="caption">A unique presentation of {Food Item} shaped like a {Theme/Object}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f1543d14e8581813c5395817763b88b3" data-family="compositional_formation">
+  <a href="https://img0.etsystatic.com/000/0/5148237/il_340x270.194600264.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img0.etsystatic.com/000/0/5148237/il_340x270.194600264.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f1543d14e8581813c5395817763b88b3</div>
+  <div class="caption">Artistic representations of {Symbol} integrated into a {Surface/Material} to produce a unique {Object}</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fe75aa53f7b88e4a8f40d24ecac76dab" data-family="compositional_formation">
+  <a href="http://doc.asika.tw/images/2014/04/mini-star-wars/miniature-star-wars-adventures-0031.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://doc.asika.tw/images/2014/04/mini-star-wars/miniature-star-wars-adventures-0031.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fe75aa53f7b88e4a8f40d24ecac76dab</div>
+  <div class="caption">&quot;Creative representation of {Tactile Objects} arranged to mimic {Human Poses} and {Interactions} in imaginative settings.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ef6fccb2e09ee8f5382659f145c724e1" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/franckito/franckito1209/franckito120900196/15426959-3d-rendering-of-a-selection-of-cubic-fruits.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/franckito/franckito1209/franckito120900196/15426959-3d-rendering-of-a-selection-of-cubic-fruits.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ef6fccb2e09ee8f5382659f145c724e1</div>
+  <div class="caption">An arrangement of {Fruits} in a grid showcasing a variety of {Colors}, {Shapes}, and {Types}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f2a23d7181c8079fbf20f3245d2d1284" data-family="compositional_formation">
+  <a href="http://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/1-shoes-in-a-beach-chair-joana-kruse.jpg?&amp;targetx=0&amp;targety=-24&amp;imagewidth=500&amp;imageheight=749&amp;modelwidth=500&amp;modelheight=700&amp;backgroundcolor=F9FAF9&amp;orientation=1" target="_blank" rel="noopener"><img loading="lazy" src="http://render.fineartamerica.com/images/rendered/default/greeting-card/images/artworkimages/medium/1/1-shoes-in-a-beach-chair-joana-kruse.jpg?&amp;targetx=0&amp;targety=-24&amp;imagewidth=500&amp;imageheight=749&amp;modelwidth=500&amp;modelheight=700&amp;backgroundcolor=F9FAF9&amp;orientation=1" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f2a23d7181c8079fbf20f3245d2d1284</div>
+  <div class="caption">A {Background Object} paired with a {Clothing Item} to form a stylish combination.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fdbe1790432807941dc8a782009be472" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/kho/kho1402/kho140200077/26250902-shopping-and-sale-female-legs-with-shoes-assortment-young-woman-put-shoes-on-in-shop-and-makes-her-c.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/kho/kho1402/kho140200077/26250902-shopping-and-sale-female-legs-with-shoes-assortment-young-woman-put-shoes-on-in-shop-and-makes-her-c.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fdbe1790432807941dc8a782009be472</div>
+  <div class="caption">&quot;Arrangement of {Person} with various pairs of {Shoes} in different styles, heights, or occasions.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e2c548634699e005593eff2f73406127" data-family="compositional_formation">
+  <a href="https://cdn11.bigcommerce.com/s-t5mzvifm/images/stencil/760x760/products/472/685/1BACFPT42-a__53881.1463085504.jpg?c=2" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn11.bigcommerce.com/s-t5mzvifm/images/stencil/760x760/products/472/685/1BACFPT42-a__53881.1463085504.jpg?c=2" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e2c548634699e005593eff2f73406127</div>
+  <div class="caption">A {Tree} shape crafted from {Fruits}, with an array of {Colors} and {Types} arranged at the base.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e7f63221a461e5fa2e784ea0ce20137e" data-family="compositional_formation">
+  <a href="https://images.assetsdelivery.com/compings_v2/bennymarty/bennymarty2005/bennymarty200500008.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://images.assetsdelivery.com/compings_v2/bennymarty/bennymarty2005/bennymarty200500008.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e7f63221a461e5fa2e784ea0ce20137e</div>
+  <div class="caption">Statue of {Figurine} wearing a {Face Mask} as a symbol for {Protection} or {Safety}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f744ed60b2bfad7654d0e5830784ef78" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/rolffimages/rolffimages1512/rolffimages151200064/50071317-face-clouds.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/rolffimages/rolffimages1512/rolffimages151200064/50071317-face-clouds.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f744ed60b2bfad7654d0e5830784ef78</div>
+  <div class="caption">A creative collage using {Landscape}, {Natural Elements}, and {Animals} to craft a dreamy {Scene}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ece780da732cddd0812c30257270852a" data-family="compositional_formation">
+  <a href="https://media01.stockfood.com/previews/MjIzNDA4OA==/00186174-Food-collage-Vegetable-face-on-plate.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://media01.stockfood.com/previews/MjIzNDA4OA==/00186174-Food-collage-Vegetable-face-on-plate.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ece780da732cddd0812c30257270852a</div>
+  <div class="caption">&quot;Creative use of {Food Items} to form a {Face} with elements like {Eyes}, {Nose}, and {Mouth}.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f4afc111c8a89481bc929830c0c8deb6" data-family="compositional_formation">
+  <a href="https://icon2.kisspng.com/20181106/rzy/kisspng-flag-of-china-national-flag-vector-graphics-map-wechat-e-quotguanxiquot-innextinnext-fresh-5be21a9d83f174.2994036915415446055404.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://icon2.kisspng.com/20181106/rzy/kisspng-flag-of-china-national-flag-vector-graphics-map-wechat-e-quotguanxiquot-innextinnext-fresh-5be21a9d83f174.2994036915415446055404.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f4afc111c8a89481bc929830c0c8deb6</div>
+  <div class="caption">The outline of {Country} featuring the flag&#x27;s {Symbol} and {Colors}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fa47ad7edf121b34a95477cd08191028" data-family="compositional_formation">
+  <a href="http://ak1.ostkcdn.com/images/products/10240491/Kitten-Ice-Cream-Cone-Zip-around-Wallet-6f114edc-3528-490b-9496-ac8d38843e22_600.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://ak1.ostkcdn.com/images/products/10240491/Kitten-Ice-Cream-Cone-Zip-around-Wallet-6f114edc-3528-490b-9496-ac8d38843e22_600.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fa47ad7edf121b34a95477cd08191028</div>
+  <div class="caption">A unique design of {Object} shaped like a stacked arrangement of {Variation 1}, {Variation 2}, and {Variation 3}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fcf64b896281ee592272484f5a4bf654" data-family="compositional_formation">
+  <a href="http://render.fineartamerica.com/images/rendered/medium/greeting-card/images-medium-5/yin-yang-vegetables-art-on-white-background-eti-reid.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://render.fineartamerica.com/images/rendered/medium/greeting-card/images-medium-5/yin-yang-vegetables-art-on-white-background-eti-reid.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fcf64b896281ee592272484f5a4bf654</div>
+  <div class="caption">A creative design of a {Symbol} assembled from various {Objects}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ef8e98539fa388413e99540d4a4ed904" data-family="compositional_formation">
+  <a href="https://www.einrichten-design.com/thumbnail/27/28/d2/1597953955/seletti_monkey_sitting_lamp_jpg.jpg_1_1920x1920.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.einrichten-design.com/thumbnail/27/28/d2/1597953955/seletti_monkey_sitting_lamp_jpg.jpg_1_1920x1920.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ef8e98539fa388413e99540d4a4ed904</div>
+  <div class="caption">Unique lamp designs shaped like {Object} with a realistic appearance and functional lighting.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="df692908be073e43e66f5519b1b9505b" data-family="compositional_formation">
+  <a href="https://images2.opb.org/c_limit%2Cg_west%2Ch_1000%2Cq_90%2Cw_640/totality_wide_smaller.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://images2.opb.org/c_limit%2Cg_west%2Ch_1000%2Cq_90%2Cw_640/totality_wide_smaller.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">df692908be073e43e66f5519b1b9505b</div>
+  <div class="caption">&quot;Creative alignment of {Person} and {Landscape Element} to form an imaginative perspective of {Scene}&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fc243ea76c7c4291aee3296ea9949076" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/madllen/madllen1303/madllen130300422/18545230-heart-healthy-of-fresh-shrimp-on-a-salad-lettuce-isolated-on-white-background.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/madllen/madllen1303/madllen130300422/18545230-heart-healthy-of-fresh-shrimp-on-a-salad-lettuce-isolated-on-white-background.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fc243ea76c7c4291aee3296ea9949076</div>
+  <div class="caption">A heart-shaped composition made with {Food Items}, emphasizing {Arrangement} and {Presentation}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fa87e3d1cdab2ee1dbe2a96164400c5a" data-family="compositional_formation">
+  <a href="https://cdn.shopify.com/s/files/1/0312/2305/products/ZEROUP-Round-Photos-Glass-Cabochon-Jewelry-Finding-fit-Cameo-Blank-Settings-Supplies-for-Jewelry-Components-28.jpg?v=1531553388" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0312/2305/products/ZEROUP-Round-Photos-Glass-Cabochon-Jewelry-Finding-fit-Cameo-Blank-Settings-Supplies-for-Jewelry-Components-28.jpg?v=1531553388" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fa87e3d1cdab2ee1dbe2a96164400c5a</div>
+  <div class="caption">An arrangement of {Objects} featuring diverse {Colors} and {Themes}, displayed both individually and collectively in a grid format.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f45183a63801f6623c8eb6b9c92f08f2" data-family="compositional_formation">
+  <a href="https://cliparting.com/wp-content/uploads/2016/12/Heart-with-stethoscope-clipart-kid-3.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="https://cliparting.com/wp-content/uploads/2016/12/Heart-with-stethoscope-clipart-kid-3.jpeg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f45183a63801f6623c8eb6b9c92f08f2</div>
+  <div class="caption">A {Creative Object} shaped like a heart symbolizing {Concept or Emotion}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fcb8a2897ce36a83bee2d02657e38695" data-family="compositional_formation">
+  <a href="https://images.saymedia-content.com/.image/ar_8:10%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_620/MTc0MTQ2NjgwOTM1OTQ5NjI3/broccoli-a-true-superfood-vegetable-with-great-health-benefits.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://images.saymedia-content.com/.image/ar_8:10%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_faces:center%2Cq_auto:good%2Cw_620/MTc0MTQ2NjgwOTM1OTQ5NjI3/broccoli-a-true-superfood-vegetable-with-great-health-benefits.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fcb8a2897ce36a83bee2d02657e38695</div>
+  <div class="caption">Creative visual representations merging {Fruit} with everyday {Objects} to form unexpected and whimsical arrangements.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f320cb7473a952f7052bc07c22b0bbe1" data-family="compositional_formation">
+  <a href="https://weinteriors.co.uk/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/s/e/seletti-lighting-marcantonio-bird-lamp-14735-bird_lamp_2z6a1778.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://weinteriors.co.uk/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/s/e/seletti-lighting-marcantonio-bird-lamp-14735-bird_lamp_2z6a1778.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f320cb7473a952f7052bc07c22b0bbe1</div>
+  <div class="caption">Unique table lamps shaped like {Animal} with an illuminated {Light Bulb} as part of their design.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fe06c390ba9eb357622ac5d366537a74" data-family="compositional_formation">
+  <a href="https://www.contemporist.com/wp-content/uploads/2017/01/modern-sculptural-lighting-design-030117-1134-02-800x486.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.contemporist.com/wp-content/uploads/2017/01/modern-sculptural-lighting-design-030117-1134-02-800x486.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fe06c390ba9eb357622ac5d366537a74</div>
+  <div class="caption">Artistic representations of {Objects} placed in balanced arrangements on {Support}, emphasizing harmony and equilibrium.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e8fbe15e1340512757b5d61349d66386" data-family="compositional_formation">
+  <a href="https://i.pinimg.com/736x/ee/1b/96/ee1b9654156851fae87f6332821c6aff.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/ee/1b/96/ee1b9654156851fae87f6332821c6aff.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e8fbe15e1340512757b5d61349d66386</div>
+  <div class="caption">&quot;Illustrative designs made from balloons shaped into {Object}, featuring intricate details and vibrant {Color} accents.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ec55408f9ae97f9e353070a7353972ea" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/zooco/zooco1701/zooco170100001/70460658-top-view-of-a-brain-in-the-form-of-a-red-cartoon-heart-showing-its-two-sides-its-convolutions-and-th.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/zooco/zooco1701/zooco170100001/70460658-top-view-of-a-brain-in-the-form-of-a-red-cartoon-heart-showing-its-two-sides-its-convolutions-and-th.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ec55408f9ae97f9e353070a7353972ea</div>
+  <div class="caption">A creative design merging {Symbol} and {Brain} into a {Shape} configuration.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fead385091a3012a73c8f6c8196a939c" data-family="compositional_formation">
+  <a href="https://i.pinimg.com/736x/72/21/01/722101e299f289c3f3a8e3d3dfb4df00.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/72/21/01/722101e299f289c3f3a8e3d3dfb4df00.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fead385091a3012a73c8f6c8196a939c</div>
+  <div class="caption">Creative representation of {Flower} merging with a {Surface} to form a beautiful design on a {Background}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="eb3c86cc456190289df3dbf8d6d2420d" data-family="compositional_formation">
+  <a href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/881abb6c-5d25-4175-b329-230c52209015/d77vh1f-ef1f4810-ace8-4a49-ac2d-f69d013c5f5c.jpg/v1/fill/w_1024,h_835,q_75,strp/bunny_bento__by_shinjuco-d77vh1f.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi84ODFhYmI2Yy01ZDI1LTQxNzUtYjMyOS0yMzBjNTIyMDkwMTUvZDc3dmgxZi1lZjFmNDgxMC1hY2U4LTRhNDktYWMyZC1mNjlkMDEzYzVmNWMuanBnIiwid2lkdGgiOiI8PTEwMjQiLCJoZWlnaHQiOiI8PTgzNSJ9XV19.F-mOIcxKjwLPFNcoPTqjhm6hKLeXJ1crKODsqDlopgc" target="_blank" rel="noopener"><img loading="lazy" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/881abb6c-5d25-4175-b329-230c52209015/d77vh1f-ef1f4810-ace8-4a49-ac2d-f69d013c5f5c.jpg/v1/fill/w_1024,h_835,q_75,strp/bunny_bento__by_shinjuco-d77vh1f.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi84ODFhYmI2Yy01ZDI1LTQxNzUtYjMyOS0yMzBjNTIyMDkwMTUvZDc3dmgxZi1lZjFmNDgxMC1hY2U4LTRhNDktYWMyZC1mNjlkMDEzYzVmNWMuanBnIiwid2lkdGgiOiI8PTEwMjQiLCJoZWlnaHQiOiI8PTgzNSJ9XV19.F-mOIcxKjwLPFNcoPTqjhm6hKLeXJ1crKODsqDlopgc" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">eb3c86cc456190289df3dbf8d6d2420d</div>
+  <div class="caption">Creative arrangement of {Food Items} into artistic shapes of {Objects}, {Animals}, or {Characters} on a black backdrop.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ee350d763ea6fb443774badfde8a4c51" data-family="compositional_formation">
+  <a href="https://assets.hongkiat.com/uploads/creative-baking-stamps/17-creative-baking-stamps.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://assets.hongkiat.com/uploads/creative-baking-stamps/17-creative-baking-stamps.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ee350d763ea6fb443774badfde8a4c51</div>
+  <div class="caption">Artistic cookie sculptures shaped like various {Animals}, displayed on a {Surface}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e97285c45babdf9add84a947460ca199" data-family="compositional_formation">
+  <a href="https://st2.depositphotos.com/3008028/5542/i/450/depositphotos_55428959-stock-photo-conceptual-symbol-of-multiracial-human.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://st2.depositphotos.com/3008028/5542/i/450/depositphotos_55428959-stock-photo-conceptual-symbol-of-multiracial-human.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e97285c45babdf9add84a947460ca199</div>
+  <div class="caption">A circular arrangement of {Hands} showcasing diverse {Skin Tone} and {Gesture}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ef212ebb2dd57dd95f6c314b580154d3" data-family="compositional_formation">
+  <a href="https://cdn2.eyeem.com/thumb/f21d78acd6ddce51b6f80f27d4b38fbf9bec9e82-1566549709672/w/750" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn2.eyeem.com/thumb/f21d78acd6ddce51b6f80f27d4b38fbf9bec9e82-1566549709672/w/750" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ef212ebb2dd57dd95f6c314b580154d3</div>
+  <div class="caption">A creative display of {Object} shaped like a {Symbol}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fdf59c1bc611a962c6f042cde7704bfd" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/ra2studio/ra2studio1411/ra2studio141100786/33851181-happy-smiley-face-fingers-cheerfully-looking-at-illustration-of-colorful-healthy-vegetables.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/ra2studio/ra2studio1411/ra2studio141100786/33851181-happy-smiley-face-fingers-cheerfully-looking-at-illustration-of-colorful-healthy-vegetables.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fdf59c1bc611a962c6f042cde7704bfd</div>
+  <div class="caption">Creative use of {Fingers} to illustrate scenes with {Objects} arranged in amusing or imaginative scenarios.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fa079d367b09d510752f1dac0f46d8b0" data-family="compositional_formation">
+  <a href="https://img.posterlounge.co.uk/images/medium/poster-sommer-frucht-melonen-regen-1725675.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img.posterlounge.co.uk/images/medium/poster-sommer-frucht-melonen-regen-1725675.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fa079d367b09d510752f1dac0f46d8b0</div>
+  <div class="caption">An imaginative representation of an {Object} fused with a real umbrella, forming a unique and artistic fusion.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e28673733d520615fa2d707df0ae63ea" data-family="compositional_formation">
+  <a href="https://www.europeanscientist.com/wp-content/uploads/thumbs/anthony-rossbach-101005-unsplash-38ql2q4mw5u64pgggv7k00.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.europeanscientist.com/wp-content/uploads/thumbs/anthony-rossbach-101005-unsplash-38ql2q4mw5u64pgggv7k00.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e28673733d520615fa2d707df0ae63ea</div>
+  <div class="caption">A close-up view of a {Leaves} with a {Background Color} to highlight the {Flaw, Texture, or Pattern}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="eb150da9ee4f12d69bce2a418a4b7368" data-family="compositional_formation">
+  <a href="http://lh5.ggpht.com/-fDDrRQpdPZA/TeQyMxmZ4bI/AAAAAAAAK8o/2erRElezE2g/LEGO%252520Star%252520Wars%252520Stormtroopers%252520Soup_thumb.jpg?imgmax=800" target="_blank" rel="noopener"><img loading="lazy" src="http://lh5.ggpht.com/-fDDrRQpdPZA/TeQyMxmZ4bI/AAAAAAAAK8o/2erRElezE2g/LEGO%252520Star%252520Wars%252520Stormtroopers%252520Soup_thumb.jpg?imgmax=800" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">eb150da9ee4f12d69bce2a418a4b7368</div>
+  <div class="caption">Artistic arrangement of {Food} to resemble {Characters} or {Objects}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e4d8628d8b475bed5210fd7f6dd5fd94" data-family="compositional_formation">
+  <a href="https://worleygig.files.wordpress.com/2013/06/100_2872.jpg?w=571&amp;h=428" target="_blank" rel="noopener"><img loading="lazy" src="https://worleygig.files.wordpress.com/2013/06/100_2872.jpg?w=571&amp;h=428" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e4d8628d8b475bed5210fd7f6dd5fd94</div>
+  <div class="caption">A creative display of {Creative Object} made from stacked {Blocks} on a {Background}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e99c01336f428d62c3445d1053864b14" data-family="compositional_formation">
+  <a href="https://img0.etsystatic.com/213/1/15594839/il_340x270.1245690944_j8bm.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img0.etsystatic.com/213/1/15594839/il_340x270.1245690944_j8bm.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e99c01336f428d62c3445d1053864b14</div>
+  <div class="caption">Unique {Flower} arrangements crafted with LEGO bricks in a variety of {Colors} and {Shapes}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ebb5408257fe0b7ddad9ca0ccbd9a3d8" data-family="compositional_formation">
+  <a href="https://imgix.bustle.com/uploads/getty/2021/8/24/98075d42-0997-4792-b86b-dcd927305d92-getty-89127926.jpg?w=1020&amp;h=576&amp;fit=crop&amp;crop=faces&amp;auto=format%2Ccompress" target="_blank" rel="noopener"><img loading="lazy" src="https://imgix.bustle.com/uploads/getty/2021/8/24/98075d42-0997-4792-b86b-dcd927305d92-getty-89127926.jpg?w=1020&amp;h=576&amp;fit=crop&amp;crop=faces&amp;auto=format%2Ccompress" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ebb5408257fe0b7ddad9ca0ccbd9a3d8</div>
+  <div class="caption">Unique shapes created with {Ingredients} and {Arrangement}, forming creative depictions of {Objects} or {Characters}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f4f20a3df08992bb202cbebba7615e2f" data-family="compositional_formation">
+  <a href="https://salesandmanagement.com/blog/wp-content/uploads/2014/11/Building-Team.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://salesandmanagement.com/blog/wp-content/uploads/2014/11/Building-Team.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f4f20a3df08992bb202cbebba7615e2f</div>
+  <div class="caption">&quot;Representation of teamwork and collaboration using {People} and {Cultural Symbols/Objects} to form a {Theme or Idea}.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="eb9346db430f6c102c31287116fed679" data-family="compositional_formation">
+  <a href="https://www.telegraph.co.uk/content/dam/news/2018/09/16/TELEMMGLPICT000174402260_trans_NvBQzQNjv4BqJ6RiS5Rjb_N6p5OO4zvskuX_Lxvx6QhqS4EAz6L2_dQ.jpeg?imwidth=450" target="_blank" rel="noopener"><img loading="lazy" src="https://www.telegraph.co.uk/content/dam/news/2018/09/16/TELEMMGLPICT000174402260_trans_NvBQzQNjv4BqJ6RiS5Rjb_N6p5OO4zvskuX_Lxvx6QhqS4EAz6L2_dQ.jpeg?imwidth=450" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">eb9346db430f6c102c31287116fed679</div>
+  <div class="caption">Blending {Artwork} with real-life {People} to form an engaging 3D illusion.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e12c2f8a4b3450da06e892bebcfbcb60" data-family="compositional_formation">
+  <a href="https://photos.smugmug.com/Lego-adventures/i-8KRzhgH/1/72a7931a/L/521E5299-L.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://photos.smugmug.com/Lego-adventures/i-8KRzhgH/1/72a7931a/L/521E5299-L.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e12c2f8a4b3450da06e892bebcfbcb60</div>
+  <div class="caption">Imaginative arrangements of LEGO figures interacting with real-world {Objects} to produce amusing scenes.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f1ac2f9acac7bc9d15a515601195a4a4" data-family="compositional_formation">
+  <a href="https://i.pinimg.com/originals/61/2a/e0/612ae0935a4a6e16ce5ae18e3724b3e5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/originals/61/2a/e0/612ae0935a4a6e16ce5ae18e3724b3e5.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f1ac2f9acac7bc9d15a515601195a4a4</div>
+  <div class="caption">&quot;Creative depictions of {Living Organisms} shaped like {Inanimate Objects} to mimic unique {Characters} or {Figures}.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f861229071c77edcb2cdad5217d3052c" data-family="compositional_formation">
+  <a href="https://h2orevival.files.wordpress.com/2013/06/water-drop-amazing-beautiful-blue-favim-com-683970.jpg?w=1000" target="_blank" rel="noopener"><img loading="lazy" src="https://h2orevival.files.wordpress.com/2013/06/water-drop-amazing-beautiful-blue-favim-com-683970.jpg?w=1000" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f861229071c77edcb2cdad5217d3052c</div>
+  <div class="caption">A splash of {Liquid} forming a {Shape} upon impact.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fc184b2847f2fce79c0a5aea574a1f62" data-family="compositional_formation">
+  <a href="http://lh6.ggpht.com/-rFEhFNz61Qo/UveQ9uQMXyI/AAAAAAAAED0/e6uNWAZdGjU/diy-wedding-hairstyle-tutorial-for-long-hair-simple-wedding-bow-hairstyle-fiyonk-seklinde-kolay-sac-modeli-nasil-yapilir_thumb%25255B1%25255D.jpg?imgmax=800" target="_blank" rel="noopener"><img loading="lazy" src="http://lh6.ggpht.com/-rFEhFNz61Qo/UveQ9uQMXyI/AAAAAAAAED0/e6uNWAZdGjU/diy-wedding-hairstyle-tutorial-for-long-hair-simple-wedding-bow-hairstyle-fiyonk-seklinde-kolay-sac-modeli-nasil-yapilir_thumb%25255B1%25255D.jpg?imgmax=800" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fc184b2847f2fce79c0a5aea574a1f62</div>
+  <div class="caption">Step-by-step guide for styling {Hairstyle} with {Hair Arrangement}, {Twisting Technique}, and {Finishing Touch}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ff5940726a793e5a8f4ea9e13a6f691e" data-family="compositional_formation">
+  <a href="http://static.boredpanda.com/blog/wp-content/uploads/2015/05/recycled-metal-sculptures-key-coin-michael-moerkey-thumb.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://static.boredpanda.com/blog/wp-content/uploads/2015/05/recycled-metal-sculptures-key-coin-michael-moerkey-thumb.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ff5940726a793e5a8f4ea9e13a6f691e</div>
+  <div class="caption">A creative arrangement of {Objects} assembled into a spherical design.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fdae83317137de60660ec182cebbc109" data-family="compositional_formation">
+  <a href="http://tse3.mm.bing.net/th?id=OIP.h7Acrod4xHO3bhlwEuZt8wHaHa" target="_blank" rel="noopener"><img loading="lazy" src="http://tse3.mm.bing.net/th?id=OIP.h7Acrod4xHO3bhlwEuZt8wHaHa" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fdae83317137de60660ec182cebbc109</div>
+  <div class="caption">Close-up views of {Insect} heads showcasing intricate features such as {Color}, {Pattern}, and {Feather}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f5ef62b96c70099318a4df17f88c2b74" data-family="compositional_formation">
+  <a href="https://a.abcnews.com/images/Health/HT-Henna-Crown-Yvonne1-MEM-161215_4x3_992.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://a.abcnews.com/images/Health/HT-Henna-Crown-Yvonne1-MEM-161215_4x3_992.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f5ef62b96c70099318a4df17f88c2b74</div>
+  <div class="caption">Unique body art designs showcasing {Pattern} on the {Skin} in elegant and artistic ways.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f8cf828cc20d191a97f47d958a8eb85a" data-family="compositional_formation">
+  <a href="https://img0.etsystatic.com/002/0/7046480/il_570xN.359498852_of9d.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img0.etsystatic.com/002/0/7046480/il_570xN.359498852_of9d.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f8cf828cc20d191a97f47d958a8eb85a</div>
+  <div class="caption">Arrangement of {Utensils} into a {Conceptual Structure} with imaginative designs.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f4bac9c80d7d792fe0ba8dd61a029959" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/abidal/abidal1609/abidal160900082/64471621-human-body-anatomy-of-a-female-woman-muscular-anatomy-isolated--3d-render-of-the-face-neck-and-chest.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/abidal/abidal1609/abidal160900082/64471621-human-body-anatomy-of-a-female-woman-muscular-anatomy-isolated--3d-render-of-the-face-neck-and-chest.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f4bac9c80d7d792fe0ba8dd61a029959</div>
+  <div class="caption">A detailed anatomical depiction of the {Body Part}, showcasing the {Muscles}, {Bones}, and {Joints} in a realistic arrangement.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f844a6ad2a6e9c4e9c1b18804ac753de" data-family="compositional_formation">
+  <a href="https://edc2.healthtap.com/ht-staging/user_answer/avatars/1309938/large/open-uri20130821-19144-x07ndg.jpeg?1386596227" target="_blank" rel="noopener"><img loading="lazy" src="https://edc2.healthtap.com/ht-staging/user_answer/avatars/1309938/large/open-uri20130821-19144-x07ndg.jpeg?1386596227" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f844a6ad2a6e9c4e9c1b18804ac753de</div>
+  <div class="caption">Creative design of {Tree} with foliage crafted from repeated {Symbol or Object}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fb19ab1775daf34c1969a812f74f6480" data-family="compositional_formation">
+  <a href="https://i.etsystatic.com/7713388/d/il/79a5a8/1981417010/il_680x540.1981417010_4oxp.jpg?version=0" target="_blank" rel="noopener"><img loading="lazy" src="https://i.etsystatic.com/7713388/d/il/79a5a8/1981417010/il_680x540.1981417010_4oxp.jpg?version=0" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fb19ab1775daf34c1969a812f74f6480</div>
+  <div class="caption">Artistic portrayal of {Animal} forming a {Heart Shape} symbolizing {Love}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f43740a03b61d83b4650060cbba1652a" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/josefkubes/josefkubes1808/josefkubes180800117/106440976-sandstone-rock-sculptures-devils-heads-near-zelizy-czech-republic.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/josefkubes/josefkubes1808/josefkubes180800117/106440976-sandstone-rock-sculptures-devils-heads-near-zelizy-czech-republic.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f43740a03b61d83b4650060cbba1652a</div>
+  <div class="caption">Unusual rock formations shaped like {Faces} in natural or {Scenes} environments.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f8f34c976a2907c9aae9d0cb95d6899d" data-family="compositional_formation">
+  <a href="https://assets.plainpicture.com/public-ec8/images/medium/med-p300m2114916.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://assets.plainpicture.com/public-ec8/images/medium/med-p300m2114916.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f8f34c976a2907c9aae9d0cb95d6899d</div>
+  <div class="caption">The {Shadow} on the ground forms the shape of the {Person/Object} when lit by sunlight.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f23cd149db95997372c78ab23bba4c5f" data-family="compositional_formation">
+  <a href="https://www.fedweek.com/wp-content/uploads/whistle987.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.fedweek.com/wp-content/uploads/whistle987.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f23cd149db95997372c78ab23bba4c5f</div>
+  <div class="caption">Visuals showing {Symbol} for representing {Concept} in a clear and symbolic manner.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e33b0fac5428a9341b83cfdc7228b6bb" data-family="compositional_formation">
+  <a href="http://www.velo-design.com/wp-content/uploads/2016/12/velo-pieces-detachees.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://www.velo-design.com/wp-content/uploads/2016/12/velo-pieces-detachees.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e33b0fac5428a9341b83cfdc7228b6bb</div>
+  <div class="caption">A collection of individual {Object} pieces assembled into a complete {Object Type}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e821262190c93b554ba628c701eca511" data-family="compositional_formation">
+  <a href="https://cdn.shopify.com/s/files/1/2084/5395/products/IMG-20191107-WA0021_2048x2048.jpg?v=1573130901" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/2084/5395/products/IMG-20191107-WA0021_2048x2048.jpg?v=1573130901" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e821262190c93b554ba628c701eca511</div>
+  <div class="caption">&quot;Creative use of miniature {Objects} to form realistic natural landscapes featuring {Plant Elements}, {Rock Formations}, and {Floral Arrangements}.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e8f952eeb33b33aaefe8127abff802ca" data-family="compositional_formation">
+  <a href="https://cdn.shopify.com/s/files/1/1337/9321/products/bike_earring5_large.jpg?v=1477098373" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/1337/9321/products/bike_earring5_large.jpg?v=1477098373" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e8f952eeb33b33aaefe8127abff802ca</div>
+  <div class="caption">Unique {Accessory} earrings shaped like different {Objects}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e2957c7bd5102d14502a6183e1f9bcf1" data-family="compositional_formation">
+  <a href="https://cdn.shopify.com/s/files/1/0022/1999/9281/products/HJ-1797-Angler-Fish-floor-puzzle-2_f913dfaf-529a-45e0-b636-a5a858c830a4_512x512.jpg?v=1585719917" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0022/1999/9281/products/HJ-1797-Angler-Fish-floor-puzzle-2_f913dfaf-529a-45e0-b636-a5a858c830a4_512x512.jpg?v=1585719917" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e2957c7bd5102d14502a6183e1f9bcf1</div>
+  <div class="caption">An unfinished puzzle depicting a {Subject}, with several pieces still missing from the overall arrangement.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e7857f4b0883efee71d0569d0d442441" data-family="compositional_formation">
+  <a href="https://karenweikert.com/wp-content/uploads/2019/01/iStock-186843438_600_sq.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://karenweikert.com/wp-content/uploads/2019/01/iStock-186843438_600_sq.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e7857f4b0883efee71d0569d0d442441</div>
+  <div class="caption">Creative integration of {Object} with everyday items to produce unique and unexpected {Scenes/Arrangements}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e8002c1576fe3139da05b4d10e585af8" data-family="compositional_formation">
+  <a href="https://smiffpic.files.wordpress.com/2015/06/kissing-cherries.jpg?w=590&amp;h=327" target="_blank" rel="noopener"><img loading="lazy" src="https://smiffpic.files.wordpress.com/2015/06/kissing-cherries.jpg?w=590&amp;h=327" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e8002c1576fe3139da05b4d10e585af8</div>
+  <div class="caption">Creative presentation of {Objects} to form an imaginary {Face}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ef627e29095ef3964e0e9681577c4868" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/alphaspirit/alphaspirit1711/alphaspirit171100024/89052361-aerial-view-of-people-forming-the-shape-of-a-christmas-tree-3d-rendering.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/alphaspirit/alphaspirit1711/alphaspirit171100024/89052361-aerial-view-of-people-forming-the-shape-of-a-christmas-tree-3d-rendering.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ef627e29095ef3964e0e9681577c4868</div>
+  <div class="caption">A gathering of {People} forming a {Shape}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f6ea18796009d2f981be1c42a9b57b78" data-family="compositional_formation">
+  <a href="http://thegreendivas.com/wp-content/uploads/2013/09/AppleHeart1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://thegreendivas.com/wp-content/uploads/2013/09/AppleHeart1.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f6ea18796009d2f981be1c42a9b57b78</div>
+  <div class="caption">A {Fruit} with a carved {Symbol} design etched into its surface.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e4c77294740117c0a021d8acafc4393c" data-family="compositional_formation">
+  <a href="https://www.betterphoto.fun/uploads/processedSourceFromOldServer/0017/0402271852121twin_moons_reflections.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.betterphoto.fun/uploads/processedSourceFromOldServer/0017/0402271852121twin_moons_reflections.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e4c77294740117c0a021d8acafc4393c</div>
+  <div class="caption">A serene view of {Object} partially submerged in a {Surface}, forming a visually striking composition.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e439da05427b410c1f832742dc38c5a8" data-family="compositional_formation">
+  <a href="http://static7.depositphotos.com/1006480/683/v/950/depositphotos_6838608-Set-of-Colorful-Art-Pencils.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://static7.depositphotos.com/1006480/683/v/950/depositphotos_6838608-Set-of-Colorful-Art-Pencils.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e439da05427b410c1f832742dc38c5a8</div>
+  <div class="caption">A collection of {Objects} arranged in a circular formation with varying {Colors} or {Patterns}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e01bcb3de8a5118f72f01cf2fb704593" data-family="compositional_formation">
+  <a href="https://img0.etsystatic.com/062/1/8384145/il_fullxfull.799829042_sh5u.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img0.etsystatic.com/062/1/8384145/il_fullxfull.799829042_sh5u.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e01bcb3de8a5118f72f01cf2fb704593</div>
+  <div class="caption">People wearing low-poly designs of {Animal} masks made from paper.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e79ae1196097a1e758d42426856eae47" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/helios8/helios81505/helios8150500053/40076976-human-eye-composed-of-the-tools-and-screw-on-a-dark-background.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/helios8/helios81505/helios8150500053/40076976-human-eye-composed-of-the-tools-and-screw-on-a-dark-background.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e79ae1196097a1e758d42426856eae47</div>
+  <div class="caption">A creative composition made using {Recycled Materials}, forming an {Object} with imaginative flair.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="eb01074c497c854bb86f5a982308665a" data-family="compositional_formation">
+  <a href="https://pbs.twimg.com/media/DAsK_JmXgAAnQub.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://pbs.twimg.com/media/DAsK_JmXgAAnQub.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">eb01074c497c854bb86f5a982308665a</div>
+  <div class="caption">An artistic creation made with {Brick-Like Elements} arranged into a detailed depiction of {Person/Animal} or {Scene}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fe2aacf886362ed2516553a98d1a4680" data-family="compositional_formation">
+  <a href="https://susanrushtondotnet.files.wordpress.com/2019/08/flowerpotmen.jpg?w=525" target="_blank" rel="noopener"><img loading="lazy" src="https://susanrushtondotnet.files.wordpress.com/2019/08/flowerpotmen.jpg?w=525" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fe2aacf886362ed2516553a98d1a4680</div>
+  <div class="caption">Creative arrangements of {Pottery} shaped like {Characters}, {Animals}, or {Objects} in nature-inspired scenes.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e17573b3ab479c473bad12b4e7b40224" data-family="compositional_formation">
+  <a href="https://media.istockphoto.com/photos/gold-toilet-paper-with-a-crown-on-a-black-background-a-concept-on-the-picture-id1219166235?b=1&amp;k=20&amp;m=1219166235&amp;s=170667a&amp;w=0&amp;h=FMa5vIfvm-szLwya1v5w44YfrrKy6F5nR3Z87KGxkKo=" target="_blank" rel="noopener"><img loading="lazy" src="https://media.istockphoto.com/photos/gold-toilet-paper-with-a-crown-on-a-black-background-a-concept-on-the-picture-id1219166235?b=1&amp;k=20&amp;m=1219166235&amp;s=170667a&amp;w=0&amp;h=FMa5vIfvm-szLwya1v5w44YfrrKy6F5nR3Z87KGxkKo=" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e17573b3ab479c473bad12b4e7b40224</div>
+  <div class="caption">Visuals showcasing {Object} with a {Symbol} to illustrate the concept of {Concept}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e699aa64e6769ad4f830416bde922cb0" data-family="compositional_formation">
+  <a href="https://twizz.ru/wp-content/uploads/2015/11/tulip-fields-lisse-netherlands.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://twizz.ru/wp-content/uploads/2015/11/tulip-fields-lisse-netherlands.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e699aa64e6769ad4f830416bde922cb0</div>
+  <div class="caption">An aerial view of {Landscape} showcasing arranged patches of {Vegetation}, {Buildings}, and {Roads}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e41101b86180e9cd957adf83826f9f00" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/deyangeorgiev/deyangeorgiev1301/deyangeorgiev130100780/17515419-heart-shape-closeup-carved-in-red-apple.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/deyangeorgiev/deyangeorgiev1301/deyangeorgiev130100780/17515419-heart-shape-closeup-carved-in-red-apple.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e41101b86180e9cd957adf83826f9f00</div>
+  <div class="caption">A {Fruit} with a carved-out {Symbol} that resembles a {Character} or {Object}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e9bbae0e4f3ead3060b916e63593ad9d" data-family="compositional_formation">
+  <a href="https://www.spring.org.uk/images/veg_brain.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.spring.org.uk/images/veg_brain.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e9bbae0e4f3ead3060b916e63593ad9d</div>
+  <div class="caption">&quot;Creative representation of {Brain} made from various {Fruits} and {Vegetables} arranged in a realistic design.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ffd64dd1bc74c93aeeb0b8ace62f8b8c" data-family="compositional_formation">
+  <a href="https://findyourlawyer911.com/wp-content/uploads/2019/11/A-law-scale-along-with-a-broken-workers-helmet-400x400.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://findyourlawyer911.com/wp-content/uploads/2019/11/A-law-scale-along-with-a-broken-workers-helmet-400x400.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ffd64dd1bc74c93aeeb0b8ace62f8b8c</div>
+  <div class="caption">Visuals depicting {Symbol of Justice} merged with {Symbol of {Concept/Issue}}, representing {Theme/Subject}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f96b19c3078cdf54978d8b45edf16f9b" data-family="compositional_formation">
+  <a href="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/nude-woman-red-wine-3-johan-swanepoel.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/nude-woman-red-wine-3-johan-swanepoel.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f96b19c3078cdf54978d8b45edf16f9b</div>
+  <div class="caption">Creative presentation of {Object} merged with a {Human Body Part} to form a unique and artistic design.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f606982f5aa0c6dc18e2a3eb56efe4de" data-family="compositional_formation">
+  <a href="https://hg1.funnyjunk.com/pictures/The_c0e8cd_1983838.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://hg1.funnyjunk.com/pictures/The_c0e8cd_1983838.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f606982f5aa0c6dc18e2a3eb56efe4de</div>
+  <div class="caption">Artwork showcasing {Symbolic Representation} of {Object} through an imaginative arrangement of {Objects}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f47fea03a90a2dab2dcdd3f300c1df1c" data-family="compositional_formation">
+  <a href="https://www.wilcox-energy.com/wp-content/uploads/2021/08/image-of-paper-cut-out-of-family-in-hands-depicting-propane-heating-safety.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.wilcox-energy.com/wp-content/uploads/2021/08/image-of-paper-cut-out-of-family-in-hands-depicting-propane-heating-safety.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f47fea03a90a2dab2dcdd3f300c1df1c</div>
+  <div class="caption">Paper cutouts of {Family} arranged on a {Surface}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ebb2696b1918af7ce640b7bacc8d9aa0" data-family="compositional_formation">
+  <a href="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fcdn-image.travelandleisure.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F1600x1000%2Fpublic%2Fimages%2Famexpub%2F0028%2F9619%2F201202-w-cool-staircases-cascading-universe-garden-of-cosmic-speculation.jpg%3Fitok%3D3QDvssso" target="_blank" rel="noopener"><img loading="lazy" src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fcdn-image.travelandleisure.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F1600x1000%2Fpublic%2Fimages%2Famexpub%2F0028%2F9619%2F201202-w-cool-staircases-cascading-universe-garden-of-cosmic-speculation.jpg%3Fitok%3D3QDvssso" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ebb2696b1918af7ce640b7bacc8d9aa0</div>
+  <div class="caption">A meticulously crafted garden design showcasing {Shrubs} shaped into a {Geometric Pattern}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e8b95c88fd4a440769314c8e2e14f4b1" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/magicleaf/magicleaf1902/magicleaf190204333/116980461-stock-vector-isolated-object-of-natural-and-disaster-icon-collection-of-natural-and-risk-stock-vector-illustratio.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/magicleaf/magicleaf1902/magicleaf190204333/116980461-stock-vector-isolated-object-of-natural-and-disaster-icon-collection-of-natural-and-risk-stock-vector-illustratio.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e8b95c88fd4a440769314c8e2e14f4b1</div>
+  <div class="caption">An assortment of {Theme} icons showcasing {Object 1}, {Object 2}, {Object 3}, arranged in a visually engaging format with diverse {Color}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ff1f9fc3f4063e97c836449b9d75fba3" data-family="compositional_formation">
+  <a href="https://www.healthed.com.au/wp-content/uploads/2019/10/Improving-male-fertility-%E2%80%93-a-missed-opportunity-scaled.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.healthed.com.au/wp-content/uploads/2019/10/Improving-male-fertility-%E2%80%93-a-missed-opportunity-scaled.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ff1f9fc3f4063e97c836449b9d75fba3</div>
+  <div class="caption">Visual representation of {Food Items} arranged creatively to form the shape of {Animal}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e4da704792b3036e5dc03f9819a31110" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/orla/orla0911/orla091100138/5863161-business-chair-around-the-world-global-meeting-concept-3d-render.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/orla/orla0911/orla091100138/5863161-business-chair-around-the-world-global-meeting-concept-3d-render.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e4da704792b3036e5dc03f9819a31110</div>
+  <div class="caption">Visual of {Symbol} representing {Concept} with {Chair} arranged around {Object}</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fd70396fadc70bf7e6c16682ac9bfd7a" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/andriusr/andriusr1112/andriusr111200124/11601831-impossible-cube-abstract-object-symbol.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/andriusr/andriusr1112/andriusr111200124/11601831-impossible-cube-abstract-object-symbol.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fd70396fadc70bf7e6c16682ac9bfd7a</div>
+  <div class="caption">Representation of {Shape} or {Object} that exhibits optical illusions, making it seem contradictory or unfeasible in standard spatial arrangements.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f8bcb5c598c16dec94ea4fa0d348a7bc" data-family="compositional_formation">
+  <a href="https://didikrepinsky.com/wp-content/uploads/2017/02/14026602_903532066447842_738909133_n-300x300.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://didikrepinsky.com/wp-content/uploads/2017/02/14026602_903532066447842_738909133_n-300x300.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f8bcb5c598c16dec94ea4fa0d348a7bc</div>
+  <div class="caption">Tasty {Macarons} shaped like various {Characters} or {Animals}, displayed on a {Surface}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f80dcdb6409f7b39ec61b40c5c3d7f4f" data-family="compositional_formation">
+  <a href="https://nas-national-prod.s3.amazonaws.com/styles/article_teaser_list/s3/s_scopes-img_3995.jpg?itok=ZJFCQQc_" target="_blank" rel="noopener"><img loading="lazy" src="https://nas-national-prod.s3.amazonaws.com/styles/article_teaser_list/s3/s_scopes-img_3995.jpg?itok=ZJFCQQc_" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f80dcdb6409f7b39ec61b40c5c3d7f4f</div>
+  <div class="caption">Arrangement of identical {Objects} placed in an orderly fashion to highlight uniformity or repetition.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ed7babd29e13995276c81cbb4bd1c9b5" data-family="compositional_formation">
+  <a href="https://i.pinimg.com/736x/ff/35/a4/ff35a4cba3cfb8a46b54ff78e6fa2c8c--white-swan-life-photo.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/ff/35/a4/ff35a4cba3cfb8a46b54ff78e6fa2c8c--white-swan-life-photo.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ed7babd29e13995276c81cbb4bd1c9b5</div>
+  <div class="caption">Two {Animals} positioned in a way that forms a {Symbolic Shape}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e0aa2c3fa5844d2c44b266e75f3bed66" data-family="compositional_formation">
+  <a href="https://technabob.com/blog/wp-content/uploads/2013/02/Paint-a-Pizza5-600x480.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://technabob.com/blog/wp-content/uploads/2013/02/Paint-a-Pizza5-600x480.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e0aa2c3fa5844d2c44b266e75f3bed66</div>
+  <div class="caption">Artistic depictions of {Characters} crafted with imaginative arrangements of {Food Items}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f680901094b856cd641ac8f827ea5c38" data-family="compositional_formation">
+  <a href="http://img.wfrcdn.com/lf/49/hash/24853/9693276/1/1/1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://img.wfrcdn.com/lf/49/hash/24853/9693276/1/1/1.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f680901094b856cd641ac8f827ea5c38</div>
+  <div class="caption">Creative wine bottle holders shaped like {Container} with unique {Design} and {Color}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ed1dce947398e3f7acabce27312a7fce" data-family="compositional_formation">
+  <a href="https://img.huffingtonpost.com/asset/5bb154a03c000066000bc893.jpeg?ops=scalefit_970_noupscale" target="_blank" rel="noopener"><img loading="lazy" src="https://img.huffingtonpost.com/asset/5bb154a03c000066000bc893.jpeg?ops=scalefit_970_noupscale" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ed1dce947398e3f7acabce27312a7fce</div>
+  <div class="caption">Aerial view of carefully arranged {Flower} plots in different {Colors} and {Patterns}, forming scenic landscapes.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fd7da448f8ec9d19dd7d91f63871da25" data-family="compositional_formation">
+  <a href="https://i.pinimg.com/originals/0a/47/3a/0a473ab51da845c07da677017bcb005c.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/originals/0a/47/3a/0a473ab51da845c07da677017bcb005c.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fd7da448f8ec9d19dd7d91f63871da25</div>
+  <div class="caption">&quot;Creative fashion designs incorporating real {Biomimicry Elements} such as {Leaves}, {Flowers}, {Seashells}, and {Corals} in {Colorful Arrangements}.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f2145e7216adbc246af5d33f9ee067a5" data-family="compositional_formation">
+  <a href="https://i.pinimg.com/originals/ee/57/6b/ee576bc88ab81e37510437265aa2bcf8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/originals/ee/57/6b/ee576bc88ab81e37510437265aa2bcf8.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f2145e7216adbc246af5d33f9ee067a5</div>
+  <div class="caption">Creative arrangement of {Object} blended with nature, producing unique {Trough/Planters}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e2e43b45863d4bf2cb8a3522566e62ae" data-family="compositional_formation">
+  <a href="https://www.trevillion.com/cache/mcache2/00184632.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.trevillion.com/cache/mcache2/00184632.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e2e43b45863d4bf2cb8a3522566e62ae</div>
+  <div class="caption">Creative fusion of {Object} and {Natural Element} to form an imaginative design.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e5d7cbdb1c66e417b5b5cd03b1598d13" data-family="compositional_formation">
+  <a href="https://scx1.b-cdn.net/csz/news/800a/2019/thefaadidnot.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://scx1.b-cdn.net/csz/news/800a/2019/thefaadidnot.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e5d7cbdb1c66e417b5b5cd03b1598d13</div>
+  <div class="caption">&quot;Arrangement of {Objects} in a grid-like pattern, showcasing uniformity and repetition.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f17760741fc7c475e96a4ecf917c3147" data-family="compositional_formation">
+  <a href="https://www.insightyv.com/images/31_colorful_hair_looks_to_inspire_your_next_dye_job_4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.insightyv.com/images/31_colorful_hair_looks_to_inspire_your_next_dye_job_4.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f17760741fc7c475e96a4ecf917c3147</div>
+  <div class="caption">Unique hair designs showcasing artistic braiding with {Color} tresses arranged around a {Headwear} or {Style}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e5c339a209a91bedfb6cdc9368f00fac" data-family="compositional_formation">
+  <a href="https://cdn.shopify.com/s/files/1/0326/7189/articles/united_states_from_above_2000x.jpg?v=1611413174" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0326/7189/articles/united_states_from_above_2000x.jpg?v=1611413174" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e5c339a209a91bedfb6cdc9368f00fac</div>
+  <div class="caption">Satellite imagery showcasing {Region} with an emphasis on {Lighting}, highlighting {Pattern} and {Features} of urban and rural landscapes.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f3514478f21e72cbe2a87efd068660d6" data-family="compositional_formation">
+  <a href="https://cdn.dribbble.com/users/1122023/screenshots/2822007/ketchupfries.jpg?compress=1&amp;resize=400x300" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.dribbble.com/users/1122023/screenshots/2822007/ketchupfries.jpg?compress=1&amp;resize=400x300" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f3514478f21e72cbe2a87efd068660d6</div>
+  <div class="caption">Creative depiction of {Object 1} and {Object 2} coming together to form a harmonious whole.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e9f1105995cfa1ba8673317081ddfd59" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/imagesourceprem/imagesourceprem1706/imagesourceprem170664785/82214248-aerial-view-of-friends-lying-in-star-shape-on-sand.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/imagesourceprem/imagesourceprem1706/imagesourceprem170664785/82214248-aerial-view-of-friends-lying-in-star-shape-on-sand.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e9f1105995cfa1ba8673317081ddfd59</div>
+  <div class="caption">&quot;Group of {People} forming a {Shape} on the ground using {Object}.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f86cbf8b97348906ace33a499cf255b5" data-family="compositional_formation">
+  <a href="https://ewscripps.brightspotcdn.com/dims4/default/12c6bae/2147483647/strip/true/crop/0x0+0+0/resize/1280x720!/quality/90/?url=https%3A%2F%2Fwww.simplemost.com%2Fwp-content%2Fuploads%2F2021%2F01%2FAdobeStock_314862386-e1611750637949-500x333.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="https://ewscripps.brightspotcdn.com/dims4/default/12c6bae/2147483647/strip/true/crop/0x0+0+0/resize/1280x720!/quality/90/?url=https%3A%2F%2Fwww.simplemost.com%2Fwp-content%2Fuploads%2F2021%2F01%2FAdobeStock_314862386-e1611750637949-500x333.jpeg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f86cbf8b97348906ace33a499cf255b5</div>
+  <div class="caption">Innovative use of {Object} to hold {Item}, with various designs and arrangements for unique visual effects.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ed3d84c842377464f884c300e72912c5" data-family="compositional_formation">
+  <a href="https://s3.amazonaws.com/freestock-prod/450/freestock_58144744.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://s3.amazonaws.com/freestock-prod/450/freestock_58144744.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ed3d84c842377464f884c300e72912c5</div>
+  <div class="caption">A group of {People} arranged in a circular formation around a central {Object}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f61953077059eb07db4213b77c0fcc6d" data-family="compositional_formation">
+  <a href="https://i0.wp.com/theverybesttop10.com/wp-content/uploads/2015/12/Top-10-Very-Patient-Dogs-Waiting-In-Lines-And-Queues-4.jpg?resize=600%2C645" target="_blank" rel="noopener"><img loading="lazy" src="https://i0.wp.com/theverybesttop10.com/wp-content/uploads/2015/12/Top-10-Very-Patient-Dogs-Waiting-In-Lines-And-Queues-4.jpg?resize=600%2C645" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f61953077059eb07db4213b77c0fcc6d</div>
+  <div class="caption">&quot;Group of {Animals} arranged in a line, showcasing their diverse {Colors}, {Sizes}, or {Types} on a shared {Background}&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ff94486f2fb662ef963bb3c9d62a8e65" data-family="compositional_formation">
+  <a href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/330850b0-94df-44eb-a396-938a7de99d11/d3dgwdl-cd3fb11c-5415-4e0c-b101-0fee5656cde9.jpg/v1/fill/w_900,h_598,q_75,strp/3d_origami_pikachu_by_ibeautylovely-d3dgwdl.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi8zMzA4NTBiMC05NGRmLTQ0ZWItYTM5Ni05MzhhN2RlOTlkMTEvZDNkZ3dkbC1jZDNmYjExYy01NDE1LTRlMGMtYjEwMS0wZmVlNTY1NmNkZTkuanBnIiwid2lkdGgiOiI8PTkwMCIsImhlaWdodCI6Ijw9NTk4In1dXX0.kjwEeJcTmOrgFv5gvxPE_Pr9wF8muWQaagwsH9kYyt0" target="_blank" rel="noopener"><img loading="lazy" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/330850b0-94df-44eb-a396-938a7de99d11/d3dgwdl-cd3fb11c-5415-4e0c-b101-0fee5656cde9.jpg/v1/fill/w_900,h_598,q_75,strp/3d_origami_pikachu_by_ibeautylovely-d3dgwdl.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi8zMzA4NTBiMC05NGRmLTQ0ZWItYTM5Ni05MzhhN2RlOTlkMTEvZDNkZ3dkbC1jZDNmYjExYy01NDE1LTRlMGMtYjEwMS0wZmVlNTY1NmNkZTkuanBnIiwid2lkdGgiOiI8PTkwMCIsImhlaWdodCI6Ijw9NTk4In1dXX0.kjwEeJcTmOrgFv5gvxPE_Pr9wF8muWQaagwsH9kYyt0" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ff94486f2fb662ef963bb3c9d62a8e65</div>
+  <div class="caption">An intricately folded {Paper} origami creation shaped like a {Character/Animal}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ff6a690e1633f5b864864ffb58cbde00" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/stgrafix/stgrafix1703/stgrafix170300277/73531656-heart-shaped-potatoes-with-other-potatos-in-a-bowl.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/stgrafix/stgrafix1703/stgrafix170300277/73531656-heart-shaped-potatoes-with-other-potatos-in-a-bowl.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ff6a690e1633f5b864864ffb58cbde00</div>
+  <div class="caption">A collection of {Fruits} arranged to highlight one uniquely shaped {Object} resembling a heart.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ef6b1f33268583e2ab31381d3e568595" data-family="compositional_formation">
+  <a href="https://www.mittelbayerische.de/imgserver/_thumbnails/images/34/4598900/4598945/460x276.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.mittelbayerische.de/imgserver/_thumbnails/images/34/4598900/4598945/460x276.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ef6b1f33268583e2ab31381d3e568595</div>
+  <div class="caption">A {Tree} marked with a {Symbol} carved into its bark.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e7af7efdf4cbd5becb9f8b427092af54" data-family="compositional_formation">
+  <a href="https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F250781%252FAmsterdam_Schiphol_24__Kaagbaan_.jpg%252Ffull-fit-in__950x534.jpg?signature=66pgdT-aYLLjgKKVO6QebRsh2-Y=&amp;source=https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com" target="_blank" rel="noopener"><img loading="lazy" src="https://mondrian.mashable.com/uploads%252Fcard%252Fimage%252F250781%252FAmsterdam_Schiphol_24__Kaagbaan_.jpg%252Ffull-fit-in__950x534.jpg?signature=66pgdT-aYLLjgKKVO6QebRsh2-Y=&amp;source=https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e7af7efdf4cbd5becb9f8b427092af54</div>
+  <div class="caption">A group of {Objects} forming a striking pattern or shape in the open space.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ec46ab4c0047376101de83dd39032dfc" data-family="compositional_formation">
+  <a href="https://live.staticflickr.com/65535/49029286312_9d3ddb5e9c_b.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://live.staticflickr.com/65535/49029286312_9d3ddb5e9c_b.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ec46ab4c0047376101de83dd39032dfc</div>
+  <div class="caption">&quot;Group photo of {Group} arranged in a {Shape} formation on a {Background}.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e33286ba1811b1c78e7ee4bb477b0eda" data-family="compositional_formation">
+  <a href="https://www.colorado.edu/cisc/sites/default/files/styles/large_rectangle_thumbnail/public/callout/agustin-gunawan-z7srgedy5xk-unsplash.jpg?itok=IQycwS1J" target="_blank" rel="noopener"><img loading="lazy" src="https://www.colorado.edu/cisc/sites/default/files/styles/large_rectangle_thumbnail/public/callout/agustin-gunawan-z7srgedy5xk-unsplash.jpg?itok=IQycwS1J" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e33286ba1811b1c78e7ee4bb477b0eda</div>
+  <div class="caption">A unique collection of {Objects} arranged by their {Color} in an artistic and inviting way.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f6ea9ab7255b29d757be557a7dd37384" data-family="compositional_formation">
+  <a href="https://img1.etsystatic.com/103/0/11750128/il_340x270.845551655_1tub.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img1.etsystatic.com/103/0/11750128/il_340x270.845551655_1tub.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f6ea9ab7255b29d757be557a7dd37384</div>
+  <div class="caption">A creative chessboard design with {Plants} growing in {Containers} on a checkered pattern.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e5f7ee84a64482232fe948715b4ab071" data-family="compositional_formation">
+  <a href="https://images.saymedia-content.com/.image/t_share/MTc2MjcwNjcyOTkzMTMzNzQx/interesting-pictures-of-dogs.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://images.saymedia-content.com/.image/t_share/MTc2MjcwNjcyOTkzMTMzNzQx/interesting-pictures-of-dogs.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e5f7ee84a64482232fe948715b4ab071</div>
+  <div class="caption">Creative arrangements of {Animal} seated on human-designed {Chair} against a solid {Background}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e868fcfac50923351cb114acffca578b" data-family="compositional_formation">
+  <a href="http://www.pxleyes.com/images/contests/chess-figures/thumbs/chess-figures-56cb103a86859_cropped.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://www.pxleyes.com/images/contests/chess-figures/thumbs/chess-figures-56cb103a86859_cropped.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e868fcfac50923351cb114acffca578b</div>
+  <div class="caption">A black-and-white illustration showcasing a {Person} with a checkered pattern on their face and {Chess Pieces} integrated into the design.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ec2663c731c3e31fa6e725db2b121236" data-family="compositional_formation">
+  <a href="https://ih1.redbubble.net/image.200401012.6541/flat,800x800,075,f.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://ih1.redbubble.net/image.200401012.6541/flat,800x800,075,f.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ec2663c731c3e31fa6e725db2b121236</div>
+  <div class="caption">A charming stacked group of {Animals} featuring {Parent} and {Offspring} in a loving arrangement.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e07473282578b8de67cdb1099bcb80bc" data-family="compositional_formation">
+  <a href="https://render.fineartamerica.com/images/rendered/default/canvas-print/8.000/7.625/black/break/images-medium-5/sad-food-face-smetek-canvas-print.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://render.fineartamerica.com/images/rendered/default/canvas-print/8.000/7.625/black/break/images-medium-5/sad-food-face-smetek-canvas-print.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e07473282578b8de67cdb1099bcb80bc</div>
+  <div class="caption">Creative portrayal of {Fruits} arranged on a plate to resemble a facial expression with an unhappy expression.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e596e38f3fa744fe0ca4f4b627a93863" data-family="compositional_formation">
+  <a href="https://cdn.dribbble.com/users/91300/screenshots/3845619/001_corgi_dribbble.jpg?compress=1&amp;resize=400x300" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.dribbble.com/users/91300/screenshots/3845619/001_corgi_dribbble.jpg?compress=1&amp;resize=400x300" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e596e38f3fa744fe0ca4f4b627a93863</div>
+  <div class="caption">Visual representation of {Parent} and {Children} forming a {Habitat} or {Family} arrangement.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e1b1cdde809da456dd6ab858a339b3b2" data-family="compositional_formation">
+  <a href="https://www.picturemosaics.com/photo-mosaic-tool/hotlink.php?file=storage/s3/v2/M8352320/p3/pmt-thumb&amp;e=jpg&amp;s=1" target="_blank" rel="noopener"><img loading="lazy" src="https://www.picturemosaics.com/photo-mosaic-tool/hotlink.php?file=storage/s3/v2/M8352320/p3/pmt-thumb&amp;e=jpg&amp;s=1" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e1b1cdde809da456dd6ab858a339b3b2</div>
+  <div class="caption">A picture of a {Person} made from small tiles featuring {Scenes}, {Objects}, or {Animals}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e011050eeb844d6411c12794196b8b86" data-family="compositional_formation">
+  <a href="http://4.bp.blogspot.com/-G8fC9vC3cYc/TwRCKHHeYdI/AAAAAAAAFr8/W5yu3r7QCtY/s1600/Pacman+Ukulele_BonjourLife.com1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://4.bp.blogspot.com/-G8fC9vC3cYc/TwRCKHHeYdI/AAAAAAAAFr8/W5yu3r7QCtY/s1600/Pacman+Ukulele_BonjourLife.com1.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e011050eeb844d6411c12794196b8b86</div>
+  <div class="caption">A musical instrument shaped like a {Character} or {Object}, performed by a person with a unique design.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e82a9c823c2a71c3bd24a0de887307cb" data-family="compositional_formation">
+  <a href="https://www.traveltourxp.com/wp-content/uploads/2016/07/Kennedy-Space-Center.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.traveltourxp.com/wp-content/uploads/2016/07/Kennedy-Space-Center.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e82a9c823c2a71c3bd24a0de887307cb</div>
+  <div class="caption">&quot;Large-scale human formation creating a {Symbol} on-site in front of {Location}.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f05a556a4d2b971ef55a76f0b519ea77" data-family="compositional_formation">
+  <a href="https://media.funalive.com/article/images/frozen-niagarafalls-fa-1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://media.funalive.com/article/images/frozen-niagarafalls-fa-1.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f05a556a4d2b971ef55a76f0b519ea77</div>
+  <div class="caption">Captured through a {Frame} made of ice, the view of {Scene} highlights the frozen landscape below.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e6906d48fed0816400d04d964d9314af" data-family="compositional_formation">
+  <a href="https://wherethewildthingsare14.files.wordpress.com/2013/05/snal.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://wherethewildthingsare14.files.wordpress.com/2013/05/snal.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e6906d48fed0816400d04d964d9314af</div>
+  <div class="caption">A clever integration of {Object} into the design of {Surface}, forming an imaginative representation of {Animal}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fab6a5ec72a5c90b77aa1e6e9e9d0a2d" data-family="compositional_formation">
+  <a href="http://cdn.wonderfuldiy.com/wp-content/uploads/2014/07/Spiral-Rock-Mosaic-Path--320x320.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://cdn.wonderfuldiy.com/wp-content/uploads/2014/07/Spiral-Rock-Mosaic-Path--320x320.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fab6a5ec72a5c90b77aa1e6e9e9d0a2d</div>
+  <div class="caption">&quot;Step-by-step creation of a decorative {Object} using {Materials} to achieve a {Design/Pattern}.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e4d7c10daef3743fea788ddcb4dd04b3" data-family="compositional_formation">
+  <a href="https://st4.cannypic.com/thumbs/44/447453_352_canny_pic.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://st4.cannypic.com/thumbs/44/447453_352_canny_pic.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e4d7c10daef3743fea788ddcb4dd04b3</div>
+  <div class="caption">Unique interactions between {Animal 1} and {Animal 2} captured in an interesting arrangement.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="edf00ebd24bf3159bcfb3b25a6c9b57f" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/smithore/smithore0711/smithore071100002/2011673-four-leaves-clover-and-wooden-die-on-white-background.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/smithore/smithore0711/smithore071100002/2011673-four-leaves-clover-and-wooden-die-on-white-background.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">edf00ebd24bf3159bcfb3b25a6c9b57f</div>
+  <div class="caption">Visuals showcasing {Lucky Symbol} alongside {Rolling Dice} as symbols of {Luck} and {Chance}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e0c5dd89bcf7c1be5504539b5d04cbb0" data-family="compositional_formation">
+  <a href="https://i.icanvas.com/FPS27?d=3&amp;sh=h&amp;s=s&amp;p=1&amp;bg=w&amp;t=1601564239" target="_blank" rel="noopener"><img loading="lazy" src="https://i.icanvas.com/FPS27?d=3&amp;sh=h&amp;s=s&amp;p=1&amp;bg=w&amp;t=1601564239" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e0c5dd89bcf7c1be5504539b5d04cbb0</div>
+  <div class="caption">A unique combination of {Floral Arrangement} and a human {Face}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ec3ac547dd29d0003341cb5e321814ca" data-family="compositional_formation">
+  <a href="https://www.afcea.org/content/sites/default/files/styles/flexslider_full/public/China1.jpg?itok=a4yPN3I7" target="_blank" rel="noopener"><img loading="lazy" src="https://www.afcea.org/content/sites/default/files/styles/flexslider_full/public/China1.jpg?itok=a4yPN3I7" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ec3ac547dd29d0003341cb5e321814ca</div>
+  <div class="caption">The outline of {Country} featuring the flag pattern with {Flag Colors} and {Symbols}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e7c44a402383f0881f075fa7fdde6888" data-family="compositional_formation">
+  <a href="https://i.pinimg.com/736x/3a/af/5f/3aaf5f713ce6f1576e86f0c5b8f90885--christmas-eve-christmas-parties.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/3a/af/5f/3aaf5f713ce6f1576e86f0c5b8f90885--christmas-eve-christmas-parties.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e7c44a402383f0881f075fa7fdde6888</div>
+  <div class="caption">Creative use of {Food Items} to form the shape of a {Christmas Tree}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f3b5cd61d2ebbd40d250ae3ecd8b2d73" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/gurzart/gurzart1901/gurzart190100134/122170718-stock-illustration-torus-3d-optical-illusion-raster-illustration-hypnotic-black-and-red-tube-image-contrast-twisting-lo.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/gurzart/gurzart1901/gurzart190100134/122170718-stock-illustration-torus-3d-optical-illusion-raster-illustration-hypnotic-black-and-red-tube-image-contrast-twisting-lo.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f3b5cd61d2ebbd40d250ae3ecd8b2d73</div>
+  <div class="caption">Artwork showcasing optical illusions with patterns of {Lines} arranged in various {Colors} and {Shapes}, creating the illusion of movement or depth.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ff201a6ef034350aa47ab0361aec9f93" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/lonely11/lonely111307/lonely11130700014/20920832-sombrero-and-mustache-mexican-accessories--illustration-contains-transparency-and-blending-effects.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/lonely11/lonely111307/lonely11130700014/20920832-sombrero-and-mustache-mexican-accessories--illustration-contains-transparency-and-blending-effects.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ff201a6ef034350aa47ab0361aec9f93</div>
+  <div class="caption">Illustrations of {Symbol} fused with an imaginative {Face} to create unique {Concepts}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f7a29de93eda4fe16ad3de37aa5fe409" data-family="compositional_formation">
+  <a href="https://i.pinimg.com/736x/e8/36/2f/e8362f3983a8020d5be7d9bd47e5b5af.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/e8/36/2f/e8362f3983a8020d5be7d9bd47e5b5af.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f7a29de93eda4fe16ad3de37aa5fe409</div>
+  <div class="caption">Artistic representation of {Fruits} and {Vegetables} arranged into a {Face} design on a plate.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e42d63d0a1b2cf529e04e9631f811430" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/9comeback/9comeback2004/9comeback200400048/144568894-stock-vector-medical-mask-with-national-flag-of-india-as-icon-on-white-protective-mask-virus-and-flu-fight-corona.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/9comeback/9comeback2004/9comeback200400048/144568894-stock-vector-medical-mask-with-national-flag-of-india-as-icon-on-white-protective-mask-virus-and-flu-fight-corona.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e42d63d0a1b2cf529e04e9631f811430</div>
+  <div class="caption">&quot;Face mask design inspired by the national flag of {Country}, featuring its distinctive {Colors} and {Symbol}.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e8fc52caa53182790a51f53330131d68" data-family="compositional_formation">
+  <a href="https://files.rapidlms.com/view/59/c8/ab/e5/80/1e/4b/08/44/ce/d2/3b/f7/70/61/de/1600x800%3E/cannabis-community.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://files.rapidlms.com/view/59/c8/ab/e5/80/1e/4b/08/44/ce/d2/3b/f7/70/61/de/1600x800%3E/cannabis-community.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e8fc52caa53182790a51f53330131d68</div>
+  <div class="caption">A gathering of {People} forming a {Shape}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="eeaa1c27fccfe51799abb5bdde83fdf4" data-family="compositional_formation">
+  <a href="https://carriebonnet.files.wordpress.com/2014/05/unnamed-1.jpg?w=300&amp;h=300" target="_blank" rel="noopener"><img loading="lazy" src="https://carriebonnet.files.wordpress.com/2014/05/unnamed-1.jpg?w=300&amp;h=300" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">eeaa1c27fccfe51799abb5bdde83fdf4</div>
+  <div class="caption">A unique artwork made by assembling {Materials} into a {Portrait}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e7a65f124c09bc21b1a8f5b2bd46f1c3" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/viperagp/viperagp1401/viperagp140100185/25603179-white-masks-on-black-background.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/viperagp/viperagp1401/viperagp140100185/25603179-white-masks-on-black-background.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e7a65f124c09bc21b1a8f5b2bd46f1c3</div>
+  <div class="caption">The arrangement of three {Objects} highlights symmetry and unity, with one central {Object} flanked by two matching {Objects} on either side.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f08d4d1ce7a8fb984ed782b2584c98f1" data-family="compositional_formation">
+  <a href="https://image.spreadshirtmedia.net/image-server/v1/compositions/157746891/views/1,width=300,height=300,appearanceId=317,backgroundColor=E8E8E8,version=1498297817/bicycle-all-weather-cyclist-t-shirts-maenner-premium-t-shirt.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://image.spreadshirtmedia.net/image-server/v1/compositions/157746891/views/1,width=300,height=300,appearanceId=317,backgroundColor=E8E8E8,version=1498297817/bicycle-all-weather-cyclist-t-shirts-maenner-premium-t-shirt.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f08d4d1ce7a8fb984ed782b2584c98f1</div>
+  <div class="caption">&quot;Representation of {Season} featuring {Symbol of Weather}, {Plant Life}, and {Animal or Plant Activity} on a {Background Color} theme.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="efb1f8777ff76fa22f03cdce323f9b16" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/drvarayu/drvarayu1112/drvarayu111200074/11555187-plant-and-a-cup-of-thai-coins.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/drvarayu/drvarayu1112/drvarayu111200074/11555187-plant-and-a-cup-of-thai-coins.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">efb1f8777ff76fa22f03cdce323f9b16</div>
+  <div class="caption">A creative arrangement where {Plant} grows from a collection of {Coins}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e2c3f66a43073697fd9144fe575d9374" data-family="compositional_formation">
+  <a href="https://scene360.com/wp-content/uploads/2012/07/craig_alan_05.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://scene360.com/wp-content/uploads/2012/07/craig_alan_05.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e2c3f66a43073697fd9144fe575d9374</div>
+  <div class="caption">A large-scale arrangement of {People} forming a {Scene/Shape}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ef07adddfbcf1530eceaa47a96a0a69b" data-family="compositional_formation">
+  <a href="https://babygizmo.com/wp-content/uploads/2018/04/gathre-mat-1.png" target="_blank" rel="noopener"><img loading="lazy" src="https://babygizmo.com/wp-content/uploads/2018/04/gathre-mat-1.png" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ef07adddfbcf1530eceaa47a96a0a69b</div>
+  <div class="caption">Families gathered around {Object} to create the impression of a {Face} through {People}&#x27;s arrangement.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e1c13e6d7c862f499146b3975cc0ac76" data-family="compositional_formation">
+  <a href="https://news.images.itv.com/image/file/1797546/article_update_img.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://news.images.itv.com/image/file/1797546/article_update_img.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e1c13e6d7c862f499146b3975cc0ac76</div>
+  <div class="caption">A unique sculpture made from repurposed {Objects} into a {Shape or Figure}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ee9493617c40f333e46f5440ec6d9b92" data-family="compositional_formation">
+  <a href="http://d3e1m60ptf1oym.cloudfront.net/0e94fa26-9ed3-4610-9e28-f5fc3d48680c/LN010318-44_xlarge.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://d3e1m60ptf1oym.cloudfront.net/0e94fa26-9ed3-4610-9e28-f5fc3d48680c/LN010318-44_xlarge.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">ee9493617c40f333e46f5440ec6d9b92</div>
+  <div class="caption">Artistic arrangement of {Food Items} shaped like a {Subject}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f39981ed810db85333d98249cb86be4b" data-family="compositional_formation">
+  <a href="https://storage.googleapis.com/swag-swami-media/2021/05/d6c2e622-basketball-its-in-my-heartbeat-black.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://storage.googleapis.com/swag-swami-media/2021/05/d6c2e622-basketball-its-in-my-heartbeat-black.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f39981ed810db85333d98249cb86be4b</div>
+  <div class="caption">A creative illustration of a {Symbol} fused with a heart rate graph, representing {Tied-To}, like {Heartbeat}, {Love}, or {Emotion}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fa677d0eb9c1c4b29dda8f07d39731b3" data-family="compositional_formation">
+  <a href="https://d32dm0rphc51dk.cloudfront.net/92QgtGVEVGk0TglzW-mIdg/large.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://d32dm0rphc51dk.cloudfront.net/92QgtGVEVGk0TglzW-mIdg/large.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fa677d0eb9c1c4b29dda8f07d39731b3</div>
+  <div class="caption">Artistic composition of {Tree} paired with {Animal} or {Nature Element} to form a harmonious {Scene}</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e8827721df325f4fc220b1d339e894ab" data-family="compositional_formation">
+  <a href="https://us.123rf.com/450wm/serg788/serg7881511/serg788151100221/48446281-vegetable-rabbit-on-blue-plate-on-wooden-background.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/serg788/serg7881511/serg788151100221/48446281-vegetable-rabbit-on-blue-plate-on-wooden-background.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">e8827721df325f4fc220b1d339e894ab</div>
+  <div class="caption">A playful arrangement of {Food Items} shaped into a {Animal}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fa5849b856ba983f72b7c672cbe462f6" data-family="compositional_formation">
+  <a href="https://a.1stdibscdn.com/archivesE/upload/9808/48_14/_mg_9600/_MG_9600_l.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="https://a.1stdibscdn.com/archivesE/upload/9808/48_14/_mg_9600/_MG_9600_l.jpeg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">fa5849b856ba983f72b7c672cbe462f6</div>
+  <div class="caption">Unique designs of {Object} integrated with a bulb to form an innovative {Light Fixture}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f00c22c8e3adf8001d0c0d59b8db7c61" data-family="compositional_formation">
+  <a href="https://cdn.specialneedstoys.com/products/images/l/9PWFT.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.specialneedstoys.com/products/images/l/9PWFT.jpeg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Compositional formation</span>
+  <div class="hash">f00c22c8e3adf8001d0c0d59b8db7c61</div>
+  <div class="caption">A circular arrangement of {Objects} categorized by their {Type}, {Theme}, or {Characteristics}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div></div></section>
+
+<script>
+const STORAGE_KEY = 'relsim_gallery_compositional_v2_state_v1';
+let state = {};
+try { state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch (e) { state = {}; }
+
+function saveState() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  const el = document.getElementById('save-status');
+  if (el) el.textContent = 'saved ' + new Date().toLocaleTimeString();
+}
+
+function keyFor(card) {
+  return card.dataset.hash + '::' + card.dataset.family;
+}
+
+function applyState(card) {
+  const s = state[keyFor(card)];
+  if (!s) return;
+  if (s.decision) {
+    card.querySelectorAll('button[data-choice]').forEach(b => {
+      b.classList.toggle('selected', b.dataset.choice === s.decision);
+    });
+    card.classList.remove('mark-fits', 'mark-boundary_reject', 'mark-discard');
+    card.classList.add('mark-' + s.decision);
+  }
+  if (s.notes) {
+    const ta = card.querySelector('.notes');
+    if (ta) ta.value = s.notes;
+  }
+  if (s.assignedFamily !== undefined) {
+    const sel = card.querySelector('.family-select');
+    if (sel) sel.value = s.assignedFamily;
+  }
+}
+
+document.querySelectorAll('.card').forEach(card => {
+  applyState(card);
+
+  card.querySelectorAll('button[data-choice]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const k = keyFor(card);
+      state[k] = state[k] || {};
+      state[k].decision = btn.dataset.choice;
+      card.querySelectorAll('button[data-choice]').forEach(b => b.classList.toggle('selected', b === btn));
+      card.classList.remove('mark-fits', 'mark-boundary_reject', 'mark-discard');
+      card.classList.add('mark-' + btn.dataset.choice);
+      saveState();
+    });
+  });
+
+  const ta = card.querySelector('.notes');
+  if (ta) {
+    ta.addEventListener('input', () => {
+      const k = keyFor(card);
+      state[k] = state[k] || {};
+      state[k].notes = ta.value;
+      saveState();
+    });
+  }
+
+  const sel = card.querySelector('.family-select');
+  if (sel) {
+    sel.addEventListener('change', () => {
+      const k = keyFor(card);
+      state[k] = state[k] || {};
+      state[k].assignedFamily = sel.value;
+      saveState();
+    });
+  }
+});
+
+function csvEscape(v) {
+  v = String(v === undefined || v === null ? '' : v);
+  if (/[",\r\n]/.test(v)) {
+    v = '"' + v.replace(/"/g, '""') + '"';
+  }
+  return v;
+}
+
+document.getElementById('export-btn').addEventListener('click', () => {
+  const rows = [['image_hash', 'family_shown', 'assigned_family', 'decision', 'notes', 'url_link', 'caption']];
+  document.querySelectorAll('.card').forEach(card => {
+    const k = keyFor(card);
+    const s = state[k] || {};
+    const hash = card.dataset.hash;
+    const family = card.dataset.family;
+    const img = card.querySelector('img');
+    const url = img ? img.getAttribute('src') : '';
+    const captionEl = card.querySelector('.caption');
+    const caption = captionEl ? captionEl.textContent : '';
+    rows.push([hash, family, s.assignedFamily || '', s.decision || '', s.notes || '', url, caption]);
+  });
+  const csv = rows.map(r => r.map(csvEscape).join(',')).join('\r\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'gallery_labels.csv';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+});
+</script>
+</body>
+</html>
