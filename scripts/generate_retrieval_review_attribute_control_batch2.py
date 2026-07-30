@@ -1,10 +1,10 @@
 """Generate a second batch of attribute-priority-control candidates.
 
-Batch 1 (N_ATTRIBUTE_CONTROL_ANCHORS=20 in generate_similarity_gallery.py)
+Batch 1 (N_ATTRIBUTE_CONTROL_ANCHORS=20 in generate_retrieval_review_batch1.py)
 yielded 15 accepted triplets -- short of the ~20-25 target in the proposal.
 This reuses the already-computed CLIP embeddings (no re-downloading, no
 GPU needed), excludes anchors already used in batch 1 (read from
-labels/similarity_gallery_labels.csv), and proposes a fresh batch of
+labels/retrieval_review_batch1_all_sections.csv), and proposes a fresh batch of
 anchor + nearest-neighbor-positive + random-negative candidates in a
 separate, non-overwriting gallery page.
 
@@ -18,10 +18,10 @@ import os
 import numpy as np
 import pandas as pd
 
-from generate_similarity_gallery import CSS, JS, item_html, load, slot_html
+from generate_retrieval_review_batch1 import CSS, JS, item_html, load, slot_html
 
-LABELS_PATH = "labels/similarity_gallery_labels.csv"
-OUT_PATH = "review/galleries/attribute_control_gallery_v2.html"
+LABELS_PATH = "labels/retrieval_review_batch1_all_sections.csv"
+OUT_PATH = "review/galleries/retrieval_review_attribute_control_batch2.html"
 N_NEW_ANCHORS = 30
 RANDOM_STATE = 43  # different draw from batch 1 (which used 42)
 
@@ -70,6 +70,7 @@ def main():
         )
 
     js = JS.replace("relsim_similarity_gallery_state_v1", "relsim_attribute_control_v2_state_v1")
+    js = js.replace("retrieval_review_batch1_all_sections.csv", "retrieval_review_attribute_control_batch2.csv")
 
     out_html = f"""<!doctype html>
 <html lang="en">

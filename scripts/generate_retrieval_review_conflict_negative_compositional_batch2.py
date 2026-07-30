@@ -1,10 +1,10 @@
 """Generate conflict-negative candidates for compositional_formation anchors
 not covered by batch 1 (the original 9 compositional anchors already got a
-top-5 search; the 29 new anchors from gallery_labels-compositional_formation_v2.csv
+top-5 search; the 29 new anchors from codebook_review_compositional_batch2.csv
 have never been searched at all).
 
 Excludes every (anchor, candidate) pair already shown in
-labels/similarity_gallery_labels.csv's conflict_negative section, so
+labels/retrieval_review_batch1_all_sections.csv's conflict_negative section, so
 previously-reviewed anchors are not repeated.
 """
 import os
@@ -12,10 +12,10 @@ import os
 import numpy as np
 import pandas as pd
 
-from generate_similarity_gallery import CSS, JS, item_html, load, slot_html
+from generate_retrieval_review_batch1 import CSS, JS, item_html, load, slot_html
 
-LABELS_PATH = "labels/similarity_gallery_labels.csv"
-OUT_PATH = "review/galleries/conflict_negative_compositional_v2.html"
+LABELS_PATH = "labels/retrieval_review_batch1_all_sections.csv"
+OUT_PATH = "review/galleries/retrieval_review_conflict_negative_compositional_batch2.html"
 FAMILY = "compositional_formation"
 TOP_K_CONFLICT = 5
 
@@ -70,6 +70,7 @@ def main():
             items.append(item_html(item_id, "conflict_negative", slots, sim_text, f"{anchor_hash},{cand_hash}"))
 
     js = JS.replace("relsim_similarity_gallery_state_v1", "relsim_conflict_negative_compositional_v2_state_v1")
+    js = js.replace("retrieval_review_batch1_all_sections.csv", "retrieval_review_conflict_negative_compositional_batch2.csv")
 
     out_html = f"""<!doctype html>
 <html lang="en">

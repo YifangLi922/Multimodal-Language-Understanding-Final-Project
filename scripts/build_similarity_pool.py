@@ -15,7 +15,7 @@ with the actual scoring pipeline used later.
 
 Per proposal Section 7.3, CLIP must never be used to auto-accept a
 negative or positive -- it only proposes candidates. A human still has to
-look at the actual images (via scripts/generate_similarity_gallery.py)
+look at the actual images (via scripts/generate_retrieval_review_batch1.py)
 before anything is frozen into a triplet.
 
 Anchors = every row in review/pool/confirmed_candidates.csv with decision=="fits".
@@ -29,7 +29,7 @@ Outputs (under review/pool/):
   similarity_pool_metadata.csv     -- image_hash, group, family, url, caption, download_ok
   similarity_download_failures.csv -- rows that failed to download (link rot etc.)
 
-Run this once. scripts/generate_similarity_gallery.py consumes the output
+Run this once. scripts/generate_retrieval_review_batch1.py consumes the output
 and can be re-run for free without re-downloading or re-embedding.
 """
 import io

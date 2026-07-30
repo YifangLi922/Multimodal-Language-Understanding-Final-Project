@@ -1,22 +1,23 @@
 """Generate a second review gallery for temporal_transformation only.
 
 The 400-caption sub-sample only produced 19 keyword-matched candidates, of
-which just 3 turned out to genuinely fit (see labels/gallery_labels.csv). That
-is too thin to build several non-repeating conflict/aligned triplets. This
-script instead scans the FULL 14,881-row test split for the same temporal
-keywords, excludes anything already reviewed in data/caption_sample_400.csv,
-and samples a manageable batch for a second labeling pass.
+which just 3 turned out to genuinely fit (see labels/codebook_review_batch1_all_families.csv).
+That is too thin to build several non-repeating conflict/aligned triplets.
+This script instead scans the FULL 14,881-row test split for the same
+temporal keywords, excludes anything already reviewed in
+data/caption_sample_400.csv, and samples a manageable batch for a second
+labeling pass.
 
-Output is a separate file (does not overwrite review/galleries/candidate_gallery.html).
+Output is a separate file (does not overwrite codebook_review_batch1_all_families.html).
 """
 import os
 
 import pandas as pd
 from datasets import load_dataset
 
-from generate_gallery import KEYWORDS, build_html
+from generate_codebook_review_batch1 import KEYWORDS, build_html
 
-OUT_PATH = "review/galleries/candidate_gallery_temporal_v2.html"
+OUT_PATH = "review/galleries/codebook_review_temporal_batch2.html"
 SAMPLE_SIZE = 120
 RANDOM_STATE = 42
 

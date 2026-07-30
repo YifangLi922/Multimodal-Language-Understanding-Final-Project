@@ -14,7 +14,7 @@ import re
 import pandas as pd
 
 CSV_PATH = "data/caption_sample_400.csv"
-OUT_PATH = "review/galleries/candidate_gallery.html"
+OUT_PATH = "review/galleries/codebook_review_batch1_all_families.html"
 
 KEYWORDS = {
     "temporal_transformation": [
@@ -172,7 +172,7 @@ document.getElementById('export-btn').addEventListener('click', () => {
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'gallery_labels.csv';
+  a.download = 'codebook_review_batch1_all_families.csv';
   document.body.appendChild(a);
   a.click();
   a.remove();

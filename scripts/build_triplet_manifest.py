@@ -1,6 +1,6 @@
-"""Assemble the final triplet manifest from human-reviewed similarity-gallery
-decisions (labels/similarity_gallery_labels.csv) plus the confirmed relation-family
-candidates and pool metadata.
+"""Assemble the final triplet manifest from human-reviewed retrieval-review
+gallery decisions (labels/retrieval_review_*.csv -- see LABELS_PATHS below)
+plus the confirmed relation-family candidates and pool metadata.
 
 Three triplet types go into one output manifest:
 
@@ -23,8 +23,9 @@ Three triplet types go into one output manifest:
     background image unrelated to either.
 
 Run scripts/consolidate_candidates.py and the similarity-retrieval pipeline
-(build_similarity_pool.py + generate_similarity_gallery.py) first, and make
-sure the reviewed labels/similarity_gallery_labels.csv has been pulled from GitHub.
+(build_similarity_pool.py + generate_retrieval_review_batch1.py) first, and
+make sure the reviewed labels/retrieval_review_*.csv files have been pulled
+from GitHub.
 
 Output: review/triplet_manifest.csv, columns:
   triplet_id, relation_family, condition,
@@ -49,11 +50,11 @@ import random
 import pandas as pd
 
 LABELS_PATHS = [
-    "labels/similarity_gallery_labels.csv",
-    "labels/similarity_gallery_labels_attribute_control_v2.csv",
-    "labels/similarity_gallery_labels_aligned-pair_temporal_v3.csv",
-    "labels/similarity_gallery_labels_compositional_negative_v2.csv",
-    "labels/similarity_gallery_labels_compositional_aligned_v2.csv",
+    "labels/retrieval_review_batch1_all_sections.csv",
+    "labels/retrieval_review_attribute_control_batch2.csv",
+    "labels/retrieval_review_aligned_pair_temporal_batch3.csv",
+    "labels/retrieval_review_conflict_negative_compositional_batch2.csv",
+    "labels/retrieval_review_aligned_pair_compositional_batch2.csv",
 ]
 CONFIRMED_PATH = "review/pool/confirmed_candidates.csv"
 METADATA_PATH = "review/pool/similarity_pool_metadata.csv"

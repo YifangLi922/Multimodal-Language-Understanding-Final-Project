@@ -26,7 +26,7 @@ import pandas as pd
 
 EMBEDDINGS_PATH = "review/pool/similarity_embeddings.npz"
 METADATA_PATH = "review/pool/similarity_pool_metadata.csv"
-OUT_PATH = "review/galleries/similarity_review_gallery.html"
+OUT_PATH = "review/galleries/retrieval_review_batch1_all_sections.html"
 
 TOP_K_CONFLICT = 5
 TOP_K_ALIGNED = 3
@@ -136,7 +136,7 @@ document.getElementById('export-btn').addEventListener('click', () => {
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'similarity_gallery_labels.csv';
+  a.download = 'retrieval_review_batch1_all_sections.csv';
   document.body.appendChild(a);
   a.click();
   a.remove();

@@ -16,9 +16,9 @@ import os
 import pandas as pd
 from datasets import load_dataset
 
-from generate_gallery import KEYWORDS, build_html
+from generate_codebook_review_batch1 import KEYWORDS, build_html
 
-OUT_PATH = "review/galleries/candidate_gallery_compositional_v2.html"
+OUT_PATH = "review/galleries/codebook_review_compositional_batch2.html"
 SAMPLE_SIZE = 150
 RANDOM_STATE = 42
 

@@ -1,6 +1,6 @@
 """Generate a third batch of temporal_transformation aligned-pair candidates,
 now searching the EXPANDED fits pool (47 confirmed temporal fits, up from 22
-after gallery_labels_temporal_v3.csv).
+after codebook_review_temporal_batch3.csv).
 
 Batch 1 (top-3 same-family neighbors, all families) yielded 4 accepted
 pairs. Batch 2 (top-10 among the same original 22 anchors) was reviewed but
@@ -8,8 +8,8 @@ not exported -- the candidates were judged too weak, which is exactly why
 the fits pool itself needed to grow rather than just searching deeper among
 the same small set. This batch searches top-10 same-family neighbors again,
 but now among all 47 confirmed temporal anchors, and excludes every pair
-already shown in batch 1 (from labels/similarity_gallery_labels.csv) or
-batch 2 (parsed directly from review/galleries/aligned_pair_temporal_v2.html,
+already shown in batch 1 (from labels/retrieval_review_batch1_all_sections.csv) or
+batch 2 (parsed directly from review/galleries/retrieval_review_aligned_pair_temporal_batch2_UNUSED.html,
 since that batch was viewed but never exported).
 """
 import os
@@ -18,11 +18,11 @@ import re
 import numpy as np
 import pandas as pd
 
-from generate_similarity_gallery import CSS, JS, item_html, load, slot_html
+from generate_retrieval_review_batch1 import CSS, JS, item_html, load, slot_html
 
-LABELS_PATH = "labels/similarity_gallery_labels.csv"
-BATCH2_HTML_PATH = "review/galleries/aligned_pair_temporal_v2.html"
-OUT_PATH = "review/galleries/aligned_pair_temporal_v3.html"
+LABELS_PATH = "labels/retrieval_review_batch1_all_sections.csv"
+BATCH2_HTML_PATH = "review/galleries/retrieval_review_aligned_pair_temporal_batch2_UNUSED.html"
+OUT_PATH = "review/galleries/retrieval_review_aligned_pair_temporal_batch3.html"
 FAMILY = "temporal_transformation"
 TOP_K_ALIGNED = 10
 
@@ -86,6 +86,7 @@ def main():
             items.append(item_html(item_id, "aligned_pair", slots, sim_text, f"{sorted_pair[0]},{sorted_pair[1]}"))
 
     js = JS.replace("relsim_similarity_gallery_state_v1", "relsim_aligned_pair_temporal_v3_state_v1")
+    js = js.replace("retrieval_review_batch1_all_sections.csv", "retrieval_review_aligned_pair_temporal_batch3.csv")
 
     out_html = f"""<!doctype html>
 <html lang="en">
