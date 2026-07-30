@@ -46,7 +46,12 @@ from transformers import CLIPModel, CLIPProcessor
 
 CONFIRMED_PATH = "review/pool/confirmed_candidates.csv"
 OUT_DIR = "review/pool"
-BACKGROUND_POOL_SIZE = 600
+# Fixed draw size from the full test split (NOT a target background pool
+# size -- see the stability note at the sampling call site). Some of these
+# get filtered out post-hoc as confirmed_candidates.csv grows, so the actual
+# background_random count will be a bit under this and shrink slowly over
+# time; bump this constant (don't lower it) if that ever matters.
+FIXED_BACKGROUND_DRAW = 700
 RANDOM_STATE = 42
 DOWNLOAD_TIMEOUT = 8
 MAX_WORKERS = 16
@@ -76,9 +81,17 @@ def build_pool():
 
     dataset = load_dataset("thaoshibe/anonymous-captions-114k")
     test_df = dataset["test"].to_pandas()
-    remaining = test_df.loc[~test_df["image_hash"].isin(confirmed_hashes)]
-    n_random = max(0, BACKGROUND_POOL_SIZE - len(boundary))
-    random_bg = remaining.sample(n=min(n_random, len(remaining)), random_state=RANDOM_STATE).reset_index(drop=True)
+    # NOTE: sample from the full, unchanging test_df (not from a "remaining"
+    # frame filtered by the current confirmed_hashes) so the exact same rows
+    # get drawn on every rerun regardless of how large confirmed_candidates.csv
+    # has grown -- sampling from a shrinking frame with a fixed random_state
+    # draws a *different* set of rows each time, which silently broke
+    # referential integrity for already-scored triplets the first time this
+    # pool was rebuilt (74/112 previously-used hashes vanished from the pool).
+    # Filtering after the fixed-size draw keeps previously-included background
+    # images stable across reruns.
+    random_bg = test_df.sample(n=min(FIXED_BACKGROUND_DRAW, len(test_df)), random_state=RANDOM_STATE)
+    random_bg = random_bg.loc[~random_bg["image_hash"].isin(confirmed_hashes)].reset_index(drop=True)
     random_bg["family"] = ""
     random_bg["decision"] = ""
     random_bg["notes"] = ""
