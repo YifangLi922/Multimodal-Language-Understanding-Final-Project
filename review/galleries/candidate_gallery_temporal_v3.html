@@ -1,0 +1,1957 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>RelSim Temporal Transformation Review -- Batch 3</title>
+<style>
+:root { color-scheme: light dark; }
+body { font-family: -apple-system, Segoe UI, Arial, sans-serif; margin: 0; padding: 0 16px 60px; background: #fafafa; color: #111; }
+@media (prefers-color-scheme: dark) { body { background: #1a1a1a; color: #eee; } }
+h1 { font-size: 1.4rem; }
+h2 { font-size: 1.1rem; margin-top: 2rem; border-bottom: 2px solid #ccc; padding-bottom: 4px; }
+.instructions { background: #fff3cd; border: 1px solid #e0c36a; padding: 10px 14px; border-radius: 6px; max-width: 900px; }
+@media (prefers-color-scheme: dark) { .instructions { background: #3a3316; border-color: #6b5b1f; } }
+.toolbar { position: sticky; top: 0; background: inherit; padding: 10px 0; z-index: 10; display: flex; gap: 12px; align-items: center; backdrop-filter: blur(4px); }
+#export-btn { font-size: 1rem; padding: 8px 16px; cursor: pointer; border-radius: 6px; border: 1px solid #888; background: #2563eb; color: white; }
+#save-status { font-size: 0.85rem; color: #666; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; margin: 10px 0 20px; }
+.card { border: 2px solid #ccc; border-radius: 8px; padding: 8px; background: rgba(255,255,255,0.6); display: flex; flex-direction: column; gap: 6px; transition: border-color .15s; }
+@media (prefers-color-scheme: dark) { .card { background: rgba(255,255,255,0.04); border-color: #444; } }
+.card.mark-fits { border-color: #16a34a; }
+.card.mark-boundary_reject { border-color: #d97706; }
+.card.mark-discard { opacity: 0.45; border-color: #888; }
+.card.broken { opacity: 0.3; }
+.card img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; background: #ddd; }
+.card .hash { font-family: monospace; font-size: 0.7rem; color: #888; }
+.card .caption { font-size: 0.82rem; line-height: 1.25; max-height: 4.5em; overflow-y: auto; }
+.family-badge { font-size: 0.72rem; font-weight: 600; color: #2563eb; }
+.family-select { font-size: 0.78rem; }
+.buttons { display: flex; gap: 4px; flex-wrap: wrap; }
+.buttons button { flex: 1; font-size: 0.72rem; padding: 4px 2px; border-radius: 4px; border: 1px solid #999; background: transparent; cursor: pointer; color: inherit; }
+.buttons button.selected[data-choice="fits"] { background: #16a34a; color: white; border-color: #16a34a; }
+.buttons button.selected[data-choice="boundary_reject"] { background: #d97706; color: white; border-color: #d97706; }
+.buttons button.selected[data-choice="discard"] { background: #6b7280; color: white; border-color: #6b7280; }
+.notes { font-size: 0.75rem; resize: vertical; min-height: 32px; }
+details summary { cursor: pointer; font-weight: 600; margin-top: 2rem; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <button id="export-btn">Export labels as CSV</button>
+  <span id="save-status">not saved yet</span>
+</div>
+<h1>RelSim Temporal Transformation Review -- Batch 3</h1>
+<p class="instructions">
+  For each image, open the codebook criteria for that relation family and decide:
+  <b>fits</b> (clearly satisfies inclusion criteria) / <b>boundary_reject</b>
+  (looks related but fails inclusion or hits an exclusion criterion) / <b>discard</b>
+  (not relevant, or the image link is broken). Click the original image to open the
+  full-size source in a new tab. Your choices auto-save in this browser
+  (localStorage) as you go, so refreshing the page will not lose progress. When
+  done, click <b>Export labels as CSV</b> to download your decisions.
+</p>
+<section><h2>Temporal transformation &mdash; 150 candidates</h2><div class="grid"><div class="card" data-hash="f2ca22b8f0c8689313458f9747b1ffa1" data-family="temporal_transformation">
+  <a href="https://lh6.ggpht.com/LiihdLifP6-fcXU1rA5VpMkqL-u8yOVKnQowbzq5EIn2g7AaCJeobIwadIi0PBmk6KE=h900" target="_blank" rel="noopener"><img loading="lazy" src="https://lh6.ggpht.com/LiihdLifP6-fcXU1rA5VpMkqL-u8yOVKnQowbzq5EIn2g7AaCJeobIwadIi0PBmk6KE=h900" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f2ca22b8f0c8689313458f9747b1ffa1</div>
+  <div class="caption">Step-by-step depiction of transforming {Subject} into a {Theme/Transformation}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fbf1dbb17f24c8521d3f41c8795106b4" data-family="temporal_transformation">
+  <a href="https://i.pinimg.com/736x/a2/aa/3a/a2aa3a27cc47e94b5e366ed56b5e2327.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/a2/aa/3a/a2aa3a27cc47e94b5e366ed56b5e2327.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fbf1dbb17f24c8521d3f41c8795106b4</div>
+  <div class="caption">A {Tree} growing directly out of a {Enclosed Space}, blending nature with architecture.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f108ec6516705fd5370439c06a1e9e90" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/sunshinesmile/sunshinesmile1203/sunshinesmile120300090/12676289-iranian-flag-butterfly-isolated-on-white.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/sunshinesmile/sunshinesmile1203/sunshinesmile120300090/12676289-iranian-flag-butterfly-isolated-on-white.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f108ec6516705fd5370439c06a1e9e90</div>
+  <div class="caption">A butterfly with wings designed after the flag of {Country}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ec08493b332e34f67466a3e600de4cd6" data-family="temporal_transformation">
+  <a href="https://cdn.shopify.com/s/files/1/0292/5664/6690/products/0540DAE7-23E4-411E-B699-11C2DE5751F7_800x800_crop_center.jpg?v=1605458516" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0292/5664/6690/products/0540DAE7-23E4-411E-B699-11C2DE5751F7_800x800_crop_center.jpg?v=1605458516" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ec08493b332e34f67466a3e600de4cd6</div>
+  <div class="caption">The evolution of a {Subject} into a detailed {Completed Sculpture}, showcasing the artistic transformation from initial concept to finished piece.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f2d737ed82f6ac96676359c074b464bc" data-family="temporal_transformation">
+  <a href="http://vuing.com/wp-content/uploads/2016/08/painting-animals-Portraits-Feather-1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://vuing.com/wp-content/uploads/2016/08/painting-animals-Portraits-Feather-1.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f2d737ed82f6ac96676359c074b464bc</div>
+  <div class="caption">Artistic depictions of {Object} transformed into detailed {Animal} illustrations.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="dfaea76f6feb71af9edc4d6dae028b99" data-family="temporal_transformation">
+  <a href="https://theawesomer.com/photos/2010/06/061510_Anti_Theft_Lunch_Bag_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://theawesomer.com/photos/2010/06/061510_Anti_Theft_Lunch_Bag_3.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">dfaea76f6feb71af9edc4d6dae028b99</div>
+  <div class="caption">Visuals highlighting {Food} in different conditions: fresh versus decayed, packaged versus spoiled, or uncooked versus overcooked.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e3de6a329c319969bed266128980fb8d" data-family="temporal_transformation">
+  <a href="https://ucnrs.org/wp-content/uploads/images/2011/03/Frogs-300x280.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://ucnrs.org/wp-content/uploads/images/2011/03/Frogs-300x280.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e3de6a329c319969bed266128980fb8d</div>
+  <div class="caption">A visual representation of the life cycle of a {Animal}, showing the evolution from {Stage 1} through {Stage 2}, {Stage 3}, and concluding with {Stage 4}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="efcc1fd066c02dfcf57323d14baea88b" data-family="temporal_transformation">
+  <a href="http://tse4.mm.bing.net/th?id=OIP.9kbl3B0ECBYxwgcjCQP4CQHaE8" target="_blank" rel="noopener"><img loading="lazy" src="http://tse4.mm.bing.net/th?id=OIP.9kbl3B0ECBYxwgcjCQP4CQHaE8" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">efcc1fd066c02dfcf57323d14baea88b</div>
+  <div class="caption">Origami creations transforming {Material} into diverse {Characters}, {Animals}, or {Objects}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e69ba9d3cb34cd1b8326d6eff7c291df" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/weerapat/weerapat1611/weerapat161100251/67303082-hand-watering-green-plants-growing-on-a-pile-of-golden-coins--green-business-and-investment--busines.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/weerapat/weerapat1611/weerapat161100251/67303082-hand-watering-green-plants-growing-on-a-pile-of-golden-coins--green-business-and-investment--busines.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e69ba9d3cb34cd1b8326d6eff7c291df</div>
+  <div class="caption">Visual representation of {Plant} growing from stacked {Coins}, illustrating {Growth} or {Accumulation}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e46f6f4ad0a4f0a92be66a45742c90c9" data-family="temporal_transformation">
+  <a href="https://images-na.ssl-images-amazon.com/images/I/51bdZdsB4sL.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/51bdZdsB4sL.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e46f6f4ad0a4f0a92be66a45742c90c9</div>
+  <div class="caption">A progression of {Action} by {Subject} captured across different moments in {Environment}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="df0cc03b0c3137c4b8a9cdb2e79aa405" data-family="temporal_transformation">
+  <a href="https://www.editingcorp.com/wp-content/uploads/C-America.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.editingcorp.com/wp-content/uploads/C-America.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">df0cc03b0c3137c4b8a9cdb2e79aa405</div>
+  <div class="caption">Visual representation of {Character} transforming into a {Object} to embody their unique traits or personality.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="df1b938f2a1ca13417adf0bdb5dbbb81" data-family="temporal_transformation">
+  <a href="https://content.instructables.com/ORIG/FB8/5BGP/IJSV2ORU/FB85BGPIJSV2ORU.jpg?auto=webp&amp;frame=1&amp;width=600" target="_blank" rel="noopener"><img loading="lazy" src="https://content.instructables.com/ORIG/FB8/5BGP/IJSV2ORU/FB85BGPIJSV2ORU.jpg?auto=webp&amp;frame=1&amp;width=600" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">df1b938f2a1ca13417adf0bdb5dbbb81</div>
+  <div class="caption">Imaginative use of {Materials} to transform an ordinary office space into a playful {Theme/Setting}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e0680228848fcc4566d18d2acfbec71b" data-family="temporal_transformation">
+  <a href="http://cdn.trendhunterstatic.com/thumbs/halloween-cat-eye-look.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="http://cdn.trendhunterstatic.com/thumbs/halloween-cat-eye-look.jpeg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e0680228848fcc4566d18d2acfbec71b</div>
+  <div class="caption">Imaginative makeup designs transforming {Face} into artistic depictions of {Animals}, complete with intricate details and vibrant {Colors}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e1e028e5ea82c9621c1718dbf8d8b8ee" data-family="temporal_transformation">
+  <a href="https://d3wo5wojvuv7l.cloudfront.net/t_square_limited_720/images.spreaker.com/original/3cd36b8daffb00fa98cf0512b3e6cdb5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://d3wo5wojvuv7l.cloudfront.net/t_square_limited_720/images.spreaker.com/original/3cd36b8daffb00fa98cf0512b3e6cdb5.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e1e028e5ea82c9621c1718dbf8d8b8ee</div>
+  <div class="caption">Visuals of {Fruit} transforming into a living seedling, illustrating the cycle of {Life}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f95d829ba94b5360ac8ba8af1aa4bb25" data-family="temporal_transformation">
+  <a href="https://www.renemagritte.org/images/paintings/the-mysteries-of-the-horizon.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.renemagritte.org/images/paintings/the-mysteries-of-the-horizon.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f95d829ba94b5360ac8ba8af1aa4bb25</div>
+  <div class="caption">Artwork showcasing {Figures} with {Moon Phases} integrated into their heads, creating a unique visual representation of {Moon Stages}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fb7b6e94580999e3834855b2a9b200db" data-family="temporal_transformation">
+  <a href="https://discovercal.berkeley.edu/sites/default/files/styles/lecture_masonry/public/series_img/2013_Oct_Startups.jpg?itok=-zjFhepW&amp;amp;c=9ee2f4633b69215264b064a88d946770" target="_blank" rel="noopener"><img loading="lazy" src="https://discovercal.berkeley.edu/sites/default/files/styles/lecture_masonry/public/series_img/2013_Oct_Startups.jpg?itok=-zjFhepW&amp;amp;c=9ee2f4633b69215264b064a88d946770" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fb7b6e94580999e3834855b2a9b200db</div>
+  <div class="caption">A {Animal} casting a shadow that transforms into the shape of another {Animal}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e2b56cd05fa912ab335f96a8fb2657fa" data-family="temporal_transformation">
+  <a href="https://tse4.mm.bing.net/th?id=OIP.E6-hFxwen3i0FCFNUDk_pgHaHa&amp;pid=Api&amp;P=0&amp;w=300&amp;h=300" target="_blank" rel="noopener"><img loading="lazy" src="https://tse4.mm.bing.net/th?id=OIP.E6-hFxwen3i0FCFNUDk_pgHaHa&amp;pid=Api&amp;P=0&amp;w=300&amp;h=300" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e2b56cd05fa912ab335f96a8fb2657fa</div>
+  <div class="caption">Step-by-step guide on transforming {Material} into an elegant {Flower}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f2ab04113fd3cda6d09cda9f2fe43094" data-family="temporal_transformation">
+  <a href="https://www.perrywood.co.uk/wp-content/uploads/Create-a-bulb-lasagne-for-a-bold-spring-display-267x400.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.perrywood.co.uk/wp-content/uploads/Create-a-bulb-lasagne-for-a-bold-spring-display-267x400.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f2ab04113fd3cda6d09cda9f2fe43094</div>
+  <div class="caption">A depiction of {Plant Species} planted in soil, showcasing the arrangement of {Roots} and {Stems} for growth.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ff08d41fcc3c0348f27a47a924b1b332" data-family="temporal_transformation">
+  <a href="http://img.youtube.com/vi/N3rUTNLAD6E/hqdefault.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://img.youtube.com/vi/N3rUTNLAD6E/hqdefault.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ff08d41fcc3c0348f27a47a924b1b332</div>
+  <div class="caption">Artists transform {Shrub} into the shape of {Animal}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f6875b4ab38c43cc05aadde4063d41b5" data-family="temporal_transformation">
+  <a href="https://static.wixstatic.com/media/d17fe1_1a078d2399d14147a2099b78f1b6fd12~mv2.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90/d17fe1_1a078d2399d14147a2099b78f1b6fd12~mv2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://static.wixstatic.com/media/d17fe1_1a078d2399d14147a2099b78f1b6fd12~mv2.jpg/v1/fill/w_454,h_341,fp_0.50_0.50,q_90/d17fe1_1a078d2399d14147a2099b78f1b6fd12~mv2.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f6875b4ab38c43cc05aadde4063d41b5</div>
+  <div class="caption">Progression of {Species} through various {Stages of Development} over time.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f94a21c7fb389f76bc0c4744a4c0205c" data-family="temporal_transformation">
+  <a href="https://www.gannett-cdn.com/presto/2019/05/08/PMAN/feac5a6c-7024-41fd-a421-192eeabdfafc-sneeringer_cat.jpg?width=660&amp;height=496&amp;fit=crop&amp;format=pjpg&amp;auto=webp" target="_blank" rel="noopener"><img loading="lazy" src="https://www.gannett-cdn.com/presto/2019/05/08/PMAN/feac5a6c-7024-41fd-a421-192eeabdfafc-sneeringer_cat.jpg?width=660&amp;height=496&amp;fit=crop&amp;format=pjpg&amp;auto=webp" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f94a21c7fb389f76bc0c4744a4c0205c</div>
+  <div class="caption">&quot;Rescue workers carefully carrying {Animal} after a {Situation}.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e857a90df6820cbd960c1ac2a7851d1f" data-family="temporal_transformation">
+  <a href="https://www.astronarrative.com/images/capricorn-56-a-dark-archway-and-ten-logs-at-the-bottom-21839751.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.astronarrative.com/images/capricorn-56-a-dark-archway-and-ten-logs-at-the-bottom-21839751.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e857a90df6820cbd960c1ac2a7851d1f</div>
+  <div class="caption">Visual representation of {Action} leading to a transformation into a new {Environment} or {State}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fd3de63d15d1ecf61e3b263b042a441a" data-family="temporal_transformation">
+  <a href="https://ak-d.tripcdn.com/images/350112000000rwhv887CC_C_670_770_Q70.jpg_.webp?proc=source/trip;namelogo/d_40" target="_blank" rel="noopener"><img loading="lazy" src="https://ak-d.tripcdn.com/images/350112000000rwhv887CC_C_670_770_Q70.jpg_.webp?proc=source/trip;namelogo/d_40" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fd3de63d15d1ecf61e3b263b042a441a</div>
+  <div class="caption">A unique {Natural Formation} transformed into a {Face} with remarkable {Eyes} and {Smile}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ebcd46cf0fa1b6e220460c70c0f5098f" data-family="temporal_transformation">
+  <a href="https://cdn-images.threadless.com/threadless-media/artist_shops/shops/MaroDek/products/958116/shirt-1553241425-0015b72cbc8c735e1a64720a0033ecc7.png?v=3&amp;d=eyJvbmx5X21ldGEiOiBmYWxzZSwgImZvcmNlIjogZmFsc2UsICJvcHMiOiBbWyJpZl8iLCBbeyJ0IjogImV4cHIiLCAidiI6IFsiaGFzX2FscGhhIiwgbnVsbCwgbnVsbF19LCB7InQiOiAiY29tcCIsICJ2IjogWyJ0aHJlYWRsZXNzLW1lZGlhL2FydGlzdF9zaG9wcy9zaG9wcy9NYXJvRGVrL3Byb2R1Y3RzLzk1ODExNi9zaGlydC0xNTUzMjQxNDI1LTAwMTViNzJjYmM4YzczNWUxYTY0NzIwYTAwMzNlY2M3LnBuZyIsIFtbInRyaW0iLCBbdHJ1ZSwgZmFsc2VdLCB7fV0sIFsicmVzaXplIiwgWzU0OC41NzE0Mjg1NzE0Mjg2LCA0MTEuNDI4NTcxNDI4NTcxNF0sIHsibWF4X3NjYWxlIjogMi4wfV0sIFsiY2FudmFzX2NlbnRlcmVkIiwgWzY4NS43MTQyODU3MTQyODU3LCA1MTQuMjg1NzE0Mjg1NzE0Ml0sIHsiYmFja2dyb3VuZCI6ICJmZmZmZmYifV1dXX0sIHsidCI6ICJjb21wIiwgInYiOiBbInRocmVhZGxlc3MtbWVkaWEvYXJ0aXN0X3Nob3BzL3Nob3BzL01hcm9EZWsvcHJvZHVjdHMvOTU4MTE2L3NoaXJ0LTE1NTMyNDE0MjUtMDAxNWI3MmNiYzhjNzM1ZTFhNjQ3MjBhMDAzM2VjYzcucG5nIiwgW1sicmVzaXplIiwgWzY4NS43MTQyODU3MTQyODU3LCA1MTQuMjg1NzE0Mjg1NzE0Ml0sIHsibWF4X3NjYWxlIjogMi4wfV0sIFsiY2FudmFzX2NlbnRlcmVkIiwgWzY4NS43MTQyODU3MTQyODU3LCA1MTQuMjg1NzE0Mjg1NzE0Ml0sIHsiYmFja2dyb3VuZCI6ICJmZmYifV1dXX1dLCB7fV0sIFsiZW5jb2RlIiwgWyIucG5nIl0sIHsiZHBpIjogMzAwfV0sIFsicmVzaXplIiwgWzE2MjRdLCB7fV0sIFsib3ZlcmxheSIsIFsidGhyZWFkbGVzcy1tZWRpYS9hcnRpc3Rfc2hvcHMvb3ZlcmxheXMvMTlmMTQ5MTQ2YmM5NjAxNjIwOGUwMTEwMDllMjlmMzcvZnJvbnQtMTQ3MzI3NTc1Mi05ODgzZWZkYmI4MGNlOTg4N2JjZTlkYWZjZWVmOWE0Zi5wbmciXSwgeyJ5IjogMzkxLCAieCI6IDE4OCwgImJhY2tncm91bmQiOiAiZmZmZmZmIn1dLCBbInJlc2l6ZSIsIFs4MDBdLCB7fV0sIFsiY2FudmFzX2NlbnRlcmVkIiwgWzgwMCwgODAwLCAiI2ZmZmZmZiJdLCB7fV0sIFsiZW5jb2RlIiwgWyJqcGciLCA4NV0sIHt9XV19" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn-images.threadless.com/threadless-media/artist_shops/shops/MaroDek/products/958116/shirt-1553241425-0015b72cbc8c735e1a64720a0033ecc7.png?v=3&amp;d=eyJvbmx5X21ldGEiOiBmYWxzZSwgImZvcmNlIjogZmFsc2UsICJvcHMiOiBbWyJpZl8iLCBbeyJ0IjogImV4cHIiLCAidiI6IFsiaGFzX2FscGhhIiwgbnVsbCwgbnVsbF19LCB7InQiOiAiY29tcCIsICJ2IjogWyJ0aHJlYWRsZXNzLW1lZGlhL2FydGlzdF9zaG9wcy9zaG9wcy9NYXJvRGVrL3Byb2R1Y3RzLzk1ODExNi9zaGlydC0xNTUzMjQxNDI1LTAwMTViNzJjYmM4YzczNWUxYTY0NzIwYTAwMzNlY2M3LnBuZyIsIFtbInRyaW0iLCBbdHJ1ZSwgZmFsc2VdLCB7fV0sIFsicmVzaXplIiwgWzU0OC41NzE0Mjg1NzE0Mjg2LCA0MTEuNDI4NTcxNDI4NTcxNF0sIHsibWF4X3NjYWxlIjogMi4wfV0sIFsiY2FudmFzX2NlbnRlcmVkIiwgWzY4NS43MTQyODU3MTQyODU3LCA1MTQuMjg1NzE0Mjg1NzE0Ml0sIHsiYmFja2dyb3VuZCI6ICJmZmZmZmYifV1dXX0sIHsidCI6ICJjb21wIiwgInYiOiBbInRocmVhZGxlc3MtbWVkaWEvYXJ0aXN0X3Nob3BzL3Nob3BzL01hcm9EZWsvcHJvZHVjdHMvOTU4MTE2L3NoaXJ0LTE1NTMyNDE0MjUtMDAxNWI3MmNiYzhjNzM1ZTFhNjQ3MjBhMDAzM2VjYzcucG5nIiwgW1sicmVzaXplIiwgWzY4NS43MTQyODU3MTQyODU3LCA1MTQuMjg1NzE0Mjg1NzE0Ml0sIHsibWF4X3NjYWxlIjogMi4wfV0sIFsiY2FudmFzX2NlbnRlcmVkIiwgWzY4NS43MTQyODU3MTQyODU3LCA1MTQuMjg1NzE0Mjg1NzE0Ml0sIHsiYmFja2dyb3VuZCI6ICJmZmYifV1dXX1dLCB7fV0sIFsiZW5jb2RlIiwgWyIucG5nIl0sIHsiZHBpIjogMzAwfV0sIFsicmVzaXplIiwgWzE2MjRdLCB7fV0sIFsib3ZlcmxheSIsIFsidGhyZWFkbGVzcy1tZWRpYS9hcnRpc3Rfc2hvcHMvb3ZlcmxheXMvMTlmMTQ5MTQ2YmM5NjAxNjIwOGUwMTEwMDllMjlmMzcvZnJvbnQtMTQ3MzI3NTc1Mi05ODgzZWZkYmI4MGNlOTg4N2JjZTlkYWZjZWVmOWE0Zi5wbmciXSwgeyJ5IjogMzkxLCAieCI6IDE4OCwgImJhY2tncm91bmQiOiAiZmZmZmZmIn1dLCBbInJlc2l6ZSIsIFs4MDBdLCB7fV0sIFsiY2FudmFzX2NlbnRlcmVkIiwgWzgwMCwgODAwLCAiI2ZmZmZmZiJdLCB7fV0sIFsiZW5jb2RlIiwgWyJqcGciLCA4NV0sIHt9XV19" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ebcd46cf0fa1b6e220460c70c0f5098f</div>
+  <div class="caption">&quot;Sequential stages of {Animal} performing a {Movement/Action} captured in multiple frames.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f79ae4c5a1e8a4e09ab0ee4d21a5949e" data-family="temporal_transformation">
+  <a href="https://rlv.zcache.ca/happy_dancing_ballerina_frog_stickers-rb66f388ad4754ea49cf97da9788b8e8f_v9wf3_8byvr_324.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://rlv.zcache.ca/happy_dancing_ballerina_frog_stickers-rb66f388ad4754ea49cf97da9788b8e8f_v9wf3_8byvr_324.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f79ae4c5a1e8a4e09ab0ee4d21a5949e</div>
+  <div class="caption">&quot;Illustration of a {Animal} transformed into a ballerina wearing a {Color} tutu.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e25ae60165a0d8ae2654a4c7e7593e1d" data-family="temporal_transformation">
+  <a href="http://up.gc-img.net/post_img_web/2014/09/1dff839b9a248660aed9ddb9c016870d_169.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="http://up.gc-img.net/post_img_web/2014/09/1dff839b9a248660aed9ddb9c016870d_169.jpeg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e25ae60165a0d8ae2654a4c7e7593e1d</div>
+  <div class="caption">A creative representation of {Drawing} transformed into a 3D model that captures the intricacies of its design.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e742f78a53593c510714931bd905da0e" data-family="temporal_transformation">
+  <a href="https://img0.etsystatic.com/050/0/5948641/il_340x270.663499690_kx7h.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img0.etsystatic.com/050/0/5948641/il_340x270.663499690_kx7h.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e742f78a53593c510714931bd905da0e</div>
+  <div class="caption">Creative use of {Creative Destruction} to transform {Artwork} into something new by merging {Style/Theme} and {Original Work}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fccb407244818cb4573be8075adedc73" data-family="temporal_transformation">
+  <a href="https://www.interestinginsects.com/static/img/butterfly-hatching-730.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.interestinginsects.com/static/img/butterfly-hatching-730.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fccb407244818cb4573be8075adedc73</div>
+  <div class="caption">A comprehensive portrayal of the {Living Organism}&#x27;s metamorphosis from its initial stage to its mature form through various transitional phases.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f41f67aa3787532b46e443f246f14db8" data-family="temporal_transformation">
+  <a href="http://vivalaresolucion.com/inspiration/wp-content/uploads/2013/03/nude-men-hats-000-500x636.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://vivalaresolucion.com/inspiration/wp-content/uploads/2013/03/nude-men-hats-000-500x636.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f41f67aa3787532b46e443f246f14db8</div>
+  <div class="caption">Innovative use of {Headdress} to transform {Hair Style} into an expressive and artistic display.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e7e7828a4b07187aba77f03aab4ae602" data-family="temporal_transformation">
+  <a href="https://www.wowwalldecals.com.au/wp-content/uploads/2013/12/Banksy-Flower-thrower.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.wowwalldecals.com.au/wp-content/uploads/2013/12/Banksy-Flower-thrower.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e7e7828a4b07187aba77f03aab4ae602</div>
+  <div class="caption">Creative portrayals of {Object} being repurposed or transformed into something unexpected or strikingly different.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e8f4e38cd53c9bd83b365b866d87b1f8" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/lightwise/lightwise1512/lightwise151200098/49949639-creative-communication-solution-and-clever-marketing-ideas-through-distribution-as-an-open-lightbulb.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/lightwise/lightwise1512/lightwise151200098/49949639-creative-communication-solution-and-clever-marketing-ideas-through-distribution-as-an-open-lightbulb.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e8f4e38cd53c9bd83b365b866d87b1f8</div>
+  <div class="caption">Creative depiction of {Object} transforming into a representation of {Concept}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fe92e3d6712d94c4c0a086adc11c75b8" data-family="temporal_transformation">
+  <a href="https://myrepublica.nagariknetwork.com/media/cache/nagarik_thumbnail_458_364/uploads/media/2018/September/Alzheimer%20Trees.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://myrepublica.nagariknetwork.com/media/cache/nagarik_thumbnail_458_364/uploads/media/2018/September/Alzheimer%20Trees.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fe92e3d6712d94c4c0a086adc11c75b8</div>
+  <div class="caption">Visual representation of the {Season} cycle with {Tree} in various stages of {Leaves} and {Color}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f8e8a1117767702a725d9592537ec88c" data-family="temporal_transformation">
+  <a href="https://mikeshouts.com/wp-content/uploads/2013/06/Burger-King-Hands-Free-Whopper-Tattoo-Artist.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://mikeshouts.com/wp-content/uploads/2013/06/Burger-King-Hands-Free-Whopper-Tattoo-Artist.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f8e8a1117767702a725d9592537ec88c</div>
+  <div class="caption">Innovative use of {Object} as a microphone for {Person}, transforming {Food} into something unique and amusing.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e310f92875404ecedbad5f489061d358" data-family="temporal_transformation">
+  <a href="https://technabob.com/blog/wp-content/uploads/2011/11/circuit_board_toilet_3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://technabob.com/blog/wp-content/uploads/2011/11/circuit_board_toilet_3.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e310f92875404ecedbad5f489061d358</div>
+  <div class="caption">Artistic transformation of {Object} into functional toilets using repurposed {Materials}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f83a6f680dc5160b8bc6d48a162eb382" data-family="temporal_transformation">
+  <a href="https://render.fineartamerica.com/images/rendered/medium/phone-case/iphone5/images/artworkimages/medium/1/the-construction-of-the-mount-rushmore-national-memorial-detail-of-george-washington-american-school.jpg?&amp;targetx=-40&amp;targety=0&amp;imagewidth=425&amp;imageheight=579&amp;modelwidth=344&amp;modelheight=589&amp;backgroundcolor=9C8D71&amp;orientation=0&amp;producttype=iphone5" target="_blank" rel="noopener"><img loading="lazy" src="https://render.fineartamerica.com/images/rendered/medium/phone-case/iphone5/images/artworkimages/medium/1/the-construction-of-the-mount-rushmore-national-memorial-detail-of-george-washington-american-school.jpg?&amp;targetx=-40&amp;targety=0&amp;imagewidth=425&amp;imageheight=579&amp;modelwidth=344&amp;modelheight=589&amp;backgroundcolor=9C8D71&amp;orientation=0&amp;producttype=iphone5" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f83a6f680dc5160b8bc6d48a162eb382</div>
+  <div class="caption">The construction process of {Statue} is revealed through the gradual addition of {Details}, culminating in a {Theme}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fbaf5a949e7b6290fa839c068006442c" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/concordcollections/concordcollections1506/concordcollections150602660/40752547-stilettos-dressed-up-for-the-holiday-season-what-a-wonderful-christmas-tree-for-the-shoe-lover.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/concordcollections/concordcollections1506/concordcollections150602660/40752547-stilettos-dressed-up-for-the-holiday-season-what-a-wonderful-christmas-tree-for-the-shoe-lover.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fbaf5a949e7b6290fa839c068006442c</div>
+  <div class="caption">A pyramid made up of progressively fewer {Objects}, with one unique {Object} standing out at the top.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="df27384588c880bdb77465f94f505018" data-family="temporal_transformation">
+  <a href="https://www.gannett-cdn.com/-mm-/0335bfe57063c39ce3389d23369403537b759126/c=277-0-5051-3591/local/-/media/Indianapolis/Indianapolis/2014/08/05/1407244205000-TS-Nic6358430.jpg?width=540&amp;height=405&amp;fit=crop" target="_blank" rel="noopener"><img loading="lazy" src="https://www.gannett-cdn.com/-mm-/0335bfe57063c39ce3389d23369403537b759126/c=277-0-5051-3591/local/-/media/Indianapolis/Indianapolis/2014/08/05/1407244205000-TS-Nic6358430.jpg?width=540&amp;height=405&amp;fit=crop" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">df27384588c880bdb77465f94f505018</div>
+  <div class="caption">Images showing {Person} standing in front of a {Damaged Object} to highlight the contrast between {Broken/Decommissioned Item} and {New/Functional Element}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ec43d28d38b128775b44c529fbf2818e" data-family="temporal_transformation">
+  <a href="http://2.bp.blogspot.com/_Dan11Nil7Vs/TI286uGI9PI/AAAAAAAA9BE/aX2toJjIYLc/s400/139-keyhole-oxford-2010-02-18.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://2.bp.blogspot.com/_Dan11Nil7Vs/TI286uGI9PI/AAAAAAAA9BE/aX2toJjIYLc/s400/139-keyhole-oxford-2010-02-18.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ec43d28d38b128775b44c529fbf2818e</div>
+  <div class="caption">Imaginative integration of {Object} into the environment, transforming regular surfaces like {Surface} into engaging scenes or designs.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f0f031b6bf5c5bc9b6e83de21c9a7718" data-family="temporal_transformation">
+  <a href="http://images.dailystar.co.uk/dynamic/1/photos/165000/620x/dogspider-414502.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://images.dailystar.co.uk/dynamic/1/photos/165000/620x/dogspider-414502.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f0f031b6bf5c5bc9b6e83de21c9a7718</div>
+  <div class="caption">Transformed into a {Animal} costume using {Dog}, {Cat}, or {Human}, wearing an outfit featuring {Vegetable}, {Plant}, or {Nature-Inspired Theme}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e1dbf3eab07b7298909e28ef24697459" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/antrey/antrey1008/antrey100800005/7689794-team-of-ants-constructing-wooden-house-with-matches.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/antrey/antrey1008/antrey100800005/7689794-team-of-ants-constructing-wooden-house-with-matches.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e1dbf3eab07b7298909e28ef24697459</div>
+  <div class="caption">The collaborative effort of {Living Organisms} results in the construction of a {Structure}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="defcc627caf22fff508f2347bfc44f9e" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/ponsulak/ponsulak1204/ponsulak120400035/13172231-hand-holding-eco-car-icon-isolate-on-green-background.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/ponsulak/ponsulak1204/ponsulak120400035/13172231-hand-holding-eco-car-icon-isolate-on-green-background.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">defcc627caf22fff508f2347bfc44f9e</div>
+  <div class="caption">A {Vehicle} transformed with real {Grass} to portray a natural and eco-friendly design.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ec791918a8cbd2b9b06a5563802e4def" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/vsviridova/vsviridova2006/vsviridova200600061/150380916-pink-summer-peony-flowers-peep-out-from-circles-cut-out-in-paper-.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/vsviridova/vsviridova2006/vsviridova200600061/150380916-pink-summer-peony-flowers-peep-out-from-circles-cut-out-in-paper-.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ec791918a8cbd2b9b06a5563802e4def</div>
+  <div class="caption">The visual journey of {Flower} from its initial {Bud} stage through the lens of time, displayed on a {Colorful Background}</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e25d512d2e401f9069a44b60a233ced9" data-family="temporal_transformation">
+  <a href="https://img.caixin.com/2018-11-21/1542786522700380_480w.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img.caixin.com/2018-11-21/1542786522700380_480w.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e25d512d2e401f9069a44b60a233ced9</div>
+  <div class="caption">The {Event} unfolds as the {Object} transitions through phases of {Stage 1}, {Stage 2}, {Stage 3}, concluding at {Stage 4}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e8d37877887b8d3593564b1098a93809" data-family="temporal_transformation">
+  <a href="https://ih1.redbubble.net/image.337016341.3988/pp%2C370x410-pad%2C420x460%2Cf8f8f8.lite-1u2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://ih1.redbubble.net/image.337016341.3988/pp%2C370x410-pad%2C420x460%2Cf8f8f8.lite-1u2.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e8d37877887b8d3593564b1098a93809</div>
+  <div class="caption">Artistic illustration of {Folliage} or {Flowers} growing directly from a {Bare Hand}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f13b2aeb30cbce7ac8b1c5c3ea5353b6" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/hadkhanong/hadkhanong1610/hadkhanong161000010/66538459-drawing-of-set-of-monkey-head-with-pattern-for-coloring-on-white-background.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/hadkhanong/hadkhanong1610/hadkhanong161000010/66538459-drawing-of-set-of-monkey-head-with-pattern-for-coloring-on-white-background.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f13b2aeb30cbce7ac8b1c5c3ea5353b6</div>
+  <div class="caption">A step-by-step illustration of creating a detailed {Subject} with evolving {Details} and refined {Colors}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f189730a8f95482f5a39481527d33c4b" data-family="temporal_transformation">
+  <a href="https://www.watchmundi.com/wp-content/uploads/2016/03/RL-CRAFT_8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.watchmundi.com/wp-content/uploads/2016/03/RL-CRAFT_8.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f189730a8f95482f5a39481527d33c4b</div>
+  <div class="caption">&quot;Repurposed {Automotive Parts} transformed into unique {Furniture Items} with creative designs.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="edf49c1d3700ae45c4edb90a72e3f2fd" data-family="temporal_transformation">
+  <a href="https://media-cldnry.s-nbcnews.com/image/upload/t_today-inline-large,f_auto,q_auto:best/streams/2013/September/130923/4B9114263-tdy-130922-fey-poehler-2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://media-cldnry.s-nbcnews.com/image/upload/t_today-inline-large,f_auto,q_auto:best/streams/2013/September/130923/4B9114263-tdy-130922-fey-poehler-2.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">edf49c1d3700ae45c4edb90a72e3f2fd</div>
+  <div class="caption">&quot;Performers interacting creatively with {Object} on stage during a performance or presentation.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e497e002fe76ac863ef7f3bc75037e46" data-family="temporal_transformation">
+  <a href="https://www.trinketsinbloom.com/wp-content/uploads/2012/10/halloween-sunglasses-diy-spider-photo.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.trinketsinbloom.com/wp-content/uploads/2012/10/halloween-sunglasses-diy-spider-photo.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e497e002fe76ac863ef7f3bc75037e46</div>
+  <div class="caption">Creative use of {Object} to transform ordinary {Wear} into eye-catching and imaginative designs.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e33d1cff5d724d560ae0ecc670ebe5eb" data-family="temporal_transformation">
+  <a href="https://nextnature.net/media/pages/magazine/story/2016/bees-rescue-queen/b3fac117ba-1602632754/queen-bee-in-car1-868x486.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://nextnature.net/media/pages/magazine/story/2016/bees-rescue-queen/b3fac117ba-1602632754/queen-bee-in-car1-868x486.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e33d1cff5d724d560ae0ecc670ebe5eb</div>
+  <div class="caption">A {Vehicle} overtaken by a massive cluster of {Living Organisms}, causing damage or obstruction.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ea7b03b0dcb5c34801ee6885b6d9d008" data-family="temporal_transformation">
+  <a href="https://cdn.shopify.com/s/files/1/0029/8962/products/51dy-Mp84zL_500x467.jpg?v=1569197120" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0029/8962/products/51dy-Mp84zL_500x467.jpg?v=1569197120" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ea7b03b0dcb5c34801ee6885b6d9d008</div>
+  <div class="caption">Unique designs of {Food Items} transformed into creative representations of {Animals}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f86c79e025d2cd6d26aadd23ad1ad4f0" data-family="temporal_transformation">
+  <a href="http://wonderfulspaniels.com/img/working_clumber_spaniel_dog_puppy_cirencester.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://wonderfulspaniels.com/img/working_clumber_spaniel_dog_puppy_cirencester.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f86c79e025d2cd6d26aadd23ad1ad4f0</div>
+  <div class="caption">A {Dog Breed} puppy in a {Flower Pot}, surrounded by lush greenery and blooms.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f2d785b0fa20e775606804d95af002b7" data-family="temporal_transformation">
+  <a href="https://img.freepik.com/free-photo/side-view-shirtless-hip-hop-dancers-mid-air_23-2148497000.jpg?size=626&amp;ext=jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img.freepik.com/free-photo/side-view-shirtless-hip-hop-dancers-mid-air_23-2148497000.jpg?size=626&amp;ext=jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f2d785b0fa20e775606804d95af002b7</div>
+  <div class="caption">Sequential shots of {Subject} moving, illustrating the progression from {Starting Position} to {Ending Position}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f67b333a9c4d51feed5060a33cf807b1" data-family="temporal_transformation">
+  <a href="https://www.boredpanda.com/blog/wp-content/uploads/2017/04/268927_2243869856197_7884091_n-590307863de1b__700.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.boredpanda.com/blog/wp-content/uploads/2017/04/268927_2243869856197_7884091_n-590307863de1b__700.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f67b333a9c4d51feed5060a33cf807b1</div>
+  <div class="caption">A side-by-side comparison showing the transformation of {Person} over time in {Setting}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f5f806cf53e70710185f6cdf973be2e0" data-family="temporal_transformation">
+  <a href="http://i1.wp.com/www.fiz-x.com/wp-content/uploads/2015/06/laura-jenkinson-lip-art-19-595x328.jpg?resize=595%2C328" target="_blank" rel="noopener"><img loading="lazy" src="http://i1.wp.com/www.fiz-x.com/wp-content/uploads/2015/06/laura-jenkinson-lip-art-19-595x328.jpg?resize=595%2C328" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f5f806cf53e70710185f6cdf973be2e0</div>
+  <div class="caption">Innovative makeup art transforming {Lip Area} into detailed depictions of {Characters} or {Objects}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="df48baa3f543c48783ba87e3e66a193d" data-family="temporal_transformation">
+  <a href="https://assets.plainpicture.com/public-a9e/images/medium/med-p1231m2230378.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://assets.plainpicture.com/public-a9e/images/medium/med-p1231m2230378.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">df48baa3f543c48783ba87e3e66a193d</div>
+  <div class="caption">A {Plant} sprouts from an unexpected place, growing among {Material}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f41ac21551cb8998368b4b179f806091" data-family="temporal_transformation">
+  <a href="https://dkorhome.com/wp-content/uploads/2019/12/Holiday-Christmas-Gift-Wrap-Ideas-07-2-1080x675.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://dkorhome.com/wp-content/uploads/2019/12/Holiday-Christmas-Gift-Wrap-Ideas-07-2-1080x675.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f41ac21551cb8998368b4b179f806091</div>
+  <div class="caption">A creative use of {Folding Technique} to transform {Tablecloth} into imaginative shapes like {Object}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="dfee6df24644c621a8b4d7edb87c8932" data-family="temporal_transformation">
+  <a href="https://i.pinimg.com/736x/d2/99/b3/d299b3fc967c0b5d9a02ddea9d1787a8--skeleton-face-makeup-half-face-halloween-makeup.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/d2/99/b3/d299b3fc967c0b5d9a02ddea9d1787a8--skeleton-face-makeup-half-face-halloween-makeup.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">dfee6df24644c621a8b4d7edb87c8932</div>
+  <div class="caption">Creative transformation of {Drawing} into a realistic {Scene/Character} through detailed {Features} and {Details}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="dfb41291fbeadbd4758f43025a890daa" data-family="temporal_transformation">
+  <a href="https://images.assetsdelivery.com/thumbnails/lightwise/lightwise1506/lightwise150600053.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://images.assetsdelivery.com/thumbnails/lightwise/lightwise1506/lightwise150600053.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">dfb41291fbeadbd4758f43025a890daa</div>
+  <div class="caption">Visual representation of {Object} growing deep into the earth, emphasizing strength and stability.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fc9693ff219573b2f67af611a25407dd" data-family="temporal_transformation">
+  <a href="https://artsreview.com.au/wp-content/uploads/2019/06/Georges-M%c3%a9li%c3%a8s-A-Trip-to-the-Moon-Le-voyage-dans-la-Lune-1902-ACMI.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://artsreview.com.au/wp-content/uploads/2019/06/Georges-M%c3%a9li%c3%a8s-A-Trip-to-the-Moon-Le-voyage-dans-la-Lune-1902-ACMI.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fc9693ff219573b2f67af611a25407dd</div>
+  <div class="caption">Visuals of {Celestial Object} transformed into human-like faces with expressive features and {Object} as part of their likenesses.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f7efea9195c25c1acac691d7409327e8" data-family="temporal_transformation">
+  <a href="https://www.womenfitness.net/wp/wp-content/uploads/2017/11/Sledding-Penguins-Frozen-Banana-Snack-1-e1511601057465.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.womenfitness.net/wp/wp-content/uploads/2017/11/Sledding-Penguins-Frozen-Banana-Snack-1-e1511601057465.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f7efea9195c25c1acac691d7409327e8</div>
+  <div class="caption">Transforming {Fruit} into adorable {Animal Characters} using creative arrangements of {Eating Utensil}, {Dessert}, and {Ingredients}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e6f26083e269e6126a0eb4bc0bdb92da" data-family="temporal_transformation">
+  <a href="https://render.fineartamerica.com/images/rendered/search/poster/images-medium-5/17-butterflies-english-school.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://render.fineartamerica.com/images/rendered/search/poster/images-medium-5/17-butterflies-english-school.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e6f26083e269e6126a0eb4bc0bdb92da</div>
+  <div class="caption">Illustration of the life cycle progression of a {Insect}, highlighting the metamorphosis stages: {Egg}, {Larva}, {Pupa}, {Adult}</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f17729c9a6c4688a8098e657c391c41a" data-family="temporal_transformation">
+  <a href="https://s3.amazonaws.com/files.collageplatform.com.prod/image_cache/472x472_fit/5785309687aa2ca4012b681e/b7018d00b05f710b8557d32b33911e0e.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="https://s3.amazonaws.com/files.collageplatform.com.prod/image_cache/472x472_fit/5785309687aa2ca4012b681e/b7018d00b05f710b8557d32b33911e0e.jpeg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f17729c9a6c4688a8098e657c391c41a</div>
+  <div class="caption">Artwork depicting {Flower} in a state of decay or fire, representing the end of its life cycle.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ff91a7e584d57fb1c89de11698a753dc" data-family="temporal_transformation">
+  <a href="https://i.pinimg.com/736x/c0/96/fb/c096fb1a66b01d2d3582722d28634f8a--bonsai-trees-bonsai-art.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/c0/96/fb/c096fb1a66b01d2d3582722d28634f8a--bonsai-trees-bonsai-art.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ff91a7e584d57fb1c89de11698a753dc</div>
+  <div class="caption">Artistic designs where {Tree} are transformed into elaborate {Structures} or {Figures}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f6e85cf7c0f1d240c9fde48fa440eb77" data-family="temporal_transformation">
+  <a href="http://tse2.mm.bing.net/th?id=OIP.xOe9UnFZdDtUv1nyrK3znQHaIG" target="_blank" rel="noopener"><img loading="lazy" src="http://tse2.mm.bing.net/th?id=OIP.xOe9UnFZdDtUv1nyrK3znQHaIG" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f6e85cf7c0f1d240c9fde48fa440eb77</div>
+  <div class="caption">Innovative furniture designs that seamlessly transform into practical {Seating} or {Storage} solutions.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f3b329bb0ecea41b0cb62233739090e0" data-family="temporal_transformation">
+  <a href="https://thumbnails.yayimages.com/f/f6/f0f6e68.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://thumbnails.yayimages.com/f/f6/f0f6e68.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f3b329bb0ecea41b0cb62233739090e0</div>
+  <div class="caption">Visual representation of {People} climbing {Ladders} to reach {Goals}, with some {Stages} or {Levels} on the way.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f81ed348f2ba9ddc5160b20f097adb6d" data-family="temporal_transformation">
+  <a href="https://greenword.ru/images/insect-eggs/insect-eggs01.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://greenword.ru/images/insect-eggs/insect-eggs01.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f81ed348f2ba9ddc5160b20f097adb6d</div>
+  <div class="caption">A visual representation of {Food Item} creatively transformed into an artistic depiction of {Animal}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fe49aaa60e6b4b13b7a2d795a033f8f7" data-family="temporal_transformation">
+  <a href="https://photos.smugmug.com/photos/i-6vVk9Db/1/L/i-6vVk9Db-L.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://photos.smugmug.com/photos/i-6vVk9Db/1/L/i-6vVk9Db-L.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fe49aaa60e6b4b13b7a2d795a033f8f7</div>
+  <div class="caption">Step-by-step visual representation of the {Subject} performing a {Action}, showing gradual progression from {Starting Position} to {Ending Position}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f11462ba3873751b379c3a5250bcf124" data-family="temporal_transformation">
+  <a href="https://img.designswan.com/2018/05/bananaSkin/4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img.designswan.com/2018/05/bananaSkin/4.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f11462ba3873751b379c3a5250bcf124</div>
+  <div class="caption">Imaginative designs featuring {Fruit} transformed into various {Animals}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fb12fc664535c2d5e5b54884dd2376ed" data-family="temporal_transformation">
+  <a href="https://i.pinimg.com/736x/6c/4d/aa/6c4daa3e47f0ac06dc7bcbfdafc56eb8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/6c/4d/aa/6c4daa3e47f0ac06dc7bcbfdafc56eb8.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fb12fc664535c2d5e5b54884dd2376ed</div>
+  <div class="caption">&quot;Creative integration of {Object} designed to seamlessly transform from a hidden storage space to a functional {Item/Feature} when activated.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e029a13646459f6abff2aeeafcf1af32" data-family="temporal_transformation">
+  <a href="https://machohairstyles.com/wp-content/uploads/2016/01/Haircut-Designs-for-Men-36-650x575.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://machohairstyles.com/wp-content/uploads/2016/01/Haircut-Designs-for-Men-36-650x575.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e029a13646459f6abff2aeeafcf1af32</div>
+  <div class="caption">Creative hair designs that transform {Hair} into artistic {Patterns} or {Shapes}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="df3d12e5c87e8438665b166b37a72fa1" data-family="temporal_transformation">
+  <a href="https://lumiere-a.akamaihd.net/v1/images/pt_disneymagicmoments_learntosketchwickettheewok_20003_89bad6ca.jpeg?region=0,0,600,450" target="_blank" rel="noopener"><img loading="lazy" src="https://lumiere-a.akamaihd.net/v1/images/pt_disneymagicmoments_learntosketchwickettheewok_20003_89bad6ca.jpeg?region=0,0,600,450" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">df3d12e5c87e8438665b166b37a72fa1</div>
+  <div class="caption">&quot;Step-by-step drawing process of a {Character} with progressive refinement of {Features} and final touches for {Details}.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ea3554ef9b4b20e1a6d8499c8b48b80d" data-family="temporal_transformation">
+  <a href="https://www.sandinyoureye.co.uk/files/bnrs/Animated_Sand_Drawing.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.sandinyoureye.co.uk/files/bnrs/Animated_Sand_Drawing.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ea3554ef9b4b20e1a6d8499c8b48b80d</div>
+  <div class="caption">The transformation of {Sand} into intricate {Artwork} through the creative use of {Tool}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e8f1b35d8e5f8f1bdc6acb0d457b06d7" data-family="temporal_transformation">
+  <a href="https://cdn.i.haymarketmedia.asia/?n=campaign-asia%2fcontent%2fC_hJq7YVwAEPOGx.jpg&amp;amp;h=268&amp;amp;w=401&amp;amp;q=100&amp;amp;v=20170226&amp;amp;c=1" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.i.haymarketmedia.asia/?n=campaign-asia%2fcontent%2fC_hJq7YVwAEPOGx.jpg&amp;amp;h=268&amp;amp;w=401&amp;amp;q=100&amp;amp;v=20170226&amp;amp;c=1" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e8f1b35d8e5f8f1bdc6acb0d457b06d7</div>
+  <div class="caption">The body of a {Animal} is transformed into a resting place for discarded {Objects}, illustrating the negative consequences of {Pollution}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fa51fe8ae23bf1cb85a9dd85963feed4" data-family="temporal_transformation">
+  <a href="https://cdn.shopify.com/s/files/1/2423/6435/products/2191_VintageRug1_300x.jpg?v=1578277853" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/2423/6435/products/2191_VintageRug1_300x.jpg?v=1578277853" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fa51fe8ae23bf1cb85a9dd85963feed4</div>
+  <div class="caption">&quot;Creative use of {Object} to transform {Surface} into an artistic or functional design in outdoor settings.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e00ea9fb1e6562e5cf38bc271c85f1be" data-family="temporal_transformation">
+  <a href="http://3.bp.blogspot.com/_qzdLBkjtR64/TREU29koFhI/AAAAAAAACbY/3WX7sWTcXYs/s1600/Lunar+Eclipse+2010+Pictures.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://3.bp.blogspot.com/_qzdLBkjtR64/TREU29koFhI/AAAAAAAACbY/3WX7sWTcXYs/s1600/Lunar+Eclipse+2010+Pictures.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e00ea9fb1e6562e5cf38bc271c85f1be</div>
+  <div class="caption">The stages of the {Celestial Body}&#x27;s phase transition in its orbit around the {Sun}, depicted step by step.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ff31f8880d7557753d925410db8675e8" data-family="temporal_transformation">
+  <a href="https://dbdzm869oupei.cloudfront.net/img/sticker/large/5306.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://dbdzm869oupei.cloudfront.net/img/sticker/large/5306.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ff31f8880d7557753d925410db8675e8</div>
+  <div class="caption">Creative use of {Drawing} to transform everyday {Object} into whimsical {Characters} or {Scenes}</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f7eb6d3ae6af92e3dae07efee9f4fc1a" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/ghenadie/ghenadie1602/ghenadie160200057/52215667-hand-drawn-tree-with-curly-twigs-with-musical-notes-and-signs-as-leaves-and-flowers-abstract-concept.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/ghenadie/ghenadie1602/ghenadie160200057/52215667-hand-drawn-tree-with-curly-twigs-with-musical-notes-and-signs-as-leaves-and-flowers-abstract-concept.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f7eb6d3ae6af92e3dae07efee9f4fc1a</div>
+  <div class="caption">Creative illustration of {Tree} with leaves transformed into {Symbolic Elements}, representing {Concepts} in a decorative design.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e70508b53a7ac190c46c5105b4a0d676" data-family="temporal_transformation">
+  <a href="https://media.istockphoto.com/vectors/four-seasons-trees-vector-vector-id625626716?k=6&amp;m=625626716&amp;s=612x612&amp;w=0&amp;h=7HKeCqR8GqGm0l3pUHlHjNpeYNi6G4tAZnRstVBtGAc=" target="_blank" rel="noopener"><img loading="lazy" src="https://media.istockphoto.com/vectors/four-seasons-trees-vector-vector-id625626716?k=6&amp;m=625626716&amp;s=612x612&amp;w=0&amp;h=7HKeCqR8GqGm0l3pUHlHjNpeYNi6G4tAZnRstVBtGAc=" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e70508b53a7ac190c46c5105b4a0d676</div>
+  <div class="caption">The life cycle of {Tree}, depicted through its changes in {Leaves} and {Bloom}, spanning {Seasons}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ead9a813f8453642e650e3da173d21a7" data-family="temporal_transformation">
+  <a href="https://fineartamerica.com/renderer/renderer.php?imgUrl=http://fineartamerica.com/images-medium/flower-in-asphalt-carlos-caetano.jpg&amp;imgWI=8.00&amp;imgHI=5.38&amp;sku=111MBLK&amp;mat1=PM3297&amp;mat2=&amp;t=2&amp;b=2&amp;l=2&amp;r=2&amp;off=0.5&amp;paper=paper2&amp;finish=ca18&amp;mounttype=&amp;gallerywrap=&amp;frameW=0.375&amp;maxW=500&amp;maxH=700&amp;&amp;img=1394239355-42c1a06eede93b5d066c816d63e0e727.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://fineartamerica.com/renderer/renderer.php?imgUrl=http://fineartamerica.com/images-medium/flower-in-asphalt-carlos-caetano.jpg&amp;imgWI=8.00&amp;imgHI=5.38&amp;sku=111MBLK&amp;mat1=PM3297&amp;mat2=&amp;t=2&amp;b=2&amp;l=2&amp;r=2&amp;off=0.5&amp;paper=paper2&amp;finish=ca18&amp;mounttype=&amp;gallerywrap=&amp;frameW=0.375&amp;maxW=500&amp;maxH=700&amp;&amp;img=1394239355-42c1a06eede93b5d066c816d63e0e727.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ead9a813f8453642e650e3da173d21a7</div>
+  <div class="caption">&quot;Image of a {Flower} growing through a crack in {Surface}, symbolizing resilience and growth.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f7de5a73f02242ef884cbedc730fc431" data-family="temporal_transformation">
+  <a href="https://www.ctshirts.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dw353a6f2a/images/product-features/pdp-content_fit-shirt-formal-slim.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.ctshirts.com/on/demandware.static/-/Library-Sites-CTShirtsSharedLibrary/default/dw353a6f2a/images/product-features/pdp-content_fit-shirt-formal-slim.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f7de5a73f02242ef884cbedc730fc431</div>
+  <div class="caption">An illustration of the {Clothing Item} design process, showing the transformation from a solid shape to a detailed design with highlighted {Details} and {Colors}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fec87a396c84ae84934b3c3adb213f1a" data-family="temporal_transformation">
+  <a href="http://render.fineartamerica.com/images/rendered/medium/greeting-card/images-medium-5/melon-mountain-dreams.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://render.fineartamerica.com/images/rendered/medium/greeting-card/images-medium-5/melon-mountain-dreams.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fec87a396c84ae84934b3c3adb213f1a</div>
+  <div class="caption">A detailed botanical illustration of a {Fruit}, showcasing the {Leaves}, {Flowers}, {Buds}, and {Seeds} in different stages of development.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ebac1fa6dbb909ec05dc592dc21cfc56" data-family="temporal_transformation">
+  <a href="https://blog.fotografium.com/wp-content/uploads/2015/04/A-moonrise-in-Los-Angeles.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://blog.fotografium.com/wp-content/uploads/2015/04/A-moonrise-in-Los-Angeles.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ebac1fa6dbb909ec05dc592dc21cfc56</div>
+  <div class="caption">Sequential views of {Scene} captured at different {Times} or {Stages}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ea030dcdd67e0e7fb9318971c2043de8" data-family="temporal_transformation">
+  <a href="http://cdn.trendhunterstatic.com/thumbs/art-illustration-graphic-design.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="http://cdn.trendhunterstatic.com/thumbs/art-illustration-graphic-design.jpeg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ea030dcdd67e0e7fb9318971c2043de8</div>
+  <div class="caption">Visual representation of the evolution from {Animal} to {Human}, showing the transformation through stages of {Era/Environment}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f4b4d6d412c1dba6f78318fad742e25f" data-family="temporal_transformation">
+  <a href="https://avalon.fabiosacdn.com/image/b24ed4a8-a686-4bbe-85b2-5133e43da244.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://avalon.fabiosacdn.com/image/b24ed4a8-a686-4bbe-85b2-5133e43da244.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f4b4d6d412c1dba6f78318fad742e25f</div>
+  <div class="caption">&quot;Miniature {Figures} placed on symbolic {Objects} to represent concepts such as {Challenges}, {Success}, or {Growth}&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f6de45c33264043c3a8abb535e86c278" data-family="temporal_transformation">
+  <a href="https://medellinstyle.com/wp-content/uploads/Supermoon_Total_Lunar_Eclipse_A-4078a949cbfd36a3cad6125400e36f51.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://medellinstyle.com/wp-content/uploads/Supermoon_Total_Lunar_Eclipse_A-4078a949cbfd36a3cad6125400e36f51.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f6de45c33264043c3a8abb535e86c278</div>
+  <div class="caption">The gradual transformation of {Celestial Body/Moon/Phenomenon} through its phases, depicted at various stages of {Cycle/Rotation}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e32375b065a3634728f392166f77f170" data-family="temporal_transformation">
+  <a href="https://assets.plainpicture.com/public-c82/images/medium/med-p300m2198177.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://assets.plainpicture.com/public-c82/images/medium/med-p300m2198177.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e32375b065a3634728f392166f77f170</div>
+  <div class="caption">The process of transforming a {Model} into a {Sculpture} through gradual refinement and artistic expression.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e8f4010c40d60d3baead26f7c049187f" data-family="temporal_transformation">
+  <a href="https://photos.smugmug.com/ARCHIVE/TRASH/Objects/i-sXJ7F2q/0/173a40a1/M/20200904-1108-20200904-1108-P9044836-s-M.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://photos.smugmug.com/ARCHIVE/TRASH/Objects/i-sXJ7F2q/0/173a40a1/M/20200904-1108-20200904-1108-P9044836-s-M.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e8f4010c40d60d3baead26f7c049187f</div>
+  <div class="caption">A {Material} is being added to a growing pile against a {Background}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f539d91d06b1fb55f2c2f2a76bd3cfde" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/fonafona/fonafona1804/fonafona180400025/99481226-surrealistische-liebe-idee-oder-konzept-salvador-dali-ikone-der-liebe-weiches-rotes-herz-mit-kleinen.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/fonafona/fonafona1804/fonafona180400025/99481226-surrealistische-liebe-idee-oder-konzept-salvador-dali-ikone-der-liebe-weiches-rotes-herz-mit-kleinen.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f539d91d06b1fb55f2c2f2a76bd3cfde</div>
+  <div class="caption">Visual representation of {Plant} growing from {Ground}, symbolizing {Growth} or {Development}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ea5531b4efc7d7435ffc9ebcef32b30f" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/ivonnewierink/ivonnewierink1212/ivonnewierink121200040/16677510-dutch-sinterklaas-and-black-pete-as-mandarins-isolated-over-white-background.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/ivonnewierink/ivonnewierink1212/ivonnewierink121200040/16677510-dutch-sinterklaas-and-black-pete-as-mandarins-isolated-over-white-background.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ea5531b4efc7d7435ffc9ebcef32b30f</div>
+  <div class="caption">Unique {Fruit} creations transformed into imaginative {Characters} with personal designs and playful expressions.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e7ccba0ec69ec9ce0d665cb2eac1c745" data-family="temporal_transformation">
+  <a href="https://render.fineartamerica.com/images/rendered/medium/phone-case/iphone5/images-medium-5/deserted-linda-wride.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://render.fineartamerica.com/images/rendered/medium/phone-case/iphone5/images-medium-5/deserted-linda-wride.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e7ccba0ec69ec9ce0d665cb2eac1c745</div>
+  <div class="caption">Visuals showcasing {Object} with cracks, holes, or fragmented surfaces, revealing the inner workings or damage.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f0e492741a76fd2ed688a5ea62fcedaa" data-family="temporal_transformation">
+  <a href="https://images.squarespace-cdn.com/content/538bad56e4b0c3b633f728e7/1407735580496-1CN20NL7G0R67I20AOCX/MU036.jpg?content-type=image%2Fjpeg" target="_blank" rel="noopener"><img loading="lazy" src="https://images.squarespace-cdn.com/content/538bad56e4b0c3b633f728e7/1407735580496-1CN20NL7G0R67I20AOCX/MU036.jpg?content-type=image%2Fjpeg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f0e492741a76fd2ed688a5ea62fcedaa</div>
+  <div class="caption">Progressive motion stages of {Subject} captured in sequential images across various {Actions} or {Positions}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fd74380fbd21b18bd4274cf2317eaf8f" data-family="temporal_transformation">
+  <a href="https://ytimg.googleusercontent.com/vi/eNmtQqGedB0/hqdefault.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://ytimg.googleusercontent.com/vi/eNmtQqGedB0/hqdefault.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fd74380fbd21b18bd4274cf2317eaf8f</div>
+  <div class="caption">Illustration of how {Object} undergoes a transformation from {Condition 1} to {Condition 2} through modification or repair.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e630c221d330f91a2d595203d72f1af9" data-family="temporal_transformation">
+  <a href="https://i.pinimg.com/736x/a8/85/f5/a885f501a32bf8416777350ffe55e562.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/a8/85/f5/a885f501a32bf8416777350ffe55e562.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e630c221d330f91a2d595203d72f1af9</div>
+  <div class="caption">&quot;Creative carvings of {Fruits} transformed into intricate designs of {Objects} or {Characters}.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f795716213a6f289157bb883821c9f54" data-family="temporal_transformation">
+  <a href="https://img.izismile.com/img/img3/20100728/640/astonishing_photos_of_640_51.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img.izismile.com/img/img3/20100728/640/astonishing_photos_of_640_51.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f795716213a6f289157bb883821c9f54</div>
+  <div class="caption">Visuals showcasing {Workers} interacting with {Equipment} in construction tasks, highlighting {Action} on {Structure}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fd3eb25df042e081d4c9d7e26fccc6cd" data-family="temporal_transformation">
+  <a href="https://arimotravels.com/wp-content/uploads/2016/06/img_8998x.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://arimotravels.com/wp-content/uploads/2016/06/img_8998x.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fd3eb25df042e081d4c9d7e26fccc6cd</div>
+  <div class="caption">An eerie scene with a {Object} wearing a {Gas Mask} set against a backdrop of decayed surroundings.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fca6c9a5ec6a088112a626e92fd0c63f" data-family="temporal_transformation">
+  <a href="https://creativestarlearning.co.uk/wp-content/uploads/2014/05/Paul-Harfleet-Pansy-Project.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://creativestarlearning.co.uk/wp-content/uploads/2014/05/Paul-Harfleet-Pansy-Project.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fca6c9a5ec6a088112a626e92fd0c63f</div>
+  <div class="caption">A close-up shot of a {Flower} growing amidst {Background Elements}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e535e828d2a3be7a7d73a6547e35fcfe" data-family="temporal_transformation">
+  <a href="https://cdn.shopify.com/s/files/1/0291/0214/5580/products/WonderCaptainPawPoster_300x300.jpg?v=1595308517" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0291/0214/5580/products/WonderCaptainPawPoster_300x300.jpg?v=1595308517" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e535e828d2a3be7a7d73a6547e35fcfe</div>
+  <div class="caption">Creative illustrations of {Animal} transforming into various {Superhero Characters} in distinct {Costumes}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f4b32e325a11d0de50eec14a4b38116a" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/urfingus/urfingus1611/urfingus161100131/65517211-stock-illustration-business-concept-hand-watering-from-the-yellow-watering-can-to-the-career-ladder-in-form-of-green-pl.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/urfingus/urfingus1611/urfingus161100131/65517211-stock-illustration-business-concept-hand-watering-from-the-yellow-watering-can-to-the-career-ladder-in-form-of-green-pl.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f4b32e325a11d0de50eec14a4b38116a</div>
+  <div class="caption">Visuals of {Water} being applied to {Plant} to promote growth and vitality.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ecd65a2f8ca5a79062fb68c4622b1dad" data-family="temporal_transformation">
+  <a href="https://image1.masterfile.com/getImage/NjQ5LTA2NDAwNDY5ZW4uMDAwMDAwMDA=AO1FmN/649-06400469en_Masterfile.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://image1.masterfile.com/getImage/NjQ5LTA2NDAwNDY5ZW4uMDAwMDAwMDA=AO1FmN/649-06400469en_Masterfile.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ecd65a2f8ca5a79062fb68c4622b1dad</div>
+  <div class="caption">Illustrations of {Object} being crushed by {Action}, resulting in damage or shattering effects.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f9048df04915ad7793903182483fdebb" data-family="temporal_transformation">
+  <a href="https://static.wikia.nocookie.net/jackinthebox/images/9/96/Jack_in_the_Box_Jack_at_Burger_King_2009_Commercial/revision/latest/scale-to-width-down/300?cb=20130501042753" target="_blank" rel="noopener"><img loading="lazy" src="https://static.wikia.nocookie.net/jackinthebox/images/9/96/Jack_in_the_Box_Jack_at_Burger_King_2009_Commercial/revision/latest/scale-to-width-down/300?cb=20130501042753" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f9048df04915ad7793903182483fdebb</div>
+  <div class="caption">Visuals of {Object} transformed into human figures with {Clothing} and {Faces} presenting unique styles or characters.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f8a206e15af169b1b0ba608a9e14f757" data-family="temporal_transformation">
+  <a href="https://elanaklemm.com/wp-content/uploads/2019/11/1908.m00.i004.n022.S.c12.Love_-1-scaled.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://elanaklemm.com/wp-content/uploads/2019/11/1908.m00.i004.n022.S.c12.Love_-1-scaled.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f8a206e15af169b1b0ba608a9e14f757</div>
+  <div class="caption">Visual representation of {Relationship} transforming into {Complex Emotion} through the use of {Symbol}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e4445d7161176b4d1918937de9ac120d" data-family="temporal_transformation">
+  <a href="https://paisleyartinstitute.org/wp-content/uploads/2021/05/051-Lily_Head_by_Mark_Mulholland-410x600.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://paisleyartinstitute.org/wp-content/uploads/2021/05/051-Lily_Head_by_Mark_Mulholland-410x600.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e4445d7161176b4d1918937de9ac120d</div>
+  <div class="caption">Merged imagery of a human form with a {Flower} growing from their body.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ecbd4e3fc6fb8d0fd4b9c07c939224a3" data-family="temporal_transformation">
+  <a href="http://davistreeservices.net/wp-content/uploads/2015/06/Hedge-and-Tree-Trimming-400x284.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://davistreeservices.net/wp-content/uploads/2015/06/Hedge-and-Tree-Trimming-400x284.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ecbd4e3fc6fb8d0fd4b9c07c939224a3</div>
+  <div class="caption">The transformation of {Object} from uneven or irregular shapes into smooth, precise forms through careful shaping and attention to detail.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f512b1706b7d305a478c4ec20307f7ec" data-family="temporal_transformation">
+  <a href="http://tse3.mm.bing.net/th?id=OIP.v9wW6mEl84cJYC9pqE2QhAHaHJ" target="_blank" rel="noopener"><img loading="lazy" src="http://tse3.mm.bing.net/th?id=OIP.v9wW6mEl84cJYC9pqE2QhAHaHJ" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f512b1706b7d305a478c4ec20307f7ec</div>
+  <div class="caption">A four-panel visual capturing the {Animal} as it performs a {Action}, showing each stage of movement from {Starting Position} to {Ending Position}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ff79f005dba58277f3066de6adc4ee6a" data-family="temporal_transformation">
+  <a href="https://media.newyorker.com/photos/590979d8019dfc3494ea33cb/master/w_2560%2Cc_limit/Brody-Cinemas-Walking-Cure-02.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://media.newyorker.com/photos/590979d8019dfc3494ea33cb/master/w_2560%2Cc_limit/Brody-Cinemas-Walking-Cure-02.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ff79f005dba58277f3066de6adc4ee6a</div>
+  <div class="caption">Step-by-step progression of {Subject} performing {Action}, shown in sequential frames across multiple phases.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e3e7f20958c364134df86118ebfc9184" data-family="temporal_transformation">
+  <a href="http://1.bp.blogspot.com/_QeCUtERw-5g/TUX-mRFAUFI/AAAAAAAAAFo/qN5VNkqEeEo/s1600/Embody.org.uk.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://1.bp.blogspot.com/_QeCUtERw-5g/TUX-mRFAUFI/AAAAAAAAAFo/qN5VNkqEeEo/s1600/Embody.org.uk.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e3e7f20958c364134df86118ebfc9184</div>
+  <div class="caption">Expressive body art that transforms {Body Part} into {Flower Petals} in an artistic and organic design.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fd766ca8e65bbf2e39f3d5127da466f6" data-family="temporal_transformation">
+  <a href="https://dov5cor25da49.cloudfront.net/products/7540/470x600square-print_walls_10.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://dov5cor25da49.cloudfront.net/products/7540/470x600square-print_walls_10.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fd766ca8e65bbf2e39f3d5127da466f6</div>
+  <div class="caption">Creative illustrations depicting {Animal} transformed into different {Food} characters.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e0ad9295a29508f52d3ee3374316f570" data-family="temporal_transformation">
+  <a href="https://static.wixstatic.com/media/7ed700_b1292030be044ef5b11989655f23711b~mv2.jpg/v1/fill/w_1000,h_966,al_c,q_90,usm_0.66_1.00_0.01/7ed700_b1292030be044ef5b11989655f23711b~mv2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://static.wixstatic.com/media/7ed700_b1292030be044ef5b11989655f23711b~mv2.jpg/v1/fill/w_1000,h_966,al_c,q_90,usm_0.66_1.00_0.01/7ed700_b1292030be044ef5b11989655f23711b~mv2.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e0ad9295a29508f52d3ee3374316f570</div>
+  <div class="caption">A visual representation of how {Color} evolves from {Hue} to {Tint}, organized in a radial pattern.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f7069f97a29da3e6f946c95637a96576" data-family="temporal_transformation">
+  <a href="https://www.farglory-oceanpark.com.tw/files/images/News/cat%20toast2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.farglory-oceanpark.com.tw/files/images/News/cat%20toast2.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f7069f97a29da3e6f946c95637a96576</div>
+  <div class="caption">Artistic depictions of {Fruits} transformed into creative {Faces} on a plain background.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e50074ee4f147e47780852f4995260de" data-family="temporal_transformation">
+  <a href="https://img.izismile.com/img/img3/20100317/640/horsetail_fall_h01Zy_640_01.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img.izismile.com/img/img3/20100317/640/horsetail_fall_h01Zy_640_01.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e50074ee4f147e47780852f4995260de</div>
+  <div class="caption">Photos capturing the natural transformation of {Water} into a dramatic {Light} effect during specific times of day or weather conditions.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f295c2b0dc808d391eb5e4efb0968075" data-family="temporal_transformation">
+  <a href="http://blairjacksonart.com/wp-content/uploads/2016/02/Broken-Panes-705x457.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://blairjacksonart.com/wp-content/uploads/2016/02/Broken-Panes-705x457.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f295c2b0dc808d391eb5e4efb0968075</div>
+  <div class="caption">Images showcasing damaged or incomplete {Surface} with fragments or missing pieces exposing {Background}</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ea82d2c93bb3177ac8631119100d15e4" data-family="temporal_transformation">
+  <a href="http://4.bp.blogspot.com/-63GnkMCJZN8/Vjhx0PCsDKI/AAAAAAAAXtk/G2MAOo4syo8/s1600/Screen%2BShot%2B2015-11-03%2Bat%2B08.34.31.png" target="_blank" rel="noopener"><img loading="lazy" src="http://4.bp.blogspot.com/-63GnkMCJZN8/Vjhx0PCsDKI/AAAAAAAAXtk/G2MAOo4syo8/s1600/Screen%2BShot%2B2015-11-03%2Bat%2B08.34.31.png" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ea82d2c93bb3177ac8631119100d15e4</div>
+  <div class="caption">Creative transformations of {Blot} into representations of {Object} through artistic use of {Coffee}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ecaa7d8a1fdadef8f3220cbd6dd7451e" data-family="temporal_transformation">
+  <a href="https://cdn.wonderfuldiy.com/wp-content/uploads/2014/08/Mini-Sausage-Wreath-F1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.wonderfuldiy.com/wp-content/uploads/2014/08/Mini-Sausage-Wreath-F1.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ecaa7d8a1fdadef8f3220cbd6dd7451e</div>
+  <div class="caption">Transforming {Food Items} into artistic designs: a {Theme/Character} concept.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e9192df00459ba686773840eeb36dd1b" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/damedeeso/damedeeso1207/damedeeso120700008/14405433-dog-under-construction-with-a-helmet.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/damedeeso/damedeeso1207/damedeeso120700008/14405433-dog-under-construction-with-a-helmet.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e9192df00459ba686773840eeb36dd1b</div>
+  <div class="caption">A {Dog} working as a {Construction Worker} with {Safety Gear}, {Tools}, and {Equipment}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="eba89b0d15181c0673ce4bd685585cf2" data-family="temporal_transformation">
+  <a href="https://upload.wikimedia.org/wikipedia/commons/e/ed/Acacia_senegal_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-004.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Acacia_senegal_-_K%C3%B6hler%E2%80%93s_Medizinal-Pflanzen-004.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">eba89b0d15181c0673ce4bd685585cf2</div>
+  <div class="caption">Detailed illustration of the life cycle and key characteristics of a {Plant}, showcasing its {Roots}, {Stem/Leaves}, {Flowers}, and {Fruits/Seeds}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="df3a448728f58742dcfec65c7ac26437" data-family="temporal_transformation">
+  <a href="http://tse1.mm.bing.net/th?id=OIP.cZBbyQcno04x91zL0uMNugHaJT&amp;amp;rs=1&amp;amp;pcl=dddddd&amp;amp;o=5&amp;amp;pid=1.1" target="_blank" rel="noopener"><img loading="lazy" src="http://tse1.mm.bing.net/th?id=OIP.cZBbyQcno04x91zL0uMNugHaJT&amp;amp;rs=1&amp;amp;pcl=dddddd&amp;amp;o=5&amp;amp;pid=1.1" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">df3a448728f58742dcfec65c7ac26437</div>
+  <div class="caption">Artistic use of {Dye} to transform {Clothing} into a unique and eye-catching design.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e17b49c513602f724c6b9e3384d1c5fe" data-family="temporal_transformation">
+  <a href="https://www.servprowayne.com/FranchiseContent/NewsPhotos/10910-900ba826-de7e-4c15-af96-ad3f2ea7c494.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.servprowayne.com/FranchiseContent/NewsPhotos/10910-900ba826-de7e-4c15-af96-ad3f2ea7c494.jpeg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e17b49c513602f724c6b9e3384d1c5fe</div>
+  <div class="caption">Cleaning process with {Equipment} to restore {Surface/Environment} to a safe and tidy state after {Contamination/Damage}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e7f568e6bf2374728b0b741bf21b1360" data-family="temporal_transformation">
+  <a href="https://www.rd.com/wp-content/uploads/2018/03/PetRock-760x506.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.rd.com/wp-content/uploads/2018/03/PetRock-760x506.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e7f568e6bf2374728b0b741bf21b1360</div>
+  <div class="caption">Creative designs made by transforming {Rocks} into playful {Faces} in artistic scenes.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f0c282bcef9ad7b110214aea691480a1" data-family="temporal_transformation">
+  <a href="https://quidsinmagazine.com/wp-content/uploads/2020/06/bigstock-Businessman-climbing-a-ladder-355971428-450x450.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://quidsinmagazine.com/wp-content/uploads/2020/06/bigstock-Businessman-climbing-a-ladder-355971428-450x450.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f0c282bcef9ad7b110214aea691480a1</div>
+  <div class="caption">Visuals representing {Person} climbing {Obstacle}, symbolizing {Achievement} or {Progress}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f655d0fde17327ea3c05c34990542c76" data-family="temporal_transformation">
+  <a href="https://render.fineartamerica.com/images/rendered/medium/canvas-print/mirror/break/images-medium/surfing-into-the-abyss-katie-wing-vigil-canvas-print.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://render.fineartamerica.com/images/rendered/medium/canvas-print/mirror/break/images-medium/surfing-into-the-abyss-katie-wing-vigil-canvas-print.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f655d0fde17327ea3c05c34990542c76</div>
+  <div class="caption">Silhouettes of {People} holding {Objects} in a serene outdoor landscape with foggy weather.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fcbf3dc5ceff914e8bebe195c4b4c614" data-family="temporal_transformation">
+  <a href="https://live.staticflickr.com/4297/35356563243_713d293c59_b.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://live.staticflickr.com/4297/35356563243_713d293c59_b.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fcbf3dc5ceff914e8bebe195c4b4c614</div>
+  <div class="caption">Photos showcasing a {Bird} holding a {Insect} in its beak after a successful hunt.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ed351b9840808a0601257cea646d6f9f" data-family="temporal_transformation">
+  <a href="https://www.stylemotivation.com/wp-content/uploads/2013/07/Great-tutorials-for-gorgeous-hairstyles-32-620x387.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.stylemotivation.com/wp-content/uploads/2013/07/Great-tutorials-for-gorgeous-hairstyles-32-620x387.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ed351b9840808a0601257cea646d6f9f</div>
+  <div class="caption">Step-by-step guide to styling {Hairstyle} with {Hair Product} and {Accessories}, showcasing the transformation from {Style 1} to {Final Look}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e1f8d84e7cb1029e79329ff84e175600" data-family="temporal_transformation">
+  <a href="https://roadtotravel.com/wp-content/uploads/2016/12/Switzerland-Geneva-Broken-Chair-Statue-300x300.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://roadtotravel.com/wp-content/uploads/2016/12/Switzerland-Geneva-Broken-Chair-Statue-300x300.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e1f8d84e7cb1029e79329ff84e175600</div>
+  <div class="caption">A unique artistic interpretation of {Object} by transforming it into a monumental outdoor sculpture.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="df5072a6b0f8ab5068eb8cd7e77914e3" data-family="temporal_transformation">
+  <a href="https://www.expocafeperu.com/w/2020/10/coleman-boa-tent-alpha-camp-8-person-wayfair-roadtrip-lxx-ez-up-2-backpacking-white-gas-cooler.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.expocafeperu.com/w/2020/10/coleman-boa-tent-alpha-camp-8-person-wayfair-roadtrip-lxx-ez-up-2-backpacking-white-gas-cooler.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">df5072a6b0f8ab5068eb8cd7e77914e3</div>
+  <div class="caption">Illustration showcasing the step-by-step assembly of a {Object}, detailing the features and components involved in each stage: {Component 1}, {Component 2}, {Component 3}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e9676c1f54903ba104b4472ff622bbcf" data-family="temporal_transformation">
+  <a href="https://i.pinimg.com/originals/0d/3f/a4/0d3fa45dbb323ea882000059daafad26.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/originals/0d/3f/a4/0d3fa45dbb323ea882000059daafad26.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e9676c1f54903ba104b4472ff622bbcf</div>
+  <div class="caption">Smart hidden {Bed} designs that transform seamlessly into {Furniture} for efficient space utilization in {Room Type}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e904143f44ac932184d3c1ccea64e6d2" data-family="temporal_transformation">
+  <a href="https://i.pinimg.com/736x/54/aa/0d/54aa0d0ea61fc62ff520c6fbd7484824--baseball-bags-golf-room.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/54/aa/0d/54aa0d0ea61fc62ff520c6fbd7484824--baseball-bags-golf-room.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e904143f44ac932184d3c1ccea64e6d2</div>
+  <div class="caption">The transformation of {Recycled Material} into a functional {Object}, showcasing an innovative use for items with potential waste.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fc2bf3aab1dcf38bf64d3ec4913279b2" data-family="temporal_transformation">
+  <a href="https://www.fabartdiy.com/wp-content/uploads/2014/10/Halloween-Spider-Cakes-f.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.fabartdiy.com/wp-content/uploads/2014/10/Halloween-Spider-Cakes-f.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fc2bf3aab1dcf38bf64d3ec4913279b2</div>
+  <div class="caption">&quot;Creative transformation of {Food Items} into artistic representations of {Animals}.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ed0c2b1f43c09755c0828bc45c480e15" data-family="temporal_transformation">
+  <a href="https://i.pinimg.com/originals/a6/c0/69/a6c0697a9d381073f280efacea8618e4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/originals/a6/c0/69/a6c0697a9d381073f280efacea8618e4.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ed0c2b1f43c09755c0828bc45c480e15</div>
+  <div class="caption">Innovative furniture designs that transform seamlessly between practical {Seating} and compact {Storage} solutions.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e03f8b4746c50c2106601ecb8e475f58" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/hugofelix/hugofelix1202/hugofelix120200080/12555048-coins-and-plant-isolated-over-white-background.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/hugofelix/hugofelix1202/hugofelix120200080/12555048-coins-and-plant-isolated-over-white-background.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e03f8b4746c50c2106601ecb8e475f58</div>
+  <div class="caption">A {Plant} growing from a foundation of {Coins}, symbolizing growth in {Economic or Financial Realm}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f7e8e5f63b5071dcb7b217e8a1ce0f3b" data-family="temporal_transformation">
+  <a href="https://fashionjournal.com.au/wp-content/uploads/2019/03/Bao-L1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://fashionjournal.com.au/wp-content/uploads/2019/03/Bao-L1.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f7e8e5f63b5071dcb7b217e8a1ce0f3b</div>
+  <div class="caption">Artistic depictions of {Object} creatively transformed into cheerful human faces, showcased in a fun and imaginative manner.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ffa57b342c86080e38b2c1f6a2638653" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/sifotography/sifotography1605/sifotography160500061/59033204-serious-elderly-business-man-with-knife-and-fork-ready-for-deal-negotiation-new-proposal-looking-at-.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/sifotography/sifotography1605/sifotography160500061/59033204-serious-elderly-business-man-with-knife-and-fork-ready-for-deal-negotiation-new-proposal-looking-at-.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ffa57b342c86080e38b2c1f6a2638653</div>
+  <div class="caption">People holding a {Dish} with a {Knife} in one hand and a {Plate} or {Tablecloth} in the other, portraying different stages of meal preparation or presentation.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e5b710ca9ff7b437fe9cfed7c55b06fc" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/cla78/cla781010/cla78101000051/8017657-a-vintage-golden-frame-on-a-cracked-purple-wall.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/cla78/cla781010/cla78101000051/8017657-a-vintage-golden-frame-on-a-cracked-purple-wall.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e5b710ca9ff7b437fe9cfed7c55b06fc</div>
+  <div class="caption">A {Surface} with a {Damaged Area} exposing the {Underlying Material}</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f10bb6488ce56a1926a5c5683d50eb19" data-family="temporal_transformation">
+  <a href="https://i2.wp.com/wonderfulathleticgear.com/wp-content/uploads/2019/06/apWQucmQU5w.jpg?resize=480%2C360&amp;ssl=1" target="_blank" rel="noopener"><img loading="lazy" src="https://i2.wp.com/wonderfulathleticgear.com/wp-content/uploads/2019/06/apWQucmQU5w.jpg?resize=480%2C360&amp;ssl=1" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f10bb6488ce56a1926a5c5683d50eb19</div>
+  <div class="caption">Visual representation of {Body Part} in two states: {Condition 1} and {Condition 2}, showcasing the transformation achieved by {Factor}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f47bfec8d1814cace37d77d1799d6716" data-family="temporal_transformation">
+  <a href="https://www.animicausa.com/images/virtuemart/product/peel-appeal-or-5a57447f4739d.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.animicausa.com/images/virtuemart/product/peel-appeal-or-5a57447f4739d.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f47bfec8d1814cace37d77d1799d6716</div>
+  <div class="caption">Illustration showing the transformation of a {Fruit} from whole to peeled stages: {Peel}, {Slices}, and {Core}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fc9b17fe00832b4c634f6fe7b08a22f2" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/tarokichi/tarokichi1910/tarokichi191000006/132121074-cut-a-subsidiary-contract-cancellation-3d-illustration.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/tarokichi/tarokichi1910/tarokichi191000006/132121074-cut-a-subsidiary-contract-cancellation-3d-illustration.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fc9b17fe00832b4c634f6fe7b08a22f2</div>
+  <div class="caption">Visual representation of {Action} performed on {Object} to transform it into {Transformed Object}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f13839f5b1fcf3b6aac39794e436641e" data-family="temporal_transformation">
+  <a href="https://i.pinimg.com/564x/a5/57/0b/a5570b1b54c331cb7c705c27b1c73fc5.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/564x/a5/57/0b/a5570b1b54c331cb7c705c27b1c73fc5.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f13839f5b1fcf3b6aac39794e436641e</div>
+  <div class="caption">Creative representations of {Human Figure} with heads transformed into {Animals}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ed7c846e495841b2d2aa44a0ad220960" data-family="temporal_transformation">
+  <a href="https://ctl.s6img.com/society6/img/CN7EkgYHxEdv7P4JXc4RsLX7zNE/h_264,w_264/prints/~artwork/s6-0071/a/29016797_8395721/~~/pug-ballerina-in-dog-ballet-imitating-a-french-swan-lake-bulldog-terrier-prints.jpg?wait=0&amp;amp;attempt=0" target="_blank" rel="noopener"><img loading="lazy" src="https://ctl.s6img.com/society6/img/CN7EkgYHxEdv7P4JXc4RsLX7zNE/h_264,w_264/prints/~artwork/s6-0071/a/29016797_8395721/~~/pug-ballerina-in-dog-ballet-imitating-a-french-swan-lake-bulldog-terrier-prints.jpg?wait=0&amp;amp;attempt=0" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ed7c846e495841b2d2aa44a0ad220960</div>
+  <div class="caption">Imaginative illustrations of {Animal} transformed into graceful ballerinas in dance poses.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f6b8fd335300572fedf1fef625ed61eb" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/deniskot/deniskot1311/deniskot131100067/24076647-3d-render-of-painting-the-road-with-roller-brush-road-construction-concept-.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/deniskot/deniskot1311/deniskot131100067/24076647-3d-render-of-painting-the-road-with-roller-brush-road-construction-concept-.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f6b8fd335300572fedf1fef625ed61eb</div>
+  <div class="caption">Visual representation of {Process} in progress, utilizing {Materials}, {Tools}, and {Cones} to create {Result}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e89e1de818b96ede632ecdf0e34f2d77" data-family="temporal_transformation">
+  <a href="http://t10.deviantart.net/t1JR4ZQZz8AdVSrPiO5EiKy7pjk=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre09/0f62/th/pre/f/2014/142/8/1/charcoal_realism_water_glass_by_departingexistance-d7jal8h.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://t10.deviantart.net/t1JR4ZQZz8AdVSrPiO5EiKy7pjk=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre09/0f62/th/pre/f/2014/142/8/1/charcoal_realism_water_glass_by_departingexistance-d7jal8h.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e89e1de818b96ede632ecdf0e34f2d77</div>
+  <div class="caption">Creative pencil drawings of {Object} transformed into 3D-like effects, giving the impression of realistic {Scene/Object}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="fb257bb3b3706c687768a746417a37de" data-family="temporal_transformation">
+  <a href="https://render.fineartamerica.com/images/rendered/medium/wood-print/images/artworkimages/medium/1/reaching-michele-loftus.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://render.fineartamerica.com/images/rendered/medium/wood-print/images/artworkimages/medium/1/reaching-michele-loftus.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">fb257bb3b3706c687768a746417a37de</div>
+  <div class="caption">Artwork showcasing the transformation of {Natural Elements} into imaginative {Hands} or {Figures}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e31d31806494a38adfe38497166b4d27" data-family="temporal_transformation">
+  <a href="https://i.pinimg.com/originals/18/9d/e7/189de7dfdab04b1cbeb501d5ed6783c1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/originals/18/9d/e7/189de7dfdab04b1cbeb501d5ed6783c1.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e31d31806494a38adfe38497166b4d27</div>
+  <div class="caption">The process of designing {Character} includes multiple stages: initial sketches, refined outlines, and final detailed artwork.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f2adcc1d4e101c215b90272631377760" data-family="temporal_transformation">
+  <a href="https://www.laurielipton.com/wp-content/uploads/2014/10/2010-The-Umpteenth-Anniversary.jpeg?1d3c86" target="_blank" rel="noopener"><img loading="lazy" src="https://www.laurielipton.com/wp-content/uploads/2014/10/2010-The-Umpteenth-Anniversary.jpeg?1d3c86" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f2adcc1d4e101c215b90272631377760</div>
+  <div class="caption">Artistic depictions of {Objects} transformed into {Skulls}, set in vintage backdrops or artistic compositions.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e5b40d1245865f04db4e159c93d661ef" data-family="temporal_transformation">
+  <a href="https://i0.wp.com/stormslegacy.com/wp-content/uploads/2019/03/girl-and-her-dark-noms-by-stormslegacy-watermark.jpg?fit=1003%2C1200&amp;ssl=1" target="_blank" rel="noopener"><img loading="lazy" src="https://i0.wp.com/stormslegacy.com/wp-content/uploads/2019/03/girl-and-her-dark-noms-by-stormslegacy-watermark.jpg?fit=1003%2C1200&amp;ssl=1" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e5b40d1245865f04db4e159c93d661ef</div>
+  <div class="caption">Visual representation of {Destructive Force} overpowering {Constructive Element}, resulting in a damaged or ruined state.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ec299cd86cca2aa10fcdb80127a20361" data-family="temporal_transformation">
+  <a href="https://weburbanist.com/wp-content/uploads/2013/03/Climbing-Walls-Moon-Design.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://weburbanist.com/wp-content/uploads/2013/03/Climbing-Walls-Moon-Design.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ec299cd86cca2aa10fcdb80127a20361</div>
+  <div class="caption">Innovative indoor setups featuring {Rooftop} {Surface} to transform ordinary {Space} into a unique {Environment}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ed622412d7b8f982c9c5d442dffe26bb" data-family="temporal_transformation">
+  <a href="https://i.ytimg.com/vi/3iixQwPPww0/maxresdefault.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.ytimg.com/vi/3iixQwPPww0/maxresdefault.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ed622412d7b8f982c9c5d442dffe26bb</div>
+  <div class="caption">&quot;Step-by-step drawing tutorial for creating detailed {Character} with various {Details} and evolving {Features} over time.&quot;</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="e9277f9508c33f17499cd3087619cfe6" data-family="temporal_transformation">
+  <a href="https://cdn.wallpaperjam.com/static/images/s/33/21/33214e3f9ec7e95b14a4b63bd6f83715a6908786.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.wallpaperjam.com/static/images/s/33/21/33214e3f9ec7e95b14a4b63bd6f83715a6908786.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">e9277f9508c33f17499cd3087619cfe6</div>
+  <div class="caption">Step-by-step transformation of {Sun} into {Scene/Environment}, captured across different stages of {Time} or {Weather}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ec079656897f6c144a99a010ac672049" data-family="temporal_transformation">
+  <a href="https://img.wonderhowto.com/img/52/40/63514725556740/0/7-bright-ideas-for-old-light-bulbs.1280x600.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img.wonderhowto.com/img/52/40/63514725556740/0/7-bright-ideas-for-old-light-bulbs.1280x600.jpg" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ec079656897f6c144a99a010ac672049</div>
+  <div class="caption">An imaginative depiction of {Object} transitioning through various stages of {Theme}, showcasing unique touches of {Decoration} and {Function}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="eabedb1e904dcf70dfc6cef0fc5fc224" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/dracozlat/dracozlat1904/dracozlat190400011/120223837-amazonian-royal-flycatcher-with-red-crest-on-a-white-background.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/dracozlat/dracozlat1904/dracozlat190400011/120223837-amazonian-royal-flycatcher-with-red-crest-on-a-white-background.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">eabedb1e904dcf70dfc6cef0fc5fc224</div>
+  <div class="caption">A {Animal} transformed into a {Insect} with creative additions to its appearance.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="ec9035b7475474b27c0e5ec46ad9a1a8" data-family="temporal_transformation">
+  <a href="https://i.pinimg.com/originals/59/b3/18/59b3182f03b3f569c4ffef7e3634ba2b.jpg?q=60" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/originals/59/b3/18/59b3182f03b3f569c4ffef7e3634ba2b.jpg?q=60" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">ec9035b7475474b27c0e5ec46ad9a1a8</div>
+  <div class="caption">A cleverly designed {Fruit} transformed into a creative {Person} engaging in imaginative {Activity}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div>
+<div class="card" data-hash="f66cdd771f2f7cd83ce4427dd1579568" data-family="temporal_transformation">
+  <a href="https://us.123rf.com/450wm/paveu/paveu1503/paveu150300009/37478858-vector-illustration-of-soy-bean-and-plants.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/paveu/paveu1503/paveu150300009/37478858-vector-illustration-of-soy-bean-and-plants.jpg?ver=6" onerror="this.closest('.card').classList.add('broken')"></a>
+  <span class="family-badge">Temporal transformation</span>
+  <div class="hash">f66cdd771f2f7cd83ce4427dd1579568</div>
+  <div class="caption">The life cycle of {Plant} as it progresses from {Seed/Bulb} to {Bloom/Flower}, {Fruit/Seed Dispersal}, and {New Seeds/Seedlings}.</div>
+  <div class="buttons">
+    <button type="button" data-choice="fits">fits</button>
+    <button type="button" data-choice="boundary_reject">boundary_reject</button>
+    <button type="button" data-choice="discard">discard</button>
+  </div>
+  <textarea class="notes" placeholder="notes (optional)"></textarea>
+</div></div></section>
+
+<script>
+const STORAGE_KEY = 'relsim_gallery_temporal_v3_state_v1';
+let state = {};
+try { state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch (e) { state = {}; }
+
+function saveState() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  const el = document.getElementById('save-status');
+  if (el) el.textContent = 'saved ' + new Date().toLocaleTimeString();
+}
+
+function keyFor(card) {
+  return card.dataset.hash + '::' + card.dataset.family;
+}
+
+function applyState(card) {
+  const s = state[keyFor(card)];
+  if (!s) return;
+  if (s.decision) {
+    card.querySelectorAll('button[data-choice]').forEach(b => {
+      b.classList.toggle('selected', b.dataset.choice === s.decision);
+    });
+    card.classList.remove('mark-fits', 'mark-boundary_reject', 'mark-discard');
+    card.classList.add('mark-' + s.decision);
+  }
+  if (s.notes) {
+    const ta = card.querySelector('.notes');
+    if (ta) ta.value = s.notes;
+  }
+  if (s.assignedFamily !== undefined) {
+    const sel = card.querySelector('.family-select');
+    if (sel) sel.value = s.assignedFamily;
+  }
+}
+
+document.querySelectorAll('.card').forEach(card => {
+  applyState(card);
+
+  card.querySelectorAll('button[data-choice]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const k = keyFor(card);
+      state[k] = state[k] || {};
+      state[k].decision = btn.dataset.choice;
+      card.querySelectorAll('button[data-choice]').forEach(b => b.classList.toggle('selected', b === btn));
+      card.classList.remove('mark-fits', 'mark-boundary_reject', 'mark-discard');
+      card.classList.add('mark-' + btn.dataset.choice);
+      saveState();
+    });
+  });
+
+  const ta = card.querySelector('.notes');
+  if (ta) {
+    ta.addEventListener('input', () => {
+      const k = keyFor(card);
+      state[k] = state[k] || {};
+      state[k].notes = ta.value;
+      saveState();
+    });
+  }
+
+  const sel = card.querySelector('.family-select');
+  if (sel) {
+    sel.addEventListener('change', () => {
+      const k = keyFor(card);
+      state[k] = state[k] || {};
+      state[k].assignedFamily = sel.value;
+      saveState();
+    });
+  }
+});
+
+function csvEscape(v) {
+  v = String(v === undefined || v === null ? '' : v);
+  if (/[",\r\n]/.test(v)) {
+    v = '"' + v.replace(/"/g, '""') + '"';
+  }
+  return v;
+}
+
+document.getElementById('export-btn').addEventListener('click', () => {
+  const rows = [['image_hash', 'family_shown', 'assigned_family', 'decision', 'notes', 'url_link', 'caption']];
+  document.querySelectorAll('.card').forEach(card => {
+    const k = keyFor(card);
+    const s = state[k] || {};
+    const hash = card.dataset.hash;
+    const family = card.dataset.family;
+    const img = card.querySelector('img');
+    const url = img ? img.getAttribute('src') : '';
+    const captionEl = card.querySelector('.caption');
+    const caption = captionEl ? captionEl.textContent : '';
+    rows.push([hash, family, s.assignedFamily || '', s.decision || '', s.notes || '', url, caption]);
+  });
+  const csv = rows.map(r => r.map(csvEscape).join(',')).join('\r\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'gallery_labels.csv';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+});
+</script>
+</body>
+</html>
