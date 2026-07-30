@@ -1,0 +1,7 @@
+comparison,relation_family,baseline,value
+conflict_gap_minus_aligned_gap (RQ2: conflict sensitivity),compositional_formation,CLIP,0.13131313131313138
+conflict_gap_minus_aligned_gap (RQ2: conflict sensitivity),compositional_formation,DINO,-0.00841750841750838
+conflict_gap_minus_aligned_gap (RQ2: conflict sensitivity),temporal_transformation,CLIP,0.4142857142857143
+conflict_gap_minus_aligned_gap (RQ2: conflict sensitivity),temporal_transformation,DINO,0.24285714285714288
+"family_gap_diff (RQ1: compositional_formation vs temporal_transformation, conflict)",compositional_formation_minus_temporal_transformation,CLIP,-0.2634920634920635
+"family_gap_diff (RQ1: compositional_formation vs temporal_transformation, conflict)",compositional_formation_minus_temporal_transformation,DINO,-0.27724867724867724

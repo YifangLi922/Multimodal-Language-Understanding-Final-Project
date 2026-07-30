@@ -1,0 +1,6 @@
+relation_family,condition,relsim_minus_clip,relsim_minus_dino
+attribute_priority_control,control,-0.09999999999999998,-0.06666666666666665
+compositional_formation,aligned,0.09090909090909083,0.045454545454545414
+compositional_formation,conflict,0.2222222222222222,0.037037037037037035
+temporal_transformation,aligned,0.0714285714285714,0.0714285714285714
+temporal_transformation,conflict,0.4857142857142857,0.3142857142857143

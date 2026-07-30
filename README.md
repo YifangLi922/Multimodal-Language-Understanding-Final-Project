@@ -67,6 +67,9 @@ Triplet accuracy (`sim(anchor, positive) > sim(anchor, negative)`) across 169/17
 │   ├── triplet_manifest.csv            # the 175 final triplets (anchor/positive/negative + metadata)
 │   ├── triplet_results.csv             # per-triplet, per-model similarity scores and correctness
 │   ├── triplet_accuracy_summary.csv    # accuracy by relation_family x condition x model
+│   ├── statistics_accuracy_with_ci.csv # accuracy + triplet-level bootstrap 95% CI per cell
+│   ├── statistics_paired_gaps.csv      # RelSim-CLIP / RelSim-DINO accuracy gaps per cell
+│   ├── statistics_key_comparisons.csv  # conflict-vs-aligned gap, family-vs-family gap (RQ1/RQ2)
 │   ├── validation_record.csv           # traces every final triplet back to its human accept decision
 │   └── qualitative_cases.csv           # RelSim-only-correct and all-models-wrong case studies
 │
@@ -97,6 +100,7 @@ The benchmark was built in two review stages, followed by triplet assembly and m
 - `scripts/archive_triplet_images.py` — permanently archives every image used in the final manifest (guards against link rot).
 - `scripts/compile_validation_record.py` — traces every final triplet back to its specific human accept decision.
 - `scripts/extract_qualitative_cases.py` — pulls RelSim-only-correct and all-models-wrong cases for qualitative analysis.
+- `scripts/compute_final_statistics.py` — computes accuracy, triplet-level bootstrap 95% CIs, and paired model gaps from `review/triplet_results.csv` (no GPU needed).
 
 ## Data and Models
 
@@ -126,10 +130,12 @@ python scripts/build_triplet_manifest.py
 # 4. Score every triplet (requires relsim + GPU)
 python scripts/eval_triplet.py
 
-# Optional: archive images, compile the validation record, pull qualitative cases
+# Optional: archive images, compile the validation record, pull qualitative cases,
+# compute final statistics (all of these are GPU-free)
 python scripts/archive_triplet_images.py
 python scripts/compile_validation_record.py
 python scripts/extract_qualitative_cases.py
+python scripts/compute_final_statistics.py
 ```
 
 ## Known Limitations

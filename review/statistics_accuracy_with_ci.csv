@@ -1,0 +1,16 @@
+relation_family,condition,model,n,accuracy,ci_lower_95,ci_upper_95
+attribute_priority_control,control,CLIP,30,1.0,1.0,1.0
+attribute_priority_control,control,DINO,30,0.9666666666666667,0.9,1.0
+attribute_priority_control,control,relsim,30,0.9,0.8,1.0
+compositional_formation,aligned,CLIP,22,0.8181818181818182,0.6363636363636364,0.9545454545454546
+compositional_formation,aligned,DINO,22,0.8636363636363636,0.7272727272727273,1.0
+compositional_formation,aligned,relsim,22,0.9090909090909091,0.7727272727272727,1.0
+compositional_formation,conflict,CLIP,54,0.0,0.0,0.0
+compositional_formation,conflict,DINO,54,0.18518518518518517,0.09259259259259259,0.2962962962962963
+compositional_formation,conflict,relsim,54,0.2222222222222222,0.1111111111111111,0.3333333333333333
+temporal_transformation,aligned,CLIP,28,0.9285714285714286,0.8214285714285714,1.0
+temporal_transformation,aligned,DINO,28,0.9285714285714286,0.8214285714285714,1.0
+temporal_transformation,aligned,relsim,28,1.0,1.0,1.0
+temporal_transformation,conflict,CLIP,35,0.0,0.0,0.0
+temporal_transformation,conflict,DINO,35,0.17142857142857143,0.05714285714285714,0.2857142857142857
+temporal_transformation,conflict,relsim,35,0.4857142857142857,0.3142857142857143,0.6571428571428571
