@@ -74,7 +74,7 @@ Triplet accuracy (`sim(anchor, positive) > sim(anchor, negative)`) across 169/17
 │   └── qualitative_cases.csv           # RelSim-only-correct and all-models-wrong case studies
 │
 ├── docs/
-│   ├── codebook_zh.md                  # annotation codebook (Chinese draft)
+│   ├── codebook_zh.md                  # annotation codebook (Chinese draft, for internal use only)
 │   └── codebook_en.md                  # annotation codebook (English, formal version)
 │
 └── scripts/                            # see "Pipeline" below for what each stage does
