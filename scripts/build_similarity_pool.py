@@ -18,13 +18,13 @@ negative or positive -- it only proposes candidates. A human still has to
 look at the actual images (via scripts/generate_similarity_gallery.py)
 before anything is frozen into a triplet.
 
-Anchors = every row in review/confirmed_candidates.csv with decision=="fits".
+Anchors = every row in review/pool/confirmed_candidates.csv with decision=="fits".
 Background pool = every row with decision=="boundary_reject" (these are
 already human-vetted "looks related but isn't" cases -- excellent
 conflict-negative material) plus a random sample from the full test split
 to round out the pool, excluding anything already reviewed.
 
-Outputs (under review/):
+Outputs (under review/pool/):
   similarity_embeddings.npz        -- hashes + L2-normalized CLIP embeddings
   similarity_pool_metadata.csv     -- image_hash, group, family, url, caption, download_ok
   similarity_download_failures.csv -- rows that failed to download (link rot etc.)
@@ -44,8 +44,8 @@ from datasets import load_dataset
 from PIL import Image
 from transformers import CLIPModel, CLIPProcessor
 
-CONFIRMED_PATH = "review/confirmed_candidates.csv"
-OUT_DIR = "review"
+CONFIRMED_PATH = "review/pool/confirmed_candidates.csv"
+OUT_DIR = "review/pool"
 BACKGROUND_POOL_SIZE = 600
 RANDOM_STATE = 42
 DOWNLOAD_TIMEOUT = 8

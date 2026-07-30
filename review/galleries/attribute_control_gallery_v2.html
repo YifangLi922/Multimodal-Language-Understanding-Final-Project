@@ -1,0 +1,971 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>RelSim Attribute-Control Review -- Batch 2</title>
+<style>
+:root { color-scheme: light dark; }
+body { font-family: -apple-system, Segoe UI, Arial, sans-serif; margin: 0; padding: 0 16px 60px; background: #fafafa; color: #111; }
+@media (prefers-color-scheme: dark) { body { background: #1a1a1a; color: #eee; } }
+h1 { font-size: 1.4rem; }
+h2 { font-size: 1.1rem; margin-top: 2rem; border-bottom: 2px solid #ccc; padding-bottom: 4px; }
+.instructions { background: #fff3cd; border: 1px solid #e0c36a; padding: 10px 14px; border-radius: 6px; max-width: 900px; }
+@media (prefers-color-scheme: dark) { .instructions { background: #3a3316; border-color: #6b5b1f; } }
+.toolbar { position: sticky; top: 0; background: inherit; padding: 10px 0; z-index: 10; display: flex; gap: 12px; align-items: center; backdrop-filter: blur(4px); }
+#export-btn { font-size: 1rem; padding: 8px 16px; cursor: pointer; border-radius: 6px; border: 1px solid #888; background: #2563eb; color: white; }
+#save-status { font-size: 0.85rem; color: #666; }
+.list { display: flex; flex-direction: column; gap: 14px; margin: 10px 0 20px; }
+.item { border: 2px solid #ccc; border-radius: 8px; padding: 10px; background: rgba(255,255,255,0.6); display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start; }
+@media (prefers-color-scheme: dark) { .item { background: rgba(255,255,255,0.04); border-color: #444; } }
+.item.mark-accept { border-color: #16a34a; }
+.item.mark-reject { opacity: 0.5; border-color: #888; }
+.slot { display: flex; flex-direction: column; gap: 4px; width: 190px; }
+.slot img { width: 100%; height: 140px; object-fit: cover; border-radius: 4px; background: #ddd; }
+.slot .role { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: #2563eb; }
+.slot .caption { font-size: 0.75rem; line-height: 1.2; max-height: 3.5em; overflow-y: auto; }
+.slot .hash { font-family: monospace; font-size: 0.65rem; color: #888; }
+.meta-col { display: flex; flex-direction: column; gap: 6px; min-width: 160px; }
+.sim { font-size: 0.8rem; font-weight: 600; }
+.buttons { display: flex; gap: 4px; }
+.buttons button { flex: 1; font-size: 0.75rem; padding: 5px 4px; border-radius: 4px; border: 1px solid #999; background: transparent; cursor: pointer; color: inherit; }
+.buttons button.selected[data-choice="accept"] { background: #16a34a; color: white; border-color: #16a34a; }
+.buttons button.selected[data-choice="reject"] { background: #6b7280; color: white; border-color: #6b7280; }
+.notes { font-size: 0.75rem; resize: vertical; min-height: 30px; width: 100%; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <button id="export-btn">Export labels as CSV</button>
+  <span id="save-status">not saved yet</span>
+</div>
+<h1>Attribute-Priority Control Review -- Batch 2</h1>
+<p class="instructions">
+  Same rule as batch 1: ignore any relation entirely. Accept only if a
+  person would clearly agree the candidate positive looks more similar in
+  appearance (objects, color, shape, texture, style, layout) to the anchor
+  than the candidate negative does. Choices auto-save to this browser
+  (localStorage, separate from batch 1's) and can be exported to CSV.
+</p>
+<h2>Attribute-priority control candidates (30)</h2>
+<div class="list"><div class="item" data-item-id="control2::e418b9638122d79354b6d7459c209c2c" data-section="attribute_control"
+     data-hashes="e418b9638122d79354b6d7459c209c2c,e9d5a9d5a4b9aa94aa761b68f5c15840,e28fd9dcbd7340fc57e1e798d3098493" data-similarity="sim(anchor,positive)=0.795  sim(anchor,negative)=0.640">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://assets.saatchiart.com/saatchi/420895/art/1909579/1045823-6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://assets.saatchiart.com/saatchi/420895/art/1909579/1045823-6.jpg"></a>
+  <div class="hash">e418b9638122d79354b6d7459c209c2c</div>
+  <div class="caption">&quot;Creative fusion of human forms with artistic depictions of {Animal} features.&quot;</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://trendatmosphere.files.wordpress.com/2016/02/collage-antonio-mora-ta-7.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://trendatmosphere.files.wordpress.com/2016/02/collage-antonio-mora-ta-7.jpg"></a>
+  <div class="hash">e9d5a9d5a4b9aa94aa761b68f5c15840</div>
+  <div class="caption">The integration of {Human Face} and {Natural Elements} into a single artistic depiction.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://i.pinimg.com/736x/be/e0/23/bee023f0493e06d6675e5f52cf147eac--lemurs-animals-in-clothes.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/be/e0/23/bee023f0493e06d6675e5f52cf147eac--lemurs-animals-in-clothes.jpg"></a>
+  <div class="hash">e28fd9dcbd7340fc57e1e798d3098493</div>
+  <div class="caption">A portrait of a person with a {Animal} head, displaying a unique mix of {Character} and {Nature}.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.795  sim(anchor,negative)=0.640</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::e5f75a1571bc6e212fd558ccae1fe211" data-section="attribute_control"
+     data-hashes="e5f75a1571bc6e212fd558ccae1fe211,e11956dec8e354dfd2d642dcb233adfe,eda46f8ed7a4fbfa37760354634bbc86" data-similarity="sim(anchor,positive)=0.715  sim(anchor,negative)=0.600">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="http://www.technocrazed.com/wp-content/uploads/2015/11/901-Star-Wars-Stormtroopers-l-640x1136.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://www.technocrazed.com/wp-content/uploads/2015/11/901-Star-Wars-Stormtroopers-l-640x1136.jpg"></a>
+  <div class="hash">e5f75a1571bc6e212fd558ccae1fe211</div>
+  <div class="caption">Creative use of {Objects} to resemble {Humans} engaging in everyday activities like {Washing Hair}, {Drying Clothing}, and {Ironing Clothes}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://us.123rf.com/450wm/nexusplexus/nexusplexus1402/nexusplexus140203853/25686652-troubled-businessman-with-carton-box-on-head-expressing-emotions.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/nexusplexus/nexusplexus1402/nexusplexus140203853/25686652-troubled-businessman-with-carton-box-on-head-expressing-emotions.jpg?ver=6"></a>
+  <div class="hash">e11956dec8e354dfd2d642dcb233adfe</div>
+  <div class="caption">Unique characters with {Object} substituted for their heads, reflecting distinct {Concept} or {Theme}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://www.treehugger.com/thmb/8DOr3PKFGm_0ugRLY94lPtu1mAg=/2048x2048/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2018__05__two_dogs_share_stick-db101bee57ee4e3d94bc2214f580b653.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.treehugger.com/thmb/8DOr3PKFGm_0ugRLY94lPtu1mAg=/2048x2048/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2018__05__two_dogs_share_stick-db101bee57ee4e3d94bc2214f580b653.jpg"></a>
+  <div class="hash">eda46f8ed7a4fbfa37760354634bbc86</div>
+  <div class="caption">Two {Animals} sharing a {Stick} and smiling together in an outdoor scene.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.715  sim(anchor,negative)=0.600</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::e637fa2e3f67e17fc9c2e791bcf12462" data-section="attribute_control"
+     data-hashes="e637fa2e3f67e17fc9c2e791bcf12462,e0fdcef8896d199a6a743347b32ae06b,ea184053f2b9fb4e2cf2f617e5d1c25f" data-similarity="sim(anchor,positive)=0.861  sim(anchor,negative)=0.498">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://cdn.shopify.com/s/files/1/2392/6173/products/04d5b7e0-5519-43c5-aacd-d892d1d5e9ff_1090x@2x.jpg?v=1575725737" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/2392/6173/products/04d5b7e0-5519-43c5-aacd-d892d1d5e9ff_1090x@2x.jpg?v=1575725737"></a>
+  <div class="hash">e637fa2e3f67e17fc9c2e791bcf12462</div>
+  <div class="caption">A long-exposure shot capturing star trails and showcasing {Tree} as a focal point in the night sky.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://pix.avax.news/avaxnews/d5/5a/00045ad5_medium.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="https://pix.avax.news/avaxnews/d5/5a/00045ad5_medium.jpeg"></a>
+  <div class="hash">e0fdcef8896d199a6a743347b32ae06b</div>
+  <div class="caption">Long-exposure photos capturing the movement of {Stars} around {Tree} against a {Background Scene}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://www.great-pictures-of-cats.com/image-files/cats-funny-pictures-3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.great-pictures-of-cats.com/image-files/cats-funny-pictures-3.jpg"></a>
+  <div class="hash">ea184053f2b9fb4e2cf2f617e5d1c25f</div>
+  <div class="caption">Animals discovered in unexpected {Locations}, showcasing curiosity and playfulness.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.861  sim(anchor,negative)=0.498</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::eb62f1fa673736ecae278244515f6bbe" data-section="attribute_control"
+     data-hashes="eb62f1fa673736ecae278244515f6bbe,e78219c9cccc2ef4266c56a4fd31112a,e04e7ed162a6c0c2c31275f83cb539ae" data-similarity="sim(anchor,positive)=0.731  sim(anchor,negative)=0.468">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="http://img.youtube.com/vi/EK2T40UIUJc/hqdefault.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://img.youtube.com/vi/EK2T40UIUJc/hqdefault.jpg"></a>
+  <div class="hash">eb62f1fa673736ecae278244515f6bbe</div>
+  <div class="caption">Intricate designs illustrating {Drawing} bursting out of a {Surface} to reveal a creative scene or setting.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://mymodernmet.com/wp/wp-content/uploads/2020/09/leaf-art-lito-leafart-1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://mymodernmet.com/wp/wp-content/uploads/2020/09/leaf-art-lito-leafart-1.jpg"></a>
+  <div class="hash">e78219c9cccc2ef4266c56a4fd31112a</div>
+  <div class="caption">Creative use of {Material} to craft representations of {Object}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://laughingsquid.com/wp-content/uploads/2014/03/Cheetah-Peers-Inside-640x427.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://laughingsquid.com/wp-content/uploads/2014/03/Cheetah-Peers-Inside-640x427.jpg"></a>
+  <div class="hash">e04e7ed162a6c0c2c31275f83cb539ae</div>
+  <div class="caption">Unique encounters with wild {Animal} interacting with {Vehicle} in the open landscapes of nature.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.731  sim(anchor,negative)=0.468</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::f01730de36a74127ce868256a9fe3178" data-section="attribute_control"
+     data-hashes="f01730de36a74127ce868256a9fe3178,ffd9b8af6f5d64db6b6dab4d2efa5caa,f20b9839b1073c328786c267bb168a4b" data-similarity="sim(anchor,positive)=0.722  sim(anchor,negative)=0.400">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://leorugens.files.wordpress.com/2013/04/a-man-walking-collotype-after-eadweard-muybridge-1887-cc-by-nc.jpg?w=620" target="_blank" rel="noopener"><img loading="lazy" src="https://leorugens.files.wordpress.com/2013/04/a-man-walking-collotype-after-eadweard-muybridge-1887-cc-by-nc.jpg?w=620"></a>
+  <div class="hash">f01730de36a74127ce868256a9fe3178</div>
+  <div class="caption">Step-by-step breakdown of {Subject} moving through multiple phases, showing changes in {Body Part} and {Movement Action}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://cdn4.eyeem.com/thumb/c744a760e430b85001a8377b03f17725f1940ac7-1543321078998/w/350" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn4.eyeem.com/thumb/c744a760e430b85001a8377b03f17725f1940ac7-1543321078998/w/350"></a>
+  <div class="hash">ffd9b8af6f5d64db6b6dab4d2efa5caa</div>
+  <div class="caption">The shadow of a {Tree} projected onto a {Surface}, forming a striking silhouette against sunlight.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="http://lh3.googleusercontent.com/rlznWQLhA8WqmTh0ed1QfGjqP2WLa7Pp0zmP3yA3LJ_OtgCWAf_4i5ImOQhS3i6OU9qZ1N_Ju4Fv8sr10i66-nw=s285-c" target="_blank" rel="noopener"><img loading="lazy" src="http://lh3.googleusercontent.com/rlznWQLhA8WqmTh0ed1QfGjqP2WLa7Pp0zmP3yA3LJ_OtgCWAf_4i5ImOQhS3i6OU9qZ1N_Ju4Fv8sr10i66-nw=s285-c"></a>
+  <div class="hash">f20b9839b1073c328786c267bb168a4b</div>
+  <div class="caption">Natural lightning striking near {Object} in a dramatic outdoor scene.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.722  sim(anchor,negative)=0.400</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::ff614f3283a76d9778dd5c11be099b62" data-section="attribute_control"
+     data-hashes="ff614f3283a76d9778dd5c11be099b62,f872d497781fec2fc740f4e9f049934b,ea131676b6beb34de454ae471060899b" data-similarity="sim(anchor,positive)=0.772  sim(anchor,negative)=0.563">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://i2.wp.com/www.ninisworld.com/wordpress/wp-content/uploads/2014/02/furniture_9.jpg?w=530&amp;h=708" target="_blank" rel="noopener"><img loading="lazy" src="https://i2.wp.com/www.ninisworld.com/wordpress/wp-content/uploads/2014/02/furniture_9.jpg?w=530&amp;h=708"></a>
+  <div class="hash">ff614f3283a76d9778dd5c11be099b62</div>
+  <div class="caption">A stack of {Seating Arrangement} chairs folded for convenient storage.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://socialdesignmagazine.com/mag/wp-content/uploads/2011/06/users_jessy_Equilibrium__Alejandro_Gomez_Stubbs_Equilibrium-Modern-Bookcase-by-Alejandro-Gomez-Stubbs-Modern-Furniture.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://socialdesignmagazine.com/mag/wp-content/uploads/2011/06/users_jessy_Equilibrium__Alejandro_Gomez_Stubbs_Equilibrium-Modern-Bookcase-by-Alejandro-Gomez-Stubbs-Modern-Furniture.jpg"></a>
+  <div class="hash">f872d497781fec2fc740f4e9f049934b</div>
+  <div class="caption">A visually engaging display of stacked {Objects} with a focus on their {Shapes}, {Colors}, and {Arrangements}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://forestwoodfolkart.files.wordpress.com/2016/10/p1000902-2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://forestwoodfolkart.files.wordpress.com/2016/10/p1000902-2.jpg"></a>
+  <div class="hash">ea131676b6beb34de454ae471060899b</div>
+  <div class="caption">Reflective water surfaces highlight symmetrical arrangements of {Buildings} in a row, producing clean and mirrored designs.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.772  sim(anchor,negative)=0.563</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::f436407c7327b61dd5d50424323fb0b6" data-section="attribute_control"
+     data-hashes="f436407c7327b61dd5d50424323fb0b6,f1a36bcf5b3865d19428f524636f3cab,feaa1074302730e0e633d59957038006" data-similarity="sim(anchor,positive)=0.738  sim(anchor,negative)=0.506">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://2shopper.files.wordpress.com/2015/03/874_3_danmug-5.jpg?w=600&amp;" target="_blank" rel="noopener"><img loading="lazy" src="https://2shopper.files.wordpress.com/2015/03/874_3_danmug-5.jpg?w=600&amp;"></a>
+  <div class="hash">f436407c7327b61dd5d50424323fb0b6</div>
+  <div class="caption">Visuals showcasing {Object} in its original and altered states, transformed by {Environment} or {Temperature}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://us.123rf.com/450wm/orla/orla1812/orla181200035/118899048-a-tap-over-a-bowl-with-a-golden-fish-the-concept-of-rescue-this-is-a-3d-render-illustration.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/orla/orla1812/orla181200035/118899048-a-tap-over-a-bowl-with-a-golden-fish-the-concept-of-rescue-this-is-a-3d-render-illustration.jpg?ver=6"></a>
+  <div class="hash">f1a36bcf5b3865d19428f524636f3cab</div>
+  <div class="caption">A creative depiction of {Object} being used as a channel for {Fluid}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://ak1.ostkcdn.com/images/products/16721223/P23035519.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://ak1.ostkcdn.com/images/products/16721223/P23035519.jpg"></a>
+  <div class="hash">feaa1074302730e0e633d59957038006</div>
+  <div class="caption">&quot;Portrait of a {Dog Breed} seated on an elegant {Chair} in a vintage {Setting}&quot;</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.738  sim(anchor,negative)=0.506</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::e9b17aed0083175bb5a3a01aefb71ea3" data-section="attribute_control"
+     data-hashes="e9b17aed0083175bb5a3a01aefb71ea3,fed9fc9fae675ca840f42c9e34601329,f436407c7327b61dd5d50424323fb0b6" data-similarity="sim(anchor,positive)=0.710  sim(anchor,negative)=0.590">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://i.pinimg.com/originals/fd/33/9e/fd339e29be712158f2c8e0b8ff4a6d58.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/originals/fd/33/9e/fd339e29be712158f2c8e0b8ff4a6d58.jpg"></a>
+  <div class="hash">e9b17aed0083175bb5a3a01aefb71ea3</div>
+  <div class="caption">Creative designs of {Key Holders} using {Keys} and {Surfaces} to highlight unique {Shapes} or {Designs}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://images-na.ssl-images-amazon.com/images/I/81k97bXKbIL._AC_SL1500_.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/81k97bXKbIL._AC_SL1500_.jpg"></a>
+  <div class="hash">fed9fc9fae675ca840f42c9e34601329</div>
+  <div class="caption">&quot;Step-by-step instructions for using {Object} to achieve {Action}, illustrated with multiple stages of {Process}.&quot;</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://2shopper.files.wordpress.com/2015/03/874_3_danmug-5.jpg?w=600&amp;" target="_blank" rel="noopener"><img loading="lazy" src="https://2shopper.files.wordpress.com/2015/03/874_3_danmug-5.jpg?w=600&amp;"></a>
+  <div class="hash">f436407c7327b61dd5d50424323fb0b6</div>
+  <div class="caption">Visuals showcasing {Object} in its original and altered states, transformed by {Environment} or {Temperature}.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.710  sim(anchor,negative)=0.590</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::f1ce1051924e22d851ed972f6a23e87a" data-section="attribute_control"
+     data-hashes="f1ce1051924e22d851ed972f6a23e87a,ffd9b8af6f5d64db6b6dab4d2efa5caa,e28fd9dcbd7340fc57e1e798d3098493" data-similarity="sim(anchor,positive)=0.793  sim(anchor,negative)=0.566">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://jonathanbaxter.files.wordpress.com/2012/06/dsc_0214.jpg?w=744" target="_blank" rel="noopener"><img loading="lazy" src="https://jonathanbaxter.files.wordpress.com/2012/06/dsc_0214.jpg?w=744"></a>
+  <div class="hash">f1ce1051924e22d851ed972f6a23e87a</div>
+  <div class="caption">Creative representation of {Object} merging with a {Scene/Object} in an unexpected and imaginative manner.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://cdn4.eyeem.com/thumb/c744a760e430b85001a8377b03f17725f1940ac7-1543321078998/w/350" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn4.eyeem.com/thumb/c744a760e430b85001a8377b03f17725f1940ac7-1543321078998/w/350"></a>
+  <div class="hash">ffd9b8af6f5d64db6b6dab4d2efa5caa</div>
+  <div class="caption">The shadow of a {Tree} projected onto a {Surface}, forming a striking silhouette against sunlight.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://i.pinimg.com/736x/be/e0/23/bee023f0493e06d6675e5f52cf147eac--lemurs-animals-in-clothes.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/be/e0/23/bee023f0493e06d6675e5f52cf147eac--lemurs-animals-in-clothes.jpg"></a>
+  <div class="hash">e28fd9dcbd7340fc57e1e798d3098493</div>
+  <div class="caption">A portrait of a person with a {Animal} head, displaying a unique mix of {Character} and {Nature}.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.793  sim(anchor,negative)=0.566</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::f763eb2806c96e8f222a77eff8f73f28" data-section="attribute_control"
+     data-hashes="f763eb2806c96e8f222a77eff8f73f28,e29057d88c07a049716f8a9d677a37c6,f9931b0ef13357e9d3e775e25a71ceac" data-similarity="sim(anchor,positive)=0.775  sim(anchor,negative)=0.466">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="http://3.bp.blogspot.com/-7YsR4NThNDk/T7f8dRlfTYI/AAAAAAAALQg/lYiSDMnGgRs/s1600/peter-callesen-the-outline-of-a-skeleton-detail.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://3.bp.blogspot.com/-7YsR4NThNDk/T7f8dRlfTYI/AAAAAAAALQg/lYiSDMnGgRs/s1600/peter-callesen-the-outline-of-a-skeleton-detail.jpg"></a>
+  <div class="hash">f763eb2806c96e8f222a77eff8f73f28</div>
+  <div class="caption">Creative fusion of {Folk Art Style} and {Skeleton Design} to depict {Human Figure} in imaginative poses.&quot;</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://i.pinimg.com/736x/f0/e4/06/f0e406332f5811ecc36ea70831266ff2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/f0/e4/06/f0e406332f5811ecc36ea70831266ff2.jpg"></a>
+  <div class="hash">e29057d88c07a049716f8a9d677a37c6</div>
+  <div class="caption">Abstract representations of {Objects} merged with vibrant {Colors} in artistic compositions.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://farm8.staticflickr.com/7127/7522317480_69a01bcb02.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://farm8.staticflickr.com/7127/7522317480_69a01bcb02.jpg"></a>
+  <div class="hash">f9931b0ef13357e9d3e775e25a71ceac</div>
+  <div class="caption">A group of {Animals} enjoying themselves in a {Water Source} on a warm day.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.775  sim(anchor,negative)=0.466</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::f31f59efd0d6d241bd89f842d0cf9fda" data-section="attribute_control"
+     data-hashes="f31f59efd0d6d241bd89f842d0cf9fda,e310096e987b7283538ff61200a6190a,ed8294c17d9f88574601f31b41c1a16c" data-similarity="sim(anchor,positive)=0.787  sim(anchor,negative)=0.486">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://imgix.bustle.com/uploads/image/2019/9/16/9a1dea83-f8e2-4f43-aa45-7747d75b22b9-il_794xn1722355609_kjwo.jpg?w=400&amp;h=383&amp;fit=crop&amp;crop=faces&amp;auto=format%2Ccompress" target="_blank" rel="noopener"><img loading="lazy" src="https://imgix.bustle.com/uploads/image/2019/9/16/9a1dea83-f8e2-4f43-aa45-7747d75b22b9-il_794xn1722355609_kjwo.jpg?w=400&amp;h=383&amp;fit=crop&amp;crop=faces&amp;auto=format%2Ccompress"></a>
+  <div class="hash">f31f59efd0d6d241bd89f842d0cf9fda</div>
+  <div class="caption">Animals adorned with {Unicorn Horn} to mimic the magical {Color} and {Appearance} of unicorns.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://us.123rf.com/450wm/adogslifephoto/adogslifephoto1504/adogslifephoto150400052/38566089-closeup-photo-of-a-cute-dog-wearing-christmas-reindeer-antlers.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/adogslifephoto/adogslifephoto1504/adogslifephoto150400052/38566089-closeup-photo-of-a-cute-dog-wearing-christmas-reindeer-antlers.jpg?ver=6"></a>
+  <div class="hash">e310096e987b7283538ff61200a6190a</div>
+  <div class="caption">Animals adorned with {Reindeer Antlers} to represent {Seasonal or Festive Theme}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="http://kaijabeishline.com/wp-content/uploads/2017/04/img_7856.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://kaijabeishline.com/wp-content/uploads/2017/04/img_7856.jpg"></a>
+  <div class="hash">ed8294c17d9f88574601f31b41c1a16c</div>
+  <div class="caption">A thrilling jump off a {Height} cliff into the {Water Environment}, with others observing or preparing for their turn nearby.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.787  sim(anchor,negative)=0.486</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::fe5f295c87c466df6e471eea9d2e313f" data-section="attribute_control"
+     data-hashes="fe5f295c87c466df6e471eea9d2e313f,fd26fbc48c9f0a3bc913093a368e8d5a,e9307958d121d3f7dda34f568580a4ec" data-similarity="sim(anchor,positive)=0.757  sim(anchor,negative)=0.542">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://ae01.alicdn.com/kf/HTB16MyQPVXXXXbsXVXXq6xXFXXXy/Custom-3D-Wall-Murals-Wallpaper-3D-Stereoscopic-White-Horse-Brick-Wall-Art-Mural-Living-Room-Bedroom.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://ae01.alicdn.com/kf/HTB16MyQPVXXXXbsXVXXq6xXFXXXy/Custom-3D-Wall-Murals-Wallpaper-3D-Stereoscopic-White-Horse-Brick-Wall-Art-Mural-Living-Room-Bedroom.jpg"></a>
+  <div class="hash">fe5f295c87c466df6e471eea9d2e313f</div>
+  <div class="caption">&quot;{Animal} breaking through a {Surface/Mural} and entering a new {Environment/Scene}&quot;</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://us.123rf.com/450wm/nexusplexus/nexusplexus1402/nexusplexus140205908/25995237-young-strong-man-holding-huge-stone-above-head.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/nexusplexus/nexusplexus1402/nexusplexus140205908/25995237-young-strong-man-holding-huge-stone-above-head.jpg"></a>
+  <div class="hash">fd26fbc48c9f0a3bc913093a368e8d5a</div>
+  <div class="caption">Individuals balancing an enormous {Object} on their shoulders while standing in a rugged outdoor environment.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://lh4.ggpht.com/0Hb6iNnxx47yF1alkIsMZdwC1-fUyigSNeA_Wjdng37hkDRXqaQhP0KiRDc05uPlwbN0gLpHmbS1uQKMmwt7x1A=s285-c" target="_blank" rel="noopener"><img loading="lazy" src="https://lh4.ggpht.com/0Hb6iNnxx47yF1alkIsMZdwC1-fUyigSNeA_Wjdng37hkDRXqaQhP0KiRDc05uPlwbN0gLpHmbS1uQKMmwt7x1A=s285-c"></a>
+  <div class="hash">e9307958d121d3f7dda34f568580a4ec</div>
+  <div class="caption">A black-and-white scene showcasing a {Building} reflected perfectly in still water, with a dynamic sky as the backdrop.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.757  sim(anchor,negative)=0.542</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::e3aeba063a0ce4764fa39b5b42c24a9c" data-section="attribute_control"
+     data-hashes="e3aeba063a0ce4764fa39b5b42c24a9c,f96b19c3078cdf54978d8b45edf16f9b,df53b774064af9c66ea6218255d8ea1b" data-similarity="sim(anchor,positive)=0.686  sim(anchor,negative)=0.496">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://up.gc-img.net/post_img_web/2017/08/efdbfe9c8641593554ec261a4d06b127_289.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="https://up.gc-img.net/post_img_web/2017/08/efdbfe9c8641593554ec261a4d06b127_289.jpeg"></a>
+  <div class="hash">e3aeba063a0ce4764fa39b5b42c24a9c</div>
+  <div class="caption">Detailed sketches of {Object} brought to life in three-dimensional ways on paper, creating the impression of real-life interaction.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/nude-woman-red-wine-3-johan-swanepoel.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/nude-woman-red-wine-3-johan-swanepoel.jpg"></a>
+  <div class="hash">f96b19c3078cdf54978d8b45edf16f9b</div>
+  <div class="caption">Creative presentation of {Object} merged with a {Human Body Part} to form a unique and artistic design.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://childhoodbynature.com/wp-content/uploads/2021/04/nature-tree-moss-face-1791062-scaled-1-2000x1866.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="https://childhoodbynature.com/wp-content/uploads/2021/04/nature-tree-moss-face-1791062-scaled-1-2000x1866.jpeg"></a>
+  <div class="hash">df53b774064af9c66ea6218255d8ea1b</div>
+  <div class="caption">Artistic faces created by using natural materials like {Leaves}, {Fruits}, {Seashells}, and {Sand} to craft unique {Faces}.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.686  sim(anchor,negative)=0.496</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::f3127646c313f3eb646fee4713696ae4" data-section="attribute_control"
+     data-hashes="f3127646c313f3eb646fee4713696ae4,e8e243ebdc221145630cb3cc752c4a2c,fd15743e0df17dba4b81a7693c297f7a" data-similarity="sim(anchor,positive)=0.651  sim(anchor,negative)=0.509">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="http://2.bp.blogspot.com/_ITWI9nTWaek/SF5O6MK50yI/AAAAAAAADBE/J2qVi8szdho/s400/ehud.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://2.bp.blogspot.com/_ITWI9nTWaek/SF5O6MK50yI/AAAAAAAADBE/J2qVi8szdho/s400/ehud.jpg"></a>
+  <div class="hash">f3127646c313f3eb646fee4713696ae4</div>
+  <div class="caption">Creative use of {Animal} to showcase {Animal Equipment} resulting in amusing or imaginative visual effects.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://media.tacdn.com/media/attractions-splice-spp-674x446/07/91/92/6d.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://media.tacdn.com/media/attractions-splice-spp-674x446/07/91/92/6d.jpg"></a>
+  <div class="hash">e8e243ebdc221145630cb3cc752c4a2c</div>
+  <div class="caption">&quot;Close-up view of a {Animal} interacting with a {Human} underwater in natural marine settings.&quot;</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0104/4996/rrlost_yeti_forest_SMALL_shop_preview.png" target="_blank" rel="noopener"><img loading="lazy" src="http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0104/4996/rrlost_yeti_forest_SMALL_shop_preview.png"></a>
+  <div class="hash">fd15743e0df17dba4b81a7693c297f7a</div>
+  <div class="caption">A cleverly designed illustration highlighting {Hidden Object} within a backdrop of {Similar Objects}.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.651  sim(anchor,negative)=0.509</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::e770456ad055030fdc8dd37b5f2c53e0" data-section="attribute_control"
+     data-hashes="e770456ad055030fdc8dd37b5f2c53e0,f885435adce67c11b235099bd65a5448,e9658cfe8fdab57b95d7fb0c1af97b21" data-similarity="sim(anchor,positive)=0.805  sim(anchor,negative)=0.666">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://thumbs.dreamstime.com/b/3d-abstract-spheres-28107045.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://thumbs.dreamstime.com/b/3d-abstract-spheres-28107045.jpg"></a>
+  <div class="hash">e770456ad055030fdc8dd37b5f2c53e0</div>
+  <div class="caption">An assortment of {Objects} showcasing unique designs and patterns on a solid background.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://us.123rf.com/450wm/vectorv/vectorv1906/vectorv190611748/124595207-stock-vector-grey-map-pointer-with-fast-food-hotdog-line-icon-isolated-on-white-background-sausage-icon-set-icon-.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/vectorv/vectorv1906/vectorv190611748/124595207-stock-vector-grey-map-pointer-with-fast-food-hotdog-line-icon-isolated-on-white-background-sausage-icon-set-icon-.jpg?ver=6"></a>
+  <div class="hash">f885435adce67c11b235099bd65a5448</div>
+  <div class="caption">Variants of {Symbol} displayed in different {Colors} and {Shapes} for visual differentiation.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://us.123rf.com/450wm/alphaspirit/alphaspirit1907/alphaspirit190700311/127025453-businesswoman-looking-to-select-the-right-door-concept-of-confusion-and-competition.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/alphaspirit/alphaspirit1907/alphaspirit190700311/127025453-businesswoman-looking-to-select-the-right-door-concept-of-confusion-and-competition.jpg?ver=6"></a>
+  <div class="hash">e9658cfe8fdab57b95d7fb0c1af97b21</div>
+  <div class="caption">A {Person} is surrounded by multiple {Pointing Fingers}, directing their focus toward {Choice/Decision}.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.805  sim(anchor,negative)=0.666</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::eeac8a2244faceedd3a4f96bc156a8e4" data-section="attribute_control"
+     data-hashes="eeac8a2244faceedd3a4f96bc156a8e4,ff05be7748dea1d2ac1b6e8c3920a6f5,ff614f3283a76d9778dd5c11be099b62" data-similarity="sim(anchor,positive)=0.747  sim(anchor,negative)=0.535">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://us.123rf.com/450wm/martinak/martinak1404/martinak140400118/27106643-white-and-wild-rice-shaped-as-yin-yang-symbol-with-chopsticks-on-dark-wooden-background-asian-cultur.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/martinak/martinak1404/martinak140400118/27106643-white-and-wild-rice-shaped-as-yin-yang-symbol-with-chopsticks-on-dark-wooden-background-asian-cultur.jpg?ver=6"></a>
+  <div class="hash">eeac8a2244faceedd3a4f96bc156a8e4</div>
+  <div class="caption">A visual representation of the {Yang} and {Yin} balance using {Objects} in a balanced composition.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://us.123rf.com/450wm/lightwise/lightwise1709/lightwise170900010/85238499-compost-and-composting-symbol-life-cycle-symbol-and-an-organic-recycling-stage-system-concept-as-a-p.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/lightwise/lightwise1709/lightwise170900010/85238499-compost-and-composting-symbol-life-cycle-symbol-and-an-organic-recycling-stage-system-concept-as-a-p.jpg?ver=6"></a>
+  <div class="hash">ff05be7748dea1d2ac1b6e8c3920a6f5</div>
+  <div class="caption">A visual representation of the transformation from {Waste} to {New Life} through composting or recycling.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://i2.wp.com/www.ninisworld.com/wordpress/wp-content/uploads/2014/02/furniture_9.jpg?w=530&amp;h=708" target="_blank" rel="noopener"><img loading="lazy" src="https://i2.wp.com/www.ninisworld.com/wordpress/wp-content/uploads/2014/02/furniture_9.jpg?w=530&amp;h=708"></a>
+  <div class="hash">ff614f3283a76d9778dd5c11be099b62</div>
+  <div class="caption">A stack of {Seating Arrangement} chairs folded for convenient storage.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.747  sim(anchor,negative)=0.535</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::e0c8834751d877231c2b9c30107ead6c" data-section="attribute_control"
+     data-hashes="e0c8834751d877231c2b9c30107ead6c,eb969287689364e8036aba14ffee7315,e2a96eacf3d53e1c490270ac306eff7a" data-similarity="sim(anchor,positive)=0.607  sim(anchor,negative)=0.454">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://ih1.redbubble.net/image.1268696765.9626/mp,504x516,gloss,f8f8f8,t-pad,600x600,f8f8f8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://ih1.redbubble.net/image.1268696765.9626/mp,504x516,gloss,f8f8f8,t-pad,600x600,f8f8f8.jpg"></a>
+  <div class="hash">e0c8834751d877231c2b9c30107ead6c</div>
+  <div class="caption">&quot;Creative portrait showcasing {Hair} styled into a whimsical {Shape} using {Person}.&quot;</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://us.123rf.com/450wm/catchyimages/catchyimages1808/catchyimages180800007/106540954-unny-and-very-expressive-white-with-blue-maine-coon-cat-kitten-standing-through-a-white-photo-frame-.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/catchyimages/catchyimages1808/catchyimages180800007/106540954-unny-and-very-expressive-white-with-blue-maine-coon-cat-kitten-standing-through-a-white-photo-frame-.jpg?ver=6"></a>
+  <div class="hash">eb969287689364e8036aba14ffee7315</div>
+  <div class="caption">A {Cat} positioned within a {Frame}, emphasizing a minimalist design aesthetic.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://us.123rf.com/450wm/dimjul/dimjul1508/dimjul150800007/43682319-child-girl-make-mess-flooded-kitchen-imitating-swimming-pool-funny-concept.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/dimjul/dimjul1508/dimjul150800007/43682319-child-girl-make-mess-flooded-kitchen-imitating-swimming-pool-funny-concept.jpg?ver=6"></a>
+  <div class="hash">e2a96eacf3d53e1c490270ac306eff7a</div>
+  <div class="caption">Creative 3D art blending {Scene} with unexpected {People} or {Objects}, generating surreal and imaginative visual scenes.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.607  sim(anchor,negative)=0.454</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::fc243ea76c7c4291aee3296ea9949076" data-section="attribute_control"
+     data-hashes="fc243ea76c7c4291aee3296ea9949076,f39baa5961ba30fc1943d0cd737c73e3,e5f75a1571bc6e212fd558ccae1fe211" data-similarity="sim(anchor,positive)=0.708  sim(anchor,negative)=0.488">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://us.123rf.com/450wm/madllen/madllen1303/madllen130300422/18545230-heart-healthy-of-fresh-shrimp-on-a-salad-lettuce-isolated-on-white-background.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/madllen/madllen1303/madllen130300422/18545230-heart-healthy-of-fresh-shrimp-on-a-salad-lettuce-isolated-on-white-background.jpg"></a>
+  <div class="hash">fc243ea76c7c4291aee3296ea9949076</div>
+  <div class="caption">A heart-shaped composition made with {Food Items}, emphasizing {Arrangement} and {Presentation}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://us.123rf.com/450wm/magicleaf/magicleaf1810/magicleaf181003977/110280680-vector-design-of-burger-and-sandwich-logo-set-of-burger-and-slice-vector-icon-for-stock-.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/magicleaf/magicleaf1810/magicleaf181003977/110280680-vector-design-of-burger-and-sandwich-logo-set-of-burger-and-slice-vector-icon-for-stock-.jpg?ver=6"></a>
+  <div class="hash">f39baa5961ba30fc1943d0cd737c73e3</div>
+  <div class="caption">&quot;Breakdown of a {Food Item} featuring individual components: {Ingredient 1}, {Ingredient 2}, {Ingredient 3}, assembled into a complete {Dish}&quot;</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="http://www.technocrazed.com/wp-content/uploads/2015/11/901-Star-Wars-Stormtroopers-l-640x1136.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://www.technocrazed.com/wp-content/uploads/2015/11/901-Star-Wars-Stormtroopers-l-640x1136.jpg"></a>
+  <div class="hash">e5f75a1571bc6e212fd558ccae1fe211</div>
+  <div class="caption">Creative use of {Objects} to resemble {Humans} engaging in everyday activities like {Washing Hair}, {Drying Clothing}, and {Ironing Clothes}.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.708  sim(anchor,negative)=0.488</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::e49bf7c184e88437e6c98b7ace1c798b" data-section="attribute_control"
+     data-hashes="e49bf7c184e88437e6c98b7ace1c798b,f5ad3175716acefc5b2599c2d4f213cb,fd8279bd3699ba4f11d6d65acb41be17" data-similarity="sim(anchor,positive)=0.698  sim(anchor,negative)=0.540">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://us.123rf.com/450wm/aquamarine1paint/aquamarine1paint1911/aquamarine1paint191100147/133315489-vector-illustration-with-people-walk-with-dog-on-a-leash-canine-tracks-in-the-shape-of-heart-on-whit.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/aquamarine1paint/aquamarine1paint1911/aquamarine1paint191100147/133315489-vector-illustration-with-people-walk-with-dog-on-a-leash-canine-tracks-in-the-shape-of-heart-on-whit.jpg?ver=6"></a>
+  <div class="hash">e49bf7c184e88437e6c98b7ace1c798b</div>
+  <div class="caption">Visual representation of {Person} and {Animal} surrounded by tracks from their {Foot}</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="http://static.boredpanda.com/blog/wp-content/uploads/2014/09/jimmy-choo-bull-terrier-illustrations-rafael-mantesso-6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://static.boredpanda.com/blog/wp-content/uploads/2014/09/jimmy-choo-bull-terrier-illustrations-rafael-mantesso-6.jpg"></a>
+  <div class="hash">f5ad3175716acefc5b2599c2d4f213cb</div>
+  <div class="caption">Artistic fusion of a {Dog} and imaginative {Shape} for a playful and whimsical design.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://dspncdn.com/a1/media/692x/a3/9d/fa/a39dfac43ccd21003db7542d99413cda.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://dspncdn.com/a1/media/692x/a3/9d/fa/a39dfac43ccd21003db7542d99413cda.jpg"></a>
+  <div class="hash">fd8279bd3699ba4f11d6d65acb41be17</div>
+  <div class="caption">&quot;Light painting of {Figurine} with long exposure effects forming dynamic shapes against a dark background.&quot;</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.698  sim(anchor,negative)=0.540</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::ffd9b8af6f5d64db6b6dab4d2efa5caa" data-section="attribute_control"
+     data-hashes="ffd9b8af6f5d64db6b6dab4d2efa5caa,f1ce1051924e22d851ed972f6a23e87a,fb058c48d28089e78d8077c3b10fc4cd" data-similarity="sim(anchor,positive)=0.793  sim(anchor,negative)=0.546">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://cdn4.eyeem.com/thumb/c744a760e430b85001a8377b03f17725f1940ac7-1543321078998/w/350" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn4.eyeem.com/thumb/c744a760e430b85001a8377b03f17725f1940ac7-1543321078998/w/350"></a>
+  <div class="hash">ffd9b8af6f5d64db6b6dab4d2efa5caa</div>
+  <div class="caption">The shadow of a {Tree} projected onto a {Surface}, forming a striking silhouette against sunlight.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://jonathanbaxter.files.wordpress.com/2012/06/dsc_0214.jpg?w=744" target="_blank" rel="noopener"><img loading="lazy" src="https://jonathanbaxter.files.wordpress.com/2012/06/dsc_0214.jpg?w=744"></a>
+  <div class="hash">f1ce1051924e22d851ed972f6a23e87a</div>
+  <div class="caption">Creative representation of {Object} merging with a {Scene/Object} in an unexpected and imaginative manner.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://www.materiaincognita.com.br/wp-content/uploads/2010/07/Gatas-Madre-Teresa-de-Calcut%c3%a1-e-Amy-Winehouse.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.materiaincognita.com.br/wp-content/uploads/2010/07/Gatas-Madre-Teresa-de-Calcut%c3%a1-e-Amy-Winehouse.jpeg"></a>
+  <div class="hash">fb058c48d28089e78d8077c3b10fc4cd</div>
+  <div class="caption">Unique artistic fusion of {Animal} heads onto classic portraits of {Historical Figure} or {Fictional Character} carrying their unique traits and looks.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.793  sim(anchor,negative)=0.546</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::fbea11b3a6a6d6544affab3211ff1fc1" data-section="attribute_control"
+     data-hashes="fbea11b3a6a6d6544affab3211ff1fc1,eab9718442e49f681ea9d88e53ffa8b8,e2d44a0f13baa10c03fb15f79e2b75dd" data-similarity="sim(anchor,positive)=0.751  sim(anchor,negative)=0.410">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://us.123rf.com/450wm/ipanki/ipanki1602/ipanki160200205/51458515-zentangle-stylized-tiger-face-hand-drawn-doodle-vector-illustration-isolated-on-white-background-ske.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/ipanki/ipanki1602/ipanki160200205/51458515-zentangle-stylized-tiger-face-hand-drawn-doodle-vector-illustration-isolated-on-white-background-ske.jpg?ver=6"></a>
+  <div class="hash">fbea11b3a6a6d6544affab3211ff1fc1</div>
+  <div class="caption">An intricately designed {Animal} artwork with elaborate {Patterns} and detailed {Features}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://static.wixstatic.com/media/678ff3_74c63a06779c42ef81d02a37caa06937.jpg/v1/fill/w_511,h_511,al_c,q_80,usm_0.66_1.00_0.01/678ff3_74c63a06779c42ef81d02a37caa06937.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://static.wixstatic.com/media/678ff3_74c63a06779c42ef81d02a37caa06937.jpg/v1/fill/w_511,h_511,al_c,q_80,usm_0.66_1.00_0.01/678ff3_74c63a06779c42ef81d02a37caa06937.jpg"></a>
+  <div class="hash">eab9718442e49f681ea9d88e53ffa8b8</div>
+  <div class="caption">A steampunk-inspired design of a {Animal} featuring intricate details like gears, cogs, and other mechanical elements.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="http://static.boredpanda.com/blog/wp-content/uploads/2015/12/star-wars-lunches-for-kids-lunchbox-dad-thumb.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://static.boredpanda.com/blog/wp-content/uploads/2015/12/star-wars-lunches-for-kids-lunchbox-dad-thumb.jpg"></a>
+  <div class="hash">e2d44a0f13baa10c03fb15f79e2b75dd</div>
+  <div class="caption">Creative lunchbox designs incorporating {Food Items} to form shapes like {Characters}, {Animals}, or {Themes}.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.751  sim(anchor,negative)=0.410</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::e1e25461f7ca57af4995b2446dc4fa44" data-section="attribute_control"
+     data-hashes="e1e25461f7ca57af4995b2446dc4fa44,efcda0d0b8bad6595d7adfd806c527d7,f730431cc923d28164ab38278e00bf38" data-similarity="sim(anchor,positive)=0.769  sim(anchor,negative)=0.480">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://i.pinimg.com/736x/48/97/dd/4897dd22bb121da0927bc6815a684948.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/48/97/dd/4897dd22bb121da0927bc6815a684948.jpg"></a>
+  <div class="hash">e1e25461f7ca57af4995b2446dc4fa44</div>
+  <div class="caption">Artistic wireframe sculptures of {Animal} designs showcased with fine attention to detail and unique patterns.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://a.1stdibscdn.com/sanseviero-sculptures-4-blue-boxes-illusion-sculpture-28x16-metal-and-enamel-for-sale-picture-2/a_2082/a_33041331536946311220/Sanseviero_4_Blue_Boxes_2018_front_master.jpg?width=768" target="_blank" rel="noopener"><img loading="lazy" src="https://a.1stdibscdn.com/sanseviero-sculptures-4-blue-boxes-illusion-sculpture-28x16-metal-and-enamel-for-sale-picture-2/a_2082/a_33041331536946311220/Sanseviero_4_Blue_Boxes_2018_front_master.jpg?width=768"></a>
+  <div class="hash">efcda0d0b8bad6595d7adfd806c527d7</div>
+  <div class="caption">An artistic arrangement of {Shapes} featuring unique patterns and perspectives, produced with a focus on {Color} and {Geometry}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://us.123rf.com/450wm/stalkerstudent/stalkerstudent1511/stalkerstudent151101655/48091745-hospital-bed-vector-flat-illustration-eps-10.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/stalkerstudent/stalkerstudent1511/stalkerstudent151101655/48091745-hospital-bed-vector-flat-illustration-eps-10.jpg?ver=6"></a>
+  <div class="hash">f730431cc923d28164ab38278e00bf38</div>
+  <div class="caption">Graphic representations of {Object} with different {Colors} to signify various {Concepts} or {Themes}.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.769  sim(anchor,negative)=0.480</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::eab8d35711dd89bad1ac5a65990d55fb" data-section="attribute_control"
+     data-hashes="eab8d35711dd89bad1ac5a65990d55fb,efb7a46ea998c0e3fd3fcaa148b4e5ab,edb2cbc498810c951d1e3a6bffde1c03" data-similarity="sim(anchor,positive)=0.755  sim(anchor,negative)=0.382">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://lh4.googleusercontent.com/-Zz2NhoJtk9k/TYdmXqaiq6I/AAAAAAAAOzg/GhA6hvqyETM/s1600/12.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://lh4.googleusercontent.com/-Zz2NhoJtk9k/TYdmXqaiq6I/AAAAAAAAOzg/GhA6hvqyETM/s1600/12.jpg"></a>
+  <div class="hash">eab8d35711dd89bad1ac5a65990d55fb</div>
+  <div class="caption">&quot;Statues portraying {Human Figures} in dynamic interactions with {Animals} or {Objects} in natural or symbolic settings.&quot;</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://www.dzstatue.com/data/watermark/20210331/606420dc86e5b.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.dzstatue.com/data/watermark/20210331/606420dc86e5b.jpg"></a>
+  <div class="hash">efb7a46ea998c0e3fd3fcaa148b4e5ab</div>
+  <div class="caption">Unique sculptures combining {Figures} into imaginative {Artworks} with distinct {Themes} and {Styles}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://www.chroniclelive.co.uk/incoming/article17546982.ece/ALTERNATES/s510b/0_CFR_NJL_100120gym_01.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.chroniclelive.co.uk/incoming/article17546982.ece/ALTERNATES/s510b/0_CFR_NJL_100120gym_01.jpg"></a>
+  <div class="hash">edb2cbc498810c951d1e3a6bffde1c03</div>
+  <div class="caption">Creative displays of balancing {Object} on the {Surface} for a visually captivating effect.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.755  sim(anchor,negative)=0.382</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::dfc8461a7c295ee78be76da35b0521b4" data-section="attribute_control"
+     data-hashes="dfc8461a7c295ee78be76da35b0521b4,e310096e987b7283538ff61200a6190a,df4c431ec9bbf2cba79cffd829c13f1a" data-similarity="sim(anchor,positive)=0.679  sim(anchor,negative)=0.459">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://us.123rf.com/450wm/irynav/irynav1906/irynav190600063/125291999-santa-hat-on-tennis-ball-on-white-snow-background-merry-christmas-and-new-year-concept-with-tennis-b.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/irynav/irynav1906/irynav190600063/125291999-santa-hat-on-tennis-ball-on-white-snow-background-merry-christmas-and-new-year-concept-with-tennis-b.jpg?ver=6"></a>
+  <div class="hash">dfc8461a7c295ee78be76da35b0521b4</div>
+  <div class="caption">A {Creative Object} styled like a Christmas tree complete with a {Hat} for a festive touch.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://us.123rf.com/450wm/adogslifephoto/adogslifephoto1504/adogslifephoto150400052/38566089-closeup-photo-of-a-cute-dog-wearing-christmas-reindeer-antlers.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/adogslifephoto/adogslifephoto1504/adogslifephoto150400052/38566089-closeup-photo-of-a-cute-dog-wearing-christmas-reindeer-antlers.jpg?ver=6"></a>
+  <div class="hash">e310096e987b7283538ff61200a6190a</div>
+  <div class="caption">Animals adorned with {Reindeer Antlers} to represent {Seasonal or Festive Theme}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://www.we-heart.com/upload-images/blackpearl11.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.we-heart.com/upload-images/blackpearl11.jpg"></a>
+  <div class="hash">df4c431ec9bbf2cba79cffd829c13f1a</div>
+  <div class="caption">A modern design of a building with exposed {Brick} and integrated {Windows} showcasing unique {Patterns} and {Textures}.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.679  sim(anchor,negative)=0.459</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::e3033baff84e6bc612a5ecaefe9d2f94" data-section="attribute_control"
+     data-hashes="e3033baff84e6bc612a5ecaefe9d2f94,e054bb782d9bf42c88f8ee4fc4c8c62a,dfc8461a7c295ee78be76da35b0521b4" data-similarity="sim(anchor,positive)=0.590  sim(anchor,negative)=0.418">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://www.romanticasheville.com/sites/default/files/u13/tryon-WEG-2018-FEI.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.romanticasheville.com/sites/default/files/u13/tryon-WEG-2018-FEI.jpg"></a>
+  <div class="hash">e3033baff84e6bc612a5ecaefe9d2f94</div>
+  <div class="caption">Synchronized acts performed by {Performers} on {Animal} in front of an attentive {Audience}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://st4.depositphotos.com/12985848/21125/i/450/depositphotos_211257240-stock-photo-young-ballerina-black-bodysuit-talc.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://st4.depositphotos.com/12985848/21125/i/450/depositphotos_211257240-stock-photo-young-ballerina-black-bodysuit-talc.jpg"></a>
+  <div class="hash">e054bb782d9bf42c88f8ee4fc4c8c62a</div>
+  <div class="caption">Captured in motion, {Body Part} interacts with {Material} against a dark backdrop.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://us.123rf.com/450wm/irynav/irynav1906/irynav190600063/125291999-santa-hat-on-tennis-ball-on-white-snow-background-merry-christmas-and-new-year-concept-with-tennis-b.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/irynav/irynav1906/irynav190600063/125291999-santa-hat-on-tennis-ball-on-white-snow-background-merry-christmas-and-new-year-concept-with-tennis-b.jpg?ver=6"></a>
+  <div class="hash">dfc8461a7c295ee78be76da35b0521b4</div>
+  <div class="caption">A {Creative Object} styled like a Christmas tree complete with a {Hat} for a festive touch.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.590  sim(anchor,negative)=0.418</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::f6126f0461fa49ffabcabc65cd9e34ef" data-section="attribute_control"
+     data-hashes="f6126f0461fa49ffabcabc65cd9e34ef,f15b2be8b9f85a5ab560c727601890fe,e7f2cd43be3e6c07606985177fdcad1c" data-similarity="sim(anchor,positive)=0.777  sim(anchor,negative)=0.477">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://farm4.staticflickr.com/3507/3312887496_7def5172d1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://farm4.staticflickr.com/3507/3312887496_7def5172d1.jpg"></a>
+  <div class="hash">f6126f0461fa49ffabcabc65cd9e34ef</div>
+  <div class="caption">A lineup of {Objects} evenly spaced on a uniform {Background}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://static5.depositphotos.com/1000419/464/v/380/depositphotos_4642976-stock-illustration-four-seasons-spring-summer-autumn.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://static5.depositphotos.com/1000419/464/v/380/depositphotos_4642976-stock-illustration-four-seasons-spring-summer-autumn.jpg"></a>
+  <div class="hash">f15b2be8b9f85a5ab560c727601890fe</div>
+  <div class="caption">A collection of {Seasons} featuring {Trees} with varying {Leaves} and {Flowers} in different {Colors}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://i.dailymail.co.uk/i/pix/2012/05/05/article-2139669-12EDFCC6000005DC-244_634x415.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.dailymail.co.uk/i/pix/2012/05/05/article-2139669-12EDFCC6000005DC-244_634x415.jpg"></a>
+  <div class="hash">e7f2cd43be3e6c07606985177fdcad1c</div>
+  <div class="caption">Performances showcasing {Animal} dressed in {Human Clothing} interacting with objects typically held by humans.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.777  sim(anchor,negative)=0.477</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::fee903515296997599f5c0bf61cafbd8" data-section="attribute_control"
+     data-hashes="fee903515296997599f5c0bf61cafbd8,eda46f8ed7a4fbfa37760354634bbc86,ebee947c663d7c1e66065c1dc8e38f6c" data-similarity="sim(anchor,positive)=0.565  sim(anchor,negative)=0.409">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://img1.10bestmedia.com/Images/Photos/341946/Goat-Yoga_54_990x660.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img1.10bestmedia.com/Images/Photos/341946/Goat-Yoga_54_990x660.jpg"></a>
+  <div class="hash">fee903515296997599f5c0bf61cafbd8</div>
+  <div class="caption">People practicing {Activity} surrounded by {Animals}, creating a peaceful and engaging atmosphere.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://www.treehugger.com/thmb/8DOr3PKFGm_0ugRLY94lPtu1mAg=/2048x2048/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2018__05__two_dogs_share_stick-db101bee57ee4e3d94bc2214f580b653.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.treehugger.com/thmb/8DOr3PKFGm_0ugRLY94lPtu1mAg=/2048x2048/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2018__05__two_dogs_share_stick-db101bee57ee4e3d94bc2214f580b653.jpg"></a>
+  <div class="hash">eda46f8ed7a4fbfa37760354634bbc86</div>
+  <div class="caption">Two {Animals} sharing a {Stick} and smiling together in an outdoor scene.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://bagcraft.uk/wp-content/uploads/2018/02/soake_rainbow_bcspprain_pagoda1.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://bagcraft.uk/wp-content/uploads/2018/02/soake_rainbow_bcspprain_pagoda1.jpg"></a>
+  <div class="hash">ebee947c663d7c1e66065c1dc8e38f6c</div>
+  <div class="caption">A circular design showcasing alternating segments of {Color} arranged in a {Theme/Pattern}.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.565  sim(anchor,negative)=0.409</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::e3487f2c0a81812d18b107e28cef299c" data-section="attribute_control"
+     data-hashes="e3487f2c0a81812d18b107e28cef299c,e28fd9dcbd7340fc57e1e798d3098493,fa444794ee5724b8502758e6aa953dbc" data-similarity="sim(anchor,positive)=0.740  sim(anchor,negative)=0.551">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://i.etsystatic.com/il/0d9990/1008830964/il_340x270.1008830964_e6m2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.etsystatic.com/il/0d9990/1008830964/il_340x270.1008830964_e6m2.jpg"></a>
+  <div class="hash">e3487f2c0a81812d18b107e28cef299c</div>
+  <div class="caption">Visuals showcasing {Animal} blending seamlessly with human-related {Objects} in imaginative scenes.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://i.pinimg.com/736x/be/e0/23/bee023f0493e06d6675e5f52cf147eac--lemurs-animals-in-clothes.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/be/e0/23/bee023f0493e06d6675e5f52cf147eac--lemurs-animals-in-clothes.jpg"></a>
+  <div class="hash">e28fd9dcbd7340fc57e1e798d3098493</div>
+  <div class="caption">A portrait of a person with a {Animal} head, displaying a unique mix of {Character} and {Nature}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://www.ignant.com/wp-content/uploads/2015/01/Amy_Judd_Painting_14-360x288.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.ignant.com/wp-content/uploads/2015/01/Amy_Judd_Painting_14-360x288.jpg"></a>
+  <div class="hash">fa444794ee5724b8502758e6aa953dbc</div>
+  <div class="caption">Artwork showcasing {Human Figure} with an {Animal} fused into their body.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.740  sim(anchor,negative)=0.551</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::f93304d0964a3be6e870fa1726901639" data-section="attribute_control"
+     data-hashes="f93304d0964a3be6e870fa1726901639,e0fa6b5ae10efedbd0d7132ab05cf39f,f50cc8a671aefa3fe4377af383e7eca1" data-similarity="sim(anchor,positive)=0.797  sim(anchor,negative)=0.420">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://i2.wp.com/bikeaospedacos.com.br/wp-content/uploads/2021/10/red-bull-rampage-nesta-sexta-com-transmissao-ao-vivo-e-em-portugues-1.jpg?resize=980%2C400&amp;ssl=1" target="_blank" rel="noopener"><img loading="lazy" src="https://i2.wp.com/bikeaospedacos.com.br/wp-content/uploads/2021/10/red-bull-rampage-nesta-sexta-com-transmissao-ao-vivo-e-em-portugues-1.jpg?resize=980%2C400&amp;ssl=1"></a>
+  <div class="hash">f93304d0964a3be6e870fa1726901639</div>
+  <div class="caption">Stunts performed with {Bike} on uneven terrain, showcasing {Rider} in mid-air with an adventurous backdrop as the setting.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://images-na.ssl-images-amazon.com/images/I/417Dc3ix1yL._SL480_.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/417Dc3ix1yL._SL480_.jpg"></a>
+  <div class="hash">e0fa6b5ae10efedbd0d7132ab05cf39f</div>
+  <div class="caption">A series of images showcasing {Action} performed by a {Person} with a {Object}, highlighting the progression of {Motion}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="https://artlogic-res.cloudinary.com/w_690,c_limit,f_auto,fl_lossy/artlogicstorage/rebeccahossack/images/view/96d920f8ec0f6b41b4fadc6dfcd0abd3j.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://artlogic-res.cloudinary.com/w_690,c_limit,f_auto,fl_lossy/artlogicstorage/rebeccahossack/images/view/96d920f8ec0f6b41b4fadc6dfcd0abd3j.jpg"></a>
+  <div class="hash">f50cc8a671aefa3fe4377af383e7eca1</div>
+  <div class="caption">Creative fusion of {Animal} characters adorned with {Human Clothing Items}.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.797  sim(anchor,negative)=0.420</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div><div class="item" data-item-id="control2::e92dd833e3472eeb6b93df445879966b" data-section="attribute_control"
+     data-hashes="e92dd833e3472eeb6b93df445879966b,f5b3e50f454b568d70e09c52bb67e448,f5ad3175716acefc5b2599c2d4f213cb" data-similarity="sim(anchor,positive)=0.692  sim(anchor,negative)=0.618">
+  <div class="slot">
+  <div class="role">anchor</div>
+  <a href="https://www.dgwildlife.com/img/s/v-10/p4133737345-4.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.dgwildlife.com/img/s/v-10/p4133737345-4.jpg"></a>
+  <div class="hash">e92dd833e3472eeb6b93df445879966b</div>
+  <div class="caption">&quot;Creative representation of {Animals} engaging in human-like activities or interactions.&quot;</div>
+</div>
+<div class="slot">
+  <div class="role">candidate positive (nearest neighbor)</div>
+  <a href="https://image.freepik.com/free-photo/couple-love-romantic-hugs-sand-desert-evening-romantic-atmosphere-sand-burn-candles-form-heart_105751-2769.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://image.freepik.com/free-photo/couple-love-romantic-hugs-sand-desert-evening-romantic-atmosphere-sand-burn-candles-form-heart_105751-2769.jpg"></a>
+  <div class="hash">f5b3e50f454b568d70e09c52bb67e448</div>
+  <div class="caption">Creative portrayal of {Couple} with a {Symbolic Object} to signify {Emotion} or {Connection}.</div>
+</div>
+<div class="slot">
+  <div class="role">candidate negative (random)</div>
+  <a href="http://static.boredpanda.com/blog/wp-content/uploads/2014/09/jimmy-choo-bull-terrier-illustrations-rafael-mantesso-6.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://static.boredpanda.com/blog/wp-content/uploads/2014/09/jimmy-choo-bull-terrier-illustrations-rafael-mantesso-6.jpg"></a>
+  <div class="hash">f5ad3175716acefc5b2599c2d4f213cb</div>
+  <div class="caption">Artistic fusion of a {Dog} and imaginative {Shape} for a playful and whimsical design.</div>
+</div>
+  <div class="meta-col">
+    <div class="sim">sim(anchor,positive)=0.692  sim(anchor,negative)=0.618</div>
+    <div class="buttons">
+      <button type="button" data-choice="accept">accept</button>
+      <button type="button" data-choice="reject">reject</button>
+    </div>
+    <textarea class="notes" placeholder="notes (optional)"></textarea>
+  </div>
+</div></div>
+<script>
+const STORAGE_KEY = 'relsim_attribute_control_v2_state_v1';
+let state = {};
+try { state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch (e) { state = {}; }
+
+function saveState() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  const el = document.getElementById('save-status');
+  if (el) el.textContent = 'saved ' + new Date().toLocaleTimeString();
+}
+
+document.querySelectorAll('.item').forEach(item => {
+  const k = item.dataset.itemId;
+  const s = state[k];
+  if (s) {
+    if (s.decision) {
+      item.querySelectorAll('button[data-choice]').forEach(b => b.classList.toggle('selected', b.dataset.choice === s.decision));
+      item.classList.remove('mark-accept', 'mark-reject');
+      item.classList.add('mark-' + s.decision);
+    }
+    if (s.notes) {
+      const ta = item.querySelector('.notes');
+      if (ta) ta.value = s.notes;
+    }
+  }
+
+  item.querySelectorAll('button[data-choice]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state[k] = state[k] || {};
+      state[k].decision = btn.dataset.choice;
+      item.querySelectorAll('button[data-choice]').forEach(b => b.classList.toggle('selected', b === btn));
+      item.classList.remove('mark-accept', 'mark-reject');
+      item.classList.add('mark-' + btn.dataset.choice);
+      saveState();
+    });
+  });
+
+  const ta = item.querySelector('.notes');
+  if (ta) {
+    ta.addEventListener('input', () => {
+      state[k] = state[k] || {};
+      state[k].notes = ta.value;
+      saveState();
+    });
+  }
+});
+
+function csvEscape(v) {
+  v = String(v === undefined || v === null ? '' : v);
+  if (/[",\r\n]/.test(v)) {
+    v = '"' + v.replace(/"/g, '""') + '"';
+  }
+  return v;
+}
+
+document.getElementById('export-btn').addEventListener('click', () => {
+  const rows = [['item_id', 'section', 'decision', 'notes', 'hashes', 'similarity']];
+  document.querySelectorAll('.item').forEach(item => {
+    const k = item.dataset.itemId;
+    const s = state[k] || {};
+    rows.push([
+      k,
+      item.dataset.section,
+      s.decision || '',
+      s.notes || '',
+      item.dataset.hashes,
+      item.dataset.similarity,
+    ]);
+  });
+  const csv = rows.map(r => r.map(csvEscape).join(',')).join('\r\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'similarity_gallery_labels.csv';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+});
+</script>
+</body>
+</html>

@@ -1,13 +1,13 @@
 """Generate a second review gallery for temporal_transformation only.
 
 The 400-caption sub-sample only produced 19 keyword-matched candidates, of
-which just 3 turned out to genuinely fit (see gallery_labels.csv). That is
-too thin to build several non-repeating conflict/aligned triplets. This
+which just 3 turned out to genuinely fit (see labels/gallery_labels.csv). That
+is too thin to build several non-repeating conflict/aligned triplets. This
 script instead scans the FULL 14,881-row test split for the same temporal
-keywords, excludes anything already reviewed in caption_sample_400.csv, and
-samples a manageable batch for a second labeling pass.
+keywords, excludes anything already reviewed in data/caption_sample_400.csv,
+and samples a manageable batch for a second labeling pass.
 
-Output is a separate file (does not overwrite review/candidate_gallery.html).
+Output is a separate file (does not overwrite review/galleries/candidate_gallery.html).
 """
 import os
 
@@ -16,7 +16,7 @@ from datasets import load_dataset
 
 from generate_gallery import KEYWORDS, build_html
 
-OUT_PATH = "review/candidate_gallery_temporal_v2.html"
+OUT_PATH = "review/galleries/candidate_gallery_temporal_v2.html"
 SAMPLE_SIZE = 120
 RANDOM_STATE = 42
 
@@ -25,7 +25,7 @@ def main():
     dataset = load_dataset("thaoshibe/anonymous-captions-114k")
     test_df = dataset["test"].to_pandas()
 
-    already_reviewed = set(pd.read_csv("caption_sample_400.csv")["image_hash"])
+    already_reviewed = set(pd.read_csv("data/caption_sample_400.csv")["image_hash"])
 
     cap_lower = test_df["caption"].fillna("").str.lower()
     pattern = "|".join(KEYWORDS["temporal_transformation"])

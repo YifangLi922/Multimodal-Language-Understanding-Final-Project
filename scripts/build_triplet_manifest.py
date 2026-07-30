@@ -1,5 +1,5 @@
 """Assemble the final triplet manifest from human-reviewed similarity-gallery
-decisions (similarity_gallery_labels.csv) plus the confirmed relation-family
+decisions (labels/similarity_gallery_labels.csv) plus the confirmed relation-family
 candidates and pool metadata.
 
 Three triplet types go into one output manifest:
@@ -24,7 +24,7 @@ Three triplet types go into one output manifest:
 
 Run scripts/consolidate_candidates.py and the similarity-retrieval pipeline
 (build_similarity_pool.py + generate_similarity_gallery.py) first, and make
-sure the reviewed similarity_gallery_labels.csv has been pulled from GitHub.
+sure the reviewed labels/similarity_gallery_labels.csv has been pulled from GitHub.
 
 Output: review/triplet_manifest.csv, columns:
   triplet_id, relation_family, condition,
@@ -36,10 +36,10 @@ import random
 
 import pandas as pd
 
-LABELS_PATH = "similarity_gallery_labels.csv"
-CONFIRMED_PATH = "review/confirmed_candidates.csv"
-METADATA_PATH = "review/similarity_pool_metadata.csv"
-OUT_PATH = "review/triplet_manifest.csv"
+LABELS_PATH = "labels/similarity_gallery_labels.csv"
+CONFIRMED_PATH = "review/pool/confirmed_candidates.csv"
+METADATA_PATH = "review/pool/similarity_pool_metadata.csv"
+OUT_PATH = "review/triplet_manifest.csv"  # NOTE: kept at this path deliberately -- eval_triplet.py on the GPU machine reads it from here
 RANDOM_STATE = 42
 
 

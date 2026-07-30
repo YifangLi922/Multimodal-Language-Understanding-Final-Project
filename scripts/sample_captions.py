@@ -13,5 +13,7 @@ print(df.head())
 
 sample_df = df.sample(n=min(400, len(df)), random_state=42).reset_index(drop=True)
 sample_df["relation_type"] = ""
-sample_df.to_csv("caption_sample_400.csv", index=False)
-print(f"Saved {len(sample_df)} sampled rows from '{split_name}' split to caption_sample_400.csv")
+import os
+os.makedirs("data", exist_ok=True)
+sample_df.to_csv("data/caption_sample_400.csv", index=False)
+print(f"Saved {len(sample_df)} sampled rows from '{split_name}' split to data/caption_sample_400.csv")

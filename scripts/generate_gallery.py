@@ -13,8 +13,8 @@ import re
 
 import pandas as pd
 
-CSV_PATH = "caption_sample_400.csv"
-OUT_PATH = "review/candidate_gallery.html"
+CSV_PATH = "data/caption_sample_400.csv"
+OUT_PATH = "review/galleries/candidate_gallery.html"
 
 KEYWORDS = {
     "temporal_transformation": [

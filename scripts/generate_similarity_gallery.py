@@ -24,9 +24,9 @@ import os
 import numpy as np
 import pandas as pd
 
-EMBEDDINGS_PATH = "review/similarity_embeddings.npz"
-METADATA_PATH = "review/similarity_pool_metadata.csv"
-OUT_PATH = "review/similarity_review_gallery.html"
+EMBEDDINGS_PATH = "review/pool/similarity_embeddings.npz"
+METADATA_PATH = "review/pool/similarity_pool_metadata.csv"
+OUT_PATH = "review/galleries/similarity_review_gallery.html"
 
 TOP_K_CONFLICT = 5
 TOP_K_ALIGNED = 3

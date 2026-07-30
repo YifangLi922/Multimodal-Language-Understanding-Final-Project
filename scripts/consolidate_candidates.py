@@ -1,21 +1,23 @@
 """Merge all reviewed gallery-label CSVs into one master candidate list.
 
-Pulls every row marked fits/boundary_reject out of gallery_labels.csv
+Pulls every row marked fits/boundary_reject out of labels/gallery_labels.csv
 (temporal batch 1 + compositional + containment) and
-gallery_labels_for_temporal_transformation.csv (temporal batch 2), and
-writes a single deduplicated review/confirmed_candidates.csv used from here
-on as the source of truth for codebook examples and triplet construction.
+labels/gallery_labels_for_temporal_transformation.csv (temporal batch 2), and
+writes a single deduplicated review/pool/confirmed_candidates.csv used from
+here on as the source of truth for codebook examples and triplet construction.
 """
+import os
+
 import pandas as pd
 
 SOURCES = [
-    ("gallery_labels.csv", "batch1"),
-    ("gallery_labels_for_temporal_transformation.csv", "batch2_temporal"),
+    ("labels/gallery_labels.csv", "batch1"),
+    ("labels/gallery_labels_for_temporal_transformation.csv", "batch2_temporal"),
 ]
 
 KEEP_DECISIONS = {"fits", "boundary_reject"}
 
-OUT_PATH = "review/confirmed_candidates.csv"
+OUT_PATH = "review/pool/confirmed_candidates.csv"
 
 
 def main():
@@ -37,6 +39,7 @@ def main():
     if before != len(merged):
         print(f"Dropped {before - len(merged)} duplicate (image_hash, family) rows")
 
+    os.makedirs(os.path.dirname(OUT_PATH), exist_ok=True)
     merged.to_csv(OUT_PATH, index=False)
 
     print(f"Wrote {OUT_PATH}: {len(merged)} rows")
