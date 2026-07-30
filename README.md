@@ -12,9 +12,9 @@ The original RelSim paper evaluates the model mainly through aggregate retrieval
 
 ## Research Questions
 
-- **RQ1 — Relation-family variation.** Does RelSim's advantage over CLIP/DINO differ across relation families?
-- **RQ2 — Conflict sensitivity.** Within a relation family, is RelSim's advantage larger when appearance cues *conflict* with the correct relational answer than when they *align* with it?
-- **RQ3 — Attribute-oriented performance.** On a control set where the correct answer is determined by visible appearance alone, does RelSim remain competitive with CLIP/DINO?
+- **RQ1: Relation-family variation.** Does RelSim's advantage over CLIP/DINO differ across relation families?
+- **RQ2: Conflict sensitivity.** Within a relation family, is RelSim's advantage larger when appearance cues *conflict* with the correct relational answer than when they *align* with it?
+- **RQ3: Attribute-oriented performance.** On a control set where the correct answer is determined by visible appearance alone, does RelSim remain competitive with CLIP/DINO?
 
 Two relation families are tested — **temporal transformation** (an object/process visibly changing state over time) and **compositional formation** (multiple visible parts arranged into a recognizable whole) — each evaluated under two conditions:
 
