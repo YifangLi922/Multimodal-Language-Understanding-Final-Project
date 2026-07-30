@@ -1,0 +1,6 @@
+relation_family,condition,CLIP,DINO,relsim
+attribute_priority_control,control,1.0,1.0,0.9333333333333333
+compositional_formation,aligned,0.5,1.0,1.0
+compositional_formation,conflict,0.0,0.45454545454545453,0.5454545454545454
+temporal_transformation,aligned,1.0,0.75,1.0
+temporal_transformation,conflict,0.0,0.17142857142857143,0.4857142857142857
