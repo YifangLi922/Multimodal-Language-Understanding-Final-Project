@@ -52,6 +52,8 @@ LABELS_PATHS = [
     "labels/similarity_gallery_labels.csv",
     "labels/similarity_gallery_labels_attribute_control_v2.csv",
     "labels/similarity_gallery_labels_aligned-pair_temporal_v3.csv",
+    "labels/similarity_gallery_labels_compositional_negative_v2.csv",
+    "labels/similarity_gallery_labels_compositional_aligned_v2.csv",
 ]
 CONFIRMED_PATH = "review/pool/confirmed_candidates.csv"
 METADATA_PATH = "review/pool/similarity_pool_metadata.csv"
