@@ -42,6 +42,27 @@ Triplet accuracy (`sim(anchor, positive) > sim(anchor, negative)`) across 169/17
 - On the attribute-priority control, RelSim (90.0%) is close to but slightly below CLIP/DINO (96.7–100%) — no strong evidence of degraded appearance sensitivity from fine-tuning (RQ3).
 - The full per-triplet results and bootstrap confidence intervals are in `review/triplet_results.csv` and `review/triplet_accuracy_summary.csv`.
 
+## Inter-Annotator Agreement Check
+
+All codebook-review and retrieval-review accept/reject decisions that produced the 175 final triplets were made by a single annotator (see Known Limitations). To check that these decisions are not idiosyncratic to that one person, a second, independent annotator blind-labeled a stratified random sample of **27/175 triplets (~15%)** — 6 temporal-transformation conflict, 5 temporal-transformation aligned, 6 compositional-formation conflict, 5 compositional-formation aligned, 5 attribute-priority control.
+
+**Procedure.** For each sampled triplet, the second annotator saw only the anchor image plus the positive/negative images relabeled "Candidate A" / "Candidate B" in randomized order — no captions, no hash IDs, no relation-family or condition labels, and no indication of which candidate was originally the positive or negative. Working from `docs/codebook_zh.md` alone, they answered two forced-choice questions per triplet: which candidate shares more of the anchor's underlying *relation*, and which candidate looks more similar in *appearance*. Their answers were then compared against the original labeling decision.
+
+**Results** (one triplet excluded from both dimensions — a broken anchor image URL — leaving n=26 for appearance, n=21 for relation; the 5 control triplets are excluded from the relation dimension since the control condition has no relation-family ground truth to compare against):
+
+| Relation family | Condition | Appearance agreement | Relation agreement |
+|---|---|---|---|
+| Attribute-priority control | control | 80.0% (4/5) | — |
+| Compositional formation | aligned | 100.0% (5/5) | 100.0% (5/5) |
+| Compositional formation | conflict | 100.0% (5/5) | 100.0% (5/5) |
+| Temporal transformation | aligned | 100.0% (5/5) | 60.0% (3/5) |
+| Temporal transformation | conflict | 83.3% (5/6) | 100.0% (6/6) |
+| **Overall** | | **92.3% (24/26)** | **90.5% (19/21)** |
+
+Overall agreement is high on both dimensions, supporting that the triplet construction reflects the written codebook rather than one annotator's idiosyncratic judgment. The one weak cell — temporal-transformation aligned, 60% relation agreement (2/5 disagreements) — is a small sample but worth flagging: it suggests the temporal-transformation boundary is harder to apply consistently than compositional-formation, consistent with the codebook's own note (`docs/codebook_en.md`, Section 1) that captions claiming "transform/progress/stages" often do not match what the image actually shows.
+
+Tooling: `scripts/build_agreement_check.py` draws the stratified sample and generates the blind-labeling gallery plus a private answer key (`review/agreement_check/answer_key.csv`, intentionally **not** committed — the repo is public, and publishing the answer key would let the second annotator or anyone else discover it, invalidating the blind design). `scripts/score_agreement_check.py` compares the returned labels (`labels/agreement_check_friend.csv`) against that key and writes `review/agreement_check/agreement_summary.csv`.
+
 ## Repository Structure
 
 ```
@@ -50,12 +71,14 @@ Triplet accuracy (`sim(anchor, positive) > sim(anchor, negative)`) across 169/17
 │
 ├── labels/                             # Raw human-annotation exports (browser-exported CSVs)
 │   ├── codebook_review_*.csv           # fits / boundary_reject / discard decisions -> relation-family membership
-│   └── retrieval_review_*.csv          # accept / reject decisions on CLIP-proposed triplet candidates
+│   ├── retrieval_review_*.csv          # accept / reject decisions on CLIP-proposed triplet candidates
+│   └── agreement_check_friend.csv      # second annotator's blind labels (see "Inter-Annotator Agreement Check")
 │
 ├── review/
 │   ├── galleries/                      # Self-contained HTML review tools (open directly in a browser)
 │   │   ├── codebook_review_*.html      # paired 1:1 with labels/codebook_review_*.csv
-│   │   └── retrieval_review_*.html     # paired 1:1 with labels/retrieval_review_*.csv
+│   │   ├── retrieval_review_*.html     # paired 1:1 with labels/retrieval_review_*.csv
+│   │   └── agreement_check_blind.html  # blind-labeling tool for the second annotator (no answer leakage)
 │   ├── pool/
 │   │   ├── confirmed_candidates.csv    # consolidated fits/boundary_reject candidates (both families)
 │   │   ├── similarity_embeddings.npz   # CLIP embeddings for the full candidate + background pool
@@ -64,6 +87,9 @@ Triplet accuracy (`sim(anchor, positive) > sim(anchor, negative)`) across 169/17
 │   ├── archive/
 │   │   ├── images/                     # permanent local copies of every image used in the final triplets
 │   │   └── image_archive_index.csv     # hash -> local path -> source URL -> caption
+│   ├── agreement_check/
+│   │   ├── answer_key.csv              # NOT committed (gitignored on purpose) -- private ground truth for the blind check
+│   │   └── agreement_summary.csv       # agreement rate by relation_family x condition (committed, no answer leakage)
 │   ├── triplet_manifest.csv            # the 175 final triplets (anchor/positive/negative + metadata)
 │   ├── triplet_results.csv             # per-triplet, per-model similarity scores and correctness
 │   ├── triplet_accuracy_summary.csv    # accuracy by relation_family x condition x model
@@ -95,6 +121,8 @@ The benchmark was built in two review stages, followed by triplet assembly and m
 **3. Triplet assembly** — `scripts/build_triplet_manifest.py` combines every accepted retrieval-review decision with the confirmed candidates into `review/triplet_manifest.csv`. Conflict positives are assigned via round-robin over each family's fits list; aligned negatives are random unrelated background images. Re-running this script never reassigns an already-existing triplet_id, so previously GPU-scored results stay valid.
 
 **4. Model scoring** — `scripts/eval_triplet.py` (requires the `relsim` package, its LoRA checkpoint, and a GPU) downloads every image referenced in the manifest, scores every triplet with RelSim, CLIP (`openai/clip-vit-base-patch32`), and DINO (`facebook/dinov2-base`), and writes `review/triplet_results.csv` + `review/triplet_accuracy_summary.csv`. It resumes from existing results, so re-running after adding new triplets only scores what's new.
+
+**5. Inter-annotator agreement check** (GPU-free) — `scripts/build_agreement_check.py` draws a stratified sample from the frozen `review/triplet_manifest.csv` and renders `review/galleries/agreement_check_blind.html`, a self-contained blind-labeling tool with no leaked positive/negative labels, sent to a second annotator. `scripts/score_agreement_check.py` compares their returned labels against the private answer key and writes `review/agreement_check/agreement_summary.csv`. See "Inter-Annotator Agreement Check" above for the results and methodology.
 
 **Supporting scripts:**
 - `scripts/archive_triplet_images.py` — permanently archives every image used in the final manifest (guards against link rot).
@@ -136,12 +164,18 @@ python scripts/archive_triplet_images.py
 python scripts/compile_validation_record.py
 python scripts/extract_qualitative_cases.py
 python scripts/compute_final_statistics.py
+
+# 5. Inter-annotator agreement check (GPU-free)
+python scripts/build_agreement_check.py
+# -> send review/galleries/agreement_check_blind.html to a second annotator,
+#    save their exported CSV as labels/agreement_check_friend.csv
+python scripts/score_agreement_check.py
 ```
 
 ## Known Limitations
 
 - **Small-scale diagnostic study.** Some cells (notably compositional aligned, n=22) have wide bootstrap confidence intervals; results should be read as diagnostic evidence, not a population-level benchmark claim.
-- **Single annotator.** All codebook-review and retrieval-review accept/reject decisions were made by one person following the written codebook, rather than by multiple independent validators.
+- **Single primary annotator.** All 175 final triplets' codebook-review and retrieval-review accept/reject decisions were made by one person following the written codebook. A second annotator independently blind-labeled a 27-triplet stratified sample as a reproducibility check (see "Inter-Annotator Agreement Check" above, 92.3% appearance / 90.5% relation agreement) — this supports that the judgments are not idiosyncratic, but it is a sample-based check, not full double-annotation of all 175 triplets.
 - **Link rot.** A meaningful fraction of source image URLs (scraped from the open web, of varying age) are no longer reachable; `review/archive/` preserves local copies of every image used in the final 175 triplets specifically to guard against this.
 - **Spatial containment** was scoped as an optional third relation family in the original design and was not pursued, since both required families (temporal transformation, compositional formation) already reached the target triplet counts needed to answer RQ1–RQ3.
 

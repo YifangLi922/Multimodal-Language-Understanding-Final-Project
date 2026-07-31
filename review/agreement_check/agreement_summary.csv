@@ -1,0 +1,6 @@
+relation_family,condition,mean_appearance,sum_appearance,count_appearance,mean_relation,sum_relation,count_relation
+attribute_priority_control,control,0.8,4,5,,,
+compositional_formation,aligned,1.0,5,5,1.0,5.0,5.0
+compositional_formation,conflict,1.0,5,5,1.0,5.0,5.0
+temporal_transformation,aligned,1.0,5,5,0.6,3.0,5.0
+temporal_transformation,conflict,0.8333333333333334,5,6,1.0,6.0,6.0
