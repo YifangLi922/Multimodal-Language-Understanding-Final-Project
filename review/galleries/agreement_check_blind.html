@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>RelSim Agreement Check (Blind)</title>
+<style>
+:root { color-scheme: light dark; }
+body { font-family: -apple-system, Segoe UI, Arial, sans-serif; margin: 0; padding: 0 16px 60px; background: #fafafa; color: #111; }
+@media (prefers-color-scheme: dark) { body { background: #1a1a1a; color: #eee; } }
+h1 { font-size: 1.3rem; }
+.instructions { background: #fff3cd; border: 1px solid #e0c36a; padding: 10px 14px; border-radius: 6px; max-width: 900px; }
+@media (prefers-color-scheme: dark) { .instructions { background: #3a3316; border-color: #6b5b1f; } }
+.toolbar { position: sticky; top: 0; background: inherit; padding: 10px 0; z-index: 10; display: flex; gap: 12px; align-items: center; backdrop-filter: blur(4px); }
+#export-btn { font-size: 1rem; padding: 8px 16px; cursor: pointer; border-radius: 6px; border: 1px solid #888; background: #2563eb; color: white; }
+#save-status { font-size: 0.85rem; color: #666; }
+#progress { font-size: 0.85rem; color: #666; }
+.list { display: flex; flex-direction: column; gap: 16px; margin: 10px 0 20px; }
+.item { border: 2px solid #ccc; border-radius: 8px; padding: 12px; background: rgba(255,255,255,0.6); }
+@media (prefers-color-scheme: dark) { .item { background: rgba(255,255,255,0.04); border-color: #444; } }
+.item.mark-done { border-color: #16a34a; }
+.qnum { font-weight: 700; margin-bottom: 8px; }
+.images { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 10px; }
+.slot { display: flex; flex-direction: column; gap: 4px; width: 220px; }
+.slot img { width: 100%; height: 170px; object-fit: cover; border-radius: 4px; background: #ddd; }
+.slot .role { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #2563eb; text-align: center; }
+.question { margin: 10px 0; }
+.qtext { font-size: 0.9rem; margin-bottom: 6px; }
+.choices { display: flex; gap: 8px; }
+.choices button { flex: 1; max-width: 160px; font-size: 0.85rem; padding: 6px 10px; border-radius: 4px; border: 1px solid #999; background: transparent; cursor: pointer; color: inherit; }
+.choices button.selected { background: #16a34a; color: white; border-color: #16a34a; }
+.na-note { font-size: 0.8rem; color: #888; font-style: italic; }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <button id="export-btn">导出为 CSV</button>
+  <span id="save-status">尚未保存</span>
+  <span id="progress"></span>
+</div>
+<h1>RelSim 一致性检验（盲标）</h1>
+<p class="instructions">
+  每道题给你三张图：最上面是 anchor，下面两张是随机顺序排列的候选图 A / B。
+  请回答两个问题：<br>
+  1) <b>关系问题</b>：哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？<br>
+  2) <b>外观问题</b>：哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？<br>
+  凭第一直觉判断即可，不需要纠结太久。答案会自动保存在浏览器里，全部答完后点"导出为 CSV"。
+</p>
+<h2>27 道题</h2>
+<div class="list"><div class="item" data-item-id="q01" data-has-relation="0">
+  <div class="qnum">问题 1 / q01</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://imgix.bustle.com/uploads/image/2019/9/16/9a1dea83-f8e2-4f43-aa45-7747d75b22b9-il_794xn1722355609_kjwo.jpg?w=400&amp;h=383&amp;fit=crop&amp;crop=faces&amp;auto=format%2Ccompress" target="_blank" rel="noopener"><img loading="lazy" src="https://imgix.bustle.com/uploads/image/2019/9/16/9a1dea83-f8e2-4f43-aa45-7747d75b22b9-il_794xn1722355609_kjwo.jpg?w=400&amp;h=383&amp;fit=crop&amp;crop=faces&amp;auto=format%2Ccompress"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="http://kaijabeishline.com/wp-content/uploads/2017/04/img_7856.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://kaijabeishline.com/wp-content/uploads/2017/04/img_7856.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://us.123rf.com/450wm/adogslifephoto/adogslifephoto1504/adogslifephoto150400052/38566089-closeup-photo-of-a-cute-dog-wearing-christmas-reindeer-antlers.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/adogslifephoto/adogslifephoto1504/adogslifephoto150400052/38566089-closeup-photo-of-a-cute-dog-wearing-christmas-reindeer-antlers.jpg?ver=6"></a>
+</div>
+  </div>
+  <div class="na-note">（这道题不需要回答"关系问题"，只回答下面的外观问题即可）</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q02" data-has-relation="1">
+  <div class="qnum">问题 2 / q02</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="http://static9.depositphotos.com/1010535/1178/i/450/depositphotos_11783955-coffee-cup-image-made-up-of-coffee-beans-on-sack.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://static9.depositphotos.com/1010535/1178/i/450/depositphotos_11783955-coffee-cup-image-made-up-of-coffee-beans-on-sack.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://static.wixstatic.com/media/nsplsh_5433536e57676761785777~mv2.jpg/v1/fill/w_1000,h_750,al_c,q_90,usm_0.66_1.00_0.01/nsplsh_5433536e57676761785777~mv2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://static.wixstatic.com/media/nsplsh_5433536e57676761785777~mv2.jpg/v1/fill/w_1000,h_750,al_c,q_90,usm_0.66_1.00_0.01/nsplsh_5433536e57676761785777~mv2.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://cdn.shopify.com/s/files/1/2297/0353/products/United-States-Map-Sticker_600x.jpg?v=1553216844" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/2297/0353/products/United-States-Map-Sticker_600x.jpg?v=1553216844"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q03" data-has-relation="0">
+  <div class="qnum">问题 3 / q03</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://2shopper.files.wordpress.com/2015/03/874_3_danmug-5.jpg?w=600&amp;" target="_blank" rel="noopener"><img loading="lazy" src="https://2shopper.files.wordpress.com/2015/03/874_3_danmug-5.jpg?w=600&amp;"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://us.123rf.com/450wm/orla/orla1812/orla181200035/118899048-a-tap-over-a-bowl-with-a-golden-fish-the-concept-of-rescue-this-is-a-3d-render-illustration.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/orla/orla1812/orla181200035/118899048-a-tap-over-a-bowl-with-a-golden-fish-the-concept-of-rescue-this-is-a-3d-render-illustration.jpg?ver=6"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://ak1.ostkcdn.com/images/products/16721223/P23035519.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://ak1.ostkcdn.com/images/products/16721223/P23035519.jpg"></a>
+</div>
+  </div>
+  <div class="na-note">（这道题不需要回答"关系问题"，只回答下面的外观问题即可）</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q04" data-has-relation="1">
+  <div class="qnum">问题 4 / q04</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://i0.wp.com/s2.storage.snapzu.com/b8/2d/a3/45/Maternitus/snaps/a4/7e/185241/thumbs/61bb37facb6d21a1_fpi_large.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i0.wp.com/s2.storage.snapzu.com/b8/2d/a3/45/Maternitus/snaps/a4/7e/185241/thumbs/61bb37facb6d21a1_fpi_large.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://forestwoodfolkart.files.wordpress.com/2016/10/p1000902-2.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://forestwoodfolkart.files.wordpress.com/2016/10/p1000902-2.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://images-na.ssl-images-amazon.com/images/I/417Dc3ix1yL._SL480_.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/417Dc3ix1yL._SL480_.jpg"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q05" data-has-relation="1">
+  <div class="qnum">问题 5 / q05</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="http://d2jv9003bew7ag.cloudfront.net/uploads/8613006112007329-450x404.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://d2jv9003bew7ag.cloudfront.net/uploads/8613006112007329-450x404.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://lumiere-a.akamaihd.net/v1/images/pt_disneymagicmoments_learntosketchwickettheewok_20003_89bad6ca.jpeg?region=0,0,600,450" target="_blank" rel="noopener"><img loading="lazy" src="https://lumiere-a.akamaihd.net/v1/images/pt_disneymagicmoments_learntosketchwickettheewok_20003_89bad6ca.jpeg?region=0,0,600,450"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://pix.avax.news/avaxnews/06/9f/00059f06_medium.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="https://pix.avax.news/avaxnews/06/9f/00059f06_medium.jpeg"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q06" data-has-relation="1">
+  <div class="qnum">问题 6 / q06</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://live.staticflickr.com/65535/49029286312_9d3ddb5e9c_b.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://live.staticflickr.com/65535/49029286312_9d3ddb5e9c_b.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://media01.stockfood.com/previews/MjIzNDA4OA==/00186174-Food-collage-Vegetable-face-on-plate.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://media01.stockfood.com/previews/MjIzNDA4OA==/00186174-Food-collage-Vegetable-face-on-plate.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="http://s3.amazonaws.com/darkroom-cdn/2015/09/AP-APTOPIX-Canada-Daily-Lif-760x506.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://s3.amazonaws.com/darkroom-cdn/2015/09/AP-APTOPIX-Canada-Daily-Lif-760x506.jpg"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q07" data-has-relation="1">
+  <div class="qnum">问题 7 / q07</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://cdn.specialneedstoys.com/products/images/l/9PWFT.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.specialneedstoys.com/products/images/l/9PWFT.jpeg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://mangiarebuono.it/wp-content/uploads/2013/10/Fotolia_19415933_Subscription_Monthly_M.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://mangiarebuono.it/wp-content/uploads/2013/10/Fotolia_19415933_Subscription_Monthly_M.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://us.123rf.com/450wm/blulilues/blulilues1603/blulilues160300006/53276138-vector-image--a-set-of-products-for-the-preparation-of-national-soup-is-borscht.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/blulilues/blulilues1603/blulilues160300006/53276138-vector-image--a-set-of-products-for-the-preparation-of-national-soup-is-borscht.jpg?ver=6"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q08" data-has-relation="1">
+  <div class="qnum">问题 8 / q08</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://img1.etsystatic.com/203/0/5236506/il_340x270.1263092685_78ni.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img1.etsystatic.com/203/0/5236506/il_340x270.1263092685_78ni.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://us.123rf.com/450wm/madllen/madllen1303/madllen130300422/18545230-heart-healthy-of-fresh-shrimp-on-a-salad-lettuce-isolated-on-white-background.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/madllen/madllen1303/madllen130300422/18545230-heart-healthy-of-fresh-shrimp-on-a-salad-lettuce-isolated-on-white-background.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://data.ac-illust.com/data/thumbnails/94/94e844655fe19ee245832daef423637f_t.jpeg" target="_blank" rel="noopener"><img loading="lazy" src="https://data.ac-illust.com/data/thumbnails/94/94e844655fe19ee245832daef423637f_t.jpeg"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q09" data-has-relation="1">
+  <div class="qnum">问题 9 / q09</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://www.welovesolo.com/wp-content/uploads/vecteezy/03/bd1n0vjinyq.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.welovesolo.com/wp-content/uploads/vecteezy/03/bd1n0vjinyq.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://img.freepik.com/free-photo/customer-service-evaluation-rating-feedback-satisfaction-survey-concept-hand-holding-sad-failed-emoticon-face-wooden-ball-dark-background_36367-2195.jpg?size=626&amp;ext=jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img.freepik.com/free-photo/customer-service-evaluation-rating-feedback-satisfaction-survey-concept-hand-holding-sad-failed-emoticon-face-wooden-ball-dark-background_36367-2195.jpg?size=626&amp;ext=jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://img3.stockfresh.com/files/c/cienpies/m/91/1921477_stock-photo-isolated-diversity-tree-hands.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img3.stockfresh.com/files/c/cienpies/m/91/1921477_stock-photo-isolated-diversity-tree-hands.jpg"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q10" data-has-relation="1">
+  <div class="qnum">问题 10 / q10</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://us.123rf.com/450wm/serg788/serg7881511/serg788151100221/48446281-vegetable-rabbit-on-blue-plate-on-wooden-background.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/serg788/serg7881511/serg788151100221/48446281-vegetable-rabbit-on-blue-plate-on-wooden-background.jpg?ver=6"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://us.123rf.com/450wm/magicleaf/magicleaf1812/magicleaf181205589/113408737-vector-illustration-of-insect-and-fly-logo-collection-of-insect-and-element-stock-symbol-for-web-.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/magicleaf/magicleaf1812/magicleaf181205589/113408737-vector-illustration-of-insect-and-fly-logo-collection-of-insect-and-element-stock-symbol-for-web-.jpg?ver=6"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/330850b0-94df-44eb-a396-938a7de99d11/d3dgwdl-cd3fb11c-5415-4e0c-b101-0fee5656cde9.jpg/v1/fill/w_900,h_598,q_75,strp/3d_origami_pikachu_by_ibeautylovely-d3dgwdl.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi8zMzA4NTBiMC05NGRmLTQ0ZWItYTM5Ni05MzhhN2RlOTlkMTEvZDNkZ3dkbC1jZDNmYjExYy01NDE1LTRlMGMtYjEwMS0wZmVlNTY1NmNkZTkuanBnIiwid2lkdGgiOiI8PTkwMCIsImhlaWdodCI6Ijw9NTk4In1dXX0.kjwEeJcTmOrgFv5gvxPE_Pr9wF8muWQaagwsH9kYyt0" target="_blank" rel="noopener"><img loading="lazy" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/330850b0-94df-44eb-a396-938a7de99d11/d3dgwdl-cd3fb11c-5415-4e0c-b101-0fee5656cde9.jpg/v1/fill/w_900,h_598,q_75,strp/3d_origami_pikachu_by_ibeautylovely-d3dgwdl.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi8zMzA4NTBiMC05NGRmLTQ0ZWItYTM5Ni05MzhhN2RlOTlkMTEvZDNkZ3dkbC1jZDNmYjExYy01NDE1LTRlMGMtYjEwMS0wZmVlNTY1NmNkZTkuanBnIiwid2lkdGgiOiI8PTkwMCIsImhlaWdodCI6Ijw9NTk4In1dXX0.kjwEeJcTmOrgFv5gvxPE_Pr9wF8muWQaagwsH9kYyt0"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q11" data-has-relation="1">
+  <div class="qnum">问题 11 / q11</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bae76985-7a1a-49e4-b25f-b851e73cd15d/dchzfag-50188a71-a559-455f-9ba0-9d12218df60a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi9iYWU3Njk4NS03YTFhLTQ5ZTQtYjI1Zi1iODUxZTczY2QxNWQvZGNoemZhZy01MDE4OGE3MS1hNTU5LTQ1NWYtOWJhMC05ZDEyMjE4ZGY2MGEucG5nIn1dXX0.f86XCIV_hnnE8LWksDCYsNW5Pk8Tc7iep4er-xnHpAA" target="_blank" rel="noopener"><img loading="lazy" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bae76985-7a1a-49e4-b25f-b851e73cd15d/dchzfag-50188a71-a559-455f-9ba0-9d12218df60a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi9iYWU3Njk4NS03YTFhLTQ5ZTQtYjI1Zi1iODUxZTczY2QxNWQvZGNoemZhZy01MDE4OGE3MS1hNTU5LTQ1NWYtOWJhMC05ZDEyMjE4ZGY2MGEucG5nIn1dXX0.f86XCIV_hnnE8LWksDCYsNW5Pk8Tc7iep4er-xnHpAA"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://s.hdnux.com/photos/33/73/21/7320648/3/920x920.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://s.hdnux.com/photos/33/73/21/7320648/3/920x920.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://ae01.alicdn.com/kf/HTB16MyQPVXXXXbsXVXXq6xXFXXXy/Custom-3D-Wall-Murals-Wallpaper-3D-Stereoscopic-White-Horse-Brick-Wall-Art-Mural-Living-Room-Bedroom.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://ae01.alicdn.com/kf/HTB16MyQPVXXXXbsXVXXq6xXFXXXy/Custom-3D-Wall-Murals-Wallpaper-3D-Stereoscopic-White-Horse-Brick-Wall-Art-Mural-Living-Room-Bedroom.jpg"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q12" data-has-relation="0">
+  <div class="qnum">问题 12 / q12</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://static.wixstatic.com/media/678ff3_74c63a06779c42ef81d02a37caa06937.jpg/v1/fill/w_511,h_511,al_c,q_80,usm_0.66_1.00_0.01/678ff3_74c63a06779c42ef81d02a37caa06937.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://static.wixstatic.com/media/678ff3_74c63a06779c42ef81d02a37caa06937.jpg/v1/fill/w_511,h_511,al_c,q_80,usm_0.66_1.00_0.01/678ff3_74c63a06779c42ef81d02a37caa06937.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://i.pinimg.com/736x/a1/f3/81/a1f3819f67554ec2b06381624c8ca11a.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/a1/f3/81/a1f3819f67554ec2b06381624c8ca11a.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://media-cdn.tripadvisor.com/media/photo-s/05/b7/63/7a/amaris-hotel.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://media-cdn.tripadvisor.com/media/photo-s/05/b7/63/7a/amaris-hotel.jpg"></a>
+</div>
+  </div>
+  <div class="na-note">（这道题不需要回答"关系问题"，只回答下面的外观问题即可）</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q13" data-has-relation="1">
+  <div class="qnum">问题 13 / q13</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://lumiere-a.akamaihd.net/v1/images/pt_disneymagicmoments_learntosketchwickettheewok_20003_89bad6ca.jpeg?region=0,0,600,450" target="_blank" rel="noopener"><img loading="lazy" src="https://lumiere-a.akamaihd.net/v1/images/pt_disneymagicmoments_learntosketchwickettheewok_20003_89bad6ca.jpeg?region=0,0,600,450"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://cdn.shopify.com/s/files/1/0027/3229/4213/products/Doors_Collage_label_resized_grande.jpg?v=1613197726" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0027/3229/4213/products/Doors_Collage_label_resized_grande.jpg?v=1613197726"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://us.123rf.com/450wm/hadkhanong/hadkhanong1610/hadkhanong161000010/66538459-drawing-of-set-of-monkey-head-with-pattern-for-coloring-on-white-background.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/hadkhanong/hadkhanong1610/hadkhanong161000010/66538459-drawing-of-set-of-monkey-head-with-pattern-for-coloring-on-white-background.jpg?ver=6"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q14" data-has-relation="1">
+  <div class="qnum">问题 14 / q14</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://coolcreativity.com/wp-content/uploads/2014/05/egg-carton-flower-f.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://coolcreativity.com/wp-content/uploads/2014/05/egg-carton-flower-f.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://images.squarespace-cdn.com/content/v1/566763bf25981d4412e0f3ff/1458608823753-L5ATZQL34ALWBSR2D08J/ke17ZwdGBToddI8pDm48kFQQgP34qnCpeHaeAOzTt7pZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PICHnXC1b9smDvYLPdL-DS7U1pkhCtl83kemXd5r3C5ngKMshLAGzx4R3EDFOm1kBS/Munny+13" target="_blank" rel="noopener"><img loading="lazy" src="https://images.squarespace-cdn.com/content/v1/566763bf25981d4412e0f3ff/1458608823753-L5ATZQL34ALWBSR2D08J/ke17ZwdGBToddI8pDm48kFQQgP34qnCpeHaeAOzTt7pZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PICHnXC1b9smDvYLPdL-DS7U1pkhCtl83kemXd5r3C5ngKMshLAGzx4R3EDFOm1kBS/Munny+13"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://blog.medillsb.com/wp-content/uploads/2019/07/step-by-step-everlasting-sweet-pea-botanical-illustration-3.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://blog.medillsb.com/wp-content/uploads/2019/07/step-by-step-everlasting-sweet-pea-botanical-illustration-3.jpg"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q15" data-has-relation="1">
+  <div class="qnum">问题 15 / q15</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://media01.stockfood.com/previews/MjIzNDA4OA==/00186174-Food-collage-Vegetable-face-on-plate.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://media01.stockfood.com/previews/MjIzNDA4OA==/00186174-Food-collage-Vegetable-face-on-plate.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://s3.amazonaws.com/freestock-prod/450/freestock_58144744.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://s3.amazonaws.com/freestock-prod/450/freestock_58144744.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://us.123rf.com/450wm/ja_rek/ja_rek1011/ja_rek101100025/8188807-assortment-of-happy-vegetable-smileys-isolated-on-white-background.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/ja_rek/ja_rek1011/ja_rek101100025/8188807-assortment-of-happy-vegetable-smileys-isolated-on-white-background.jpg?ver=6"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q16" data-has-relation="1">
+  <div class="qnum">问题 16 / q16</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://img.freepik.com/free-photo/coffee-grains-heart-form_23-2147896434.jpg?size=626&amp;ext=jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img.freepik.com/free-photo/coffee-grains-heart-form_23-2147896434.jpg?size=626&amp;ext=jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="http://static9.depositphotos.com/1010535/1178/i/450/depositphotos_11783955-coffee-cup-image-made-up-of-coffee-beans-on-sack.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://static9.depositphotos.com/1010535/1178/i/450/depositphotos_11783955-coffee-cup-image-made-up-of-coffee-beans-on-sack.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://images-na.ssl-images-amazon.com/images/I/61sXv8NAtrL._AC_SL1000_.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/61sXv8NAtrL._AC_SL1000_.jpg"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q17" data-has-relation="1">
+  <div class="qnum">问题 17 / q17</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://us.123rf.com/450wm/weerapat/weerapat1611/weerapat161100251/67303082-hand-watering-green-plants-growing-on-a-pile-of-golden-coins--green-business-and-investment--busines.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/weerapat/weerapat1611/weerapat161100251/67303082-hand-watering-green-plants-growing-on-a-pile-of-golden-coins--green-business-and-investment--busines.jpg?ver=6"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="http://images.fineartamerica.com/images-medium-large-5/hiding-in-my-jeans-donna-tucker.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://images.fineartamerica.com/images-medium-large-5/hiding-in-my-jeans-donna-tucker.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://us.123rf.com/450wm/holwichaikawee/holwichaikawee1712/holwichaikawee171200009/91346811-l-albero-che-cresce-sulle-monete-di-un-dollaro-ha-sistemato-come-grafico-sulla-tavola-di-legno-con-i.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/holwichaikawee/holwichaikawee1712/holwichaikawee171200009/91346811-l-albero-che-cresce-sulle-monete-di-un-dollaro-ha-sistemato-come-grafico-sulla-tavola-di-legno-con-i.jpg?ver=6"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q18" data-has-relation="1">
+  <div class="qnum">问题 18 / q18</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://i.dailymail.co.uk/i/pix/2017/10/18/21/4577E3A800000578-0-image-a-108_1508356961338.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.dailymail.co.uk/i/pix/2017/10/18/21/4577E3A800000578-0-image-a-108_1508356961338.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://4.bp.blogspot.com/-X751b7p8bsU/VN8KNc-5Q9I/AAAAAAAAOpk/T-xSSoKP2WE/s1600/Roxy%2Bwith%2Bher%2Bpainting.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://4.bp.blogspot.com/-X751b7p8bsU/VN8KNc-5Q9I/AAAAAAAAOpk/T-xSSoKP2WE/s1600/Roxy%2Bwith%2Bher%2Bpainting.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://us.123rf.com/450wm/holwichaikawee/holwichaikawee1712/holwichaikawee171200009/91346811-l-albero-che-cresce-sulle-monete-di-un-dollaro-ha-sistemato-come-grafico-sulla-tavola-di-legno-con-i.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/holwichaikawee/holwichaikawee1712/holwichaikawee171200009/91346811-l-albero-che-cresce-sulle-monete-di-un-dollaro-ha-sistemato-come-grafico-sulla-tavola-di-legno-con-i.jpg?ver=6"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q19" data-has-relation="1">
+  <div class="qnum">问题 19 / q19</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="http://1tb.favim.com/preview/7/763/7632/76327/7632706.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://1tb.favim.com/preview/7/763/7632/76327/7632706.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://www.freshcup.com/wp-content/uploads/2017/07/NYC_CoffeeBook_1014x576-894x372.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.freshcup.com/wp-content/uploads/2017/07/NYC_CoffeeBook_1014x576-894x372.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="http://notedlist.com/wp-content/uploads/2015/07/wine-barrel-project-ideas/6-wine-barrel-project-ideas.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://notedlist.com/wp-content/uploads/2015/07/wine-barrel-project-ideas/6-wine-barrel-project-ideas.jpg"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q20" data-has-relation="0">
+  <div class="qnum">问题 20 / q20</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://us.123rf.com/450wm/tai11/tai111506/tai11150601109/41360684-un-grand-groupe-de-personnes-dans-la-forme-de-symboles-abstraits-isol%C3%A9-fond-blanc-.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/tai11/tai111506/tai11150601109/41360684-un-grand-groupe-de-personnes-dans-la-forme-de-symboles-abstraits-isol%C3%A9-fond-blanc-.jpg?ver=6"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://www.treehugger.com/thmb/8DOr3PKFGm_0ugRLY94lPtu1mAg=/2048x2048/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2018__05__two_dogs_share_stick-db101bee57ee4e3d94bc2214f580b653.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://www.treehugger.com/thmb/8DOr3PKFGm_0ugRLY94lPtu1mAg=/2048x2048/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__mnn__images__2018__05__two_dogs_share_stick-db101bee57ee4e3d94bc2214f580b653.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://img3.stockfresh.com/files/c/cienpies/m/91/1921477_stock-photo-isolated-diversity-tree-hands.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://img3.stockfresh.com/files/c/cienpies/m/91/1921477_stock-photo-isolated-diversity-tree-hands.jpg"></a>
+</div>
+  </div>
+  <div class="na-note">（这道题不需要回答"关系问题"，只回答下面的外观问题即可）</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q21" data-has-relation="0">
+  <div class="qnum">问题 21 / q21</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://i2.wp.com/bikeaospedacos.com.br/wp-content/uploads/2021/10/red-bull-rampage-nesta-sexta-com-transmissao-ao-vivo-e-em-portugues-1.jpg?resize=980%2C400&amp;ssl=1" target="_blank" rel="noopener"><img loading="lazy" src="https://i2.wp.com/bikeaospedacos.com.br/wp-content/uploads/2021/10/red-bull-rampage-nesta-sexta-com-transmissao-ao-vivo-e-em-portugues-1.jpg?resize=980%2C400&amp;ssl=1"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://artlogic-res.cloudinary.com/w_690,c_limit,f_auto,fl_lossy/artlogicstorage/rebeccahossack/images/view/96d920f8ec0f6b41b4fadc6dfcd0abd3j.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://artlogic-res.cloudinary.com/w_690,c_limit,f_auto,fl_lossy/artlogicstorage/rebeccahossack/images/view/96d920f8ec0f6b41b4fadc6dfcd0abd3j.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://images-na.ssl-images-amazon.com/images/I/417Dc3ix1yL._SL480_.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://images-na.ssl-images-amazon.com/images/I/417Dc3ix1yL._SL480_.jpg"></a>
+</div>
+  </div>
+  <div class="na-note">（这道题不需要回答"关系问题"，只回答下面的外观问题即可）</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q22" data-has-relation="1">
+  <div class="qnum">问题 22 / q22</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://cdn.shopify.com/s/files/1/0292/5664/6690/products/0540DAE7-23E4-411E-B699-11C2DE5751F7_800x800_crop_center.jpg?v=1605458516" target="_blank" rel="noopener"><img loading="lazy" src="https://cdn.shopify.com/s/files/1/0292/5664/6690/products/0540DAE7-23E4-411E-B699-11C2DE5751F7_800x800_crop_center.jpg?v=1605458516"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://ik.imagekit.io/theartling/p/products/Product/05d3c46bda534dc6982e8a67ae99df71.jpg?tr=cm-pad_resize,w-611,h-611,bg-FFFFFF" target="_blank" rel="noopener"><img loading="lazy" src="https://ik.imagekit.io/theartling/p/products/Product/05d3c46bda534dc6982e8a67ae99df71.jpg?tr=cm-pad_resize,w-611,h-611,bg-FFFFFF"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://i.dailymail.co.uk/i/pix/2017/10/18/21/4577E3A800000578-0-image-a-108_1508356961338.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.dailymail.co.uk/i/pix/2017/10/18/21/4577E3A800000578-0-image-a-108_1508356961338.jpg"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q23" data-has-relation="1">
+  <div class="qnum">问题 23 / q23</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="http://cute-n-tiny.com/wp-content/uploads/2010/05/cute-penguin-bento-400x300.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://cute-n-tiny.com/wp-content/uploads/2010/05/cute-penguin-bento-400x300.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://us.123rf.com/450wm/theblackrhino/theblackrhino1504/theblackrhino150400191/38545617-finger-over-blender-button-with-scared-person-in-jar.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/theblackrhino/theblackrhino1504/theblackrhino150400191/38545617-finger-over-blender-button-with-scared-person-in-jar.jpg?ver=6"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://i.pinimg.com/736x/e8/36/2f/e8362f3983a8020d5be7d9bd47e5b5af.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/e8/36/2f/e8362f3983a8020d5be7d9bd47e5b5af.jpg"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q24" data-has-relation="1">
+  <div class="qnum">问题 24 / q24</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://media01.stockfood.com/previews/MjIzNDA4OA==/00186174-Food-collage-Vegetable-face-on-plate.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://media01.stockfood.com/previews/MjIzNDA4OA==/00186174-Food-collage-Vegetable-face-on-plate.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://i.pinimg.com/736x/e8/36/2f/e8362f3983a8020d5be7d9bd47e5b5af.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.pinimg.com/736x/e8/36/2f/e8362f3983a8020d5be7d9bd47e5b5af.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="http://i.pinimg.com/originals/6a/8c/eb/6a8ceb657b7e6fe82418aab9ebf28fe8.jpg" target="_blank" rel="noopener"><img loading="lazy" src="http://i.pinimg.com/originals/6a/8c/eb/6a8ceb657b7e6fe82418aab9ebf28fe8.jpg"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q25" data-has-relation="1">
+  <div class="qnum">问题 25 / q25</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://i1.pickpik.com/photos/386/261/100/flowers-tree-harmony-harmonious-thumb.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i1.pickpik.com/photos/386/261/100/flowers-tree-harmony-harmonious-thumb.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://d2c5oomqu2hs08.cloudfront.net/wp-content/uploads/2018/02/cactus-1-web.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://d2c5oomqu2hs08.cloudfront.net/wp-content/uploads/2018/02/cactus-1-web.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://us.123rf.com/450wm/byrdyak/byrdyak1804/byrdyak180400002/98725698-360-degree-view-of-single-blossoming-tree-in-spring-on-rural-meadow.jpg?ver=6" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/byrdyak/byrdyak1804/byrdyak180400002/98725698-360-degree-view-of-single-blossoming-tree-in-spring-on-rural-meadow.jpg?ver=6"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q26" data-has-relation="1">
+  <div class="qnum">问题 26 / q26</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://i.dailymail.co.uk/i/pix/2017/10/18/21/4577E3A800000578-0-image-a-108_1508356961338.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://i.dailymail.co.uk/i/pix/2017/10/18/21/4577E3A800000578-0-image-a-108_1508356961338.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://piximus.net/media2/48647/thumb_fw.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://piximus.net/media2/48647/thumb_fw.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://www.kino-zeit.de/sites/default/files/styles/filmseite/public/news/bild104769.jpg?itok=QdhZadd9" target="_blank" rel="noopener"><img loading="lazy" src="https://www.kino-zeit.de/sites/default/files/styles/filmseite/public/news/bild104769.jpg?itok=QdhZadd9"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div><div class="item" data-item-id="q27" data-has-relation="1">
+  <div class="qnum">问题 27 / q27</div>
+  <div class="images">
+    <div class="slot">
+  <div class="role">Anchor</div>
+  <a href="https://mangiarebuono.it/wp-content/uploads/2013/10/Fotolia_19415933_Subscription_Monthly_M.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://mangiarebuono.it/wp-content/uploads/2013/10/Fotolia_19415933_Subscription_Monthly_M.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate A</div>
+  <a href="https://d2c5oomqu2hs08.cloudfront.net/wp-content/uploads/2018/02/cactus-1-web.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://d2c5oomqu2hs08.cloudfront.net/wp-content/uploads/2018/02/cactus-1-web.jpg"></a>
+</div>
+    <div class="slot">
+  <div class="role">Candidate B</div>
+  <a href="https://us.123rf.com/450wm/stringerphotography/stringerphotography1408/stringerphotography140800469/31009392-a-map-of-the-world-filled-with-a-elephant-pattern.jpg" target="_blank" rel="noopener"><img loading="lazy" src="https://us.123rf.com/450wm/stringerphotography/stringerphotography1408/stringerphotography140800469/31009392-a-map-of-the-world-filled-with-a-elephant-pattern.jpg"></a>
+</div>
+  </div>
+  <div class="question">
+  <div class="qtext">关系问题：候选 A 和候选 B，哪一张和 anchor 背后的道理 / 逻辑 / 过程更像？</div>
+  <div class="choices" data-q="relation">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+</div>
+  <div class="question">
+    <div class="qtext">外观问题：候选 A 和候选 B，哪一张和 anchor 在物体、颜色、形状、纹理、布局上长得更像？</div>
+    <div class="choices" data-q="appearance">
+  <button type="button" data-choice="A">Candidate A</button>
+  <button type="button" data-choice="B">Candidate B</button>
+</div>
+  </div>
+</div></div>
+<script>
+const STORAGE_KEY = 'relsim_agreement_check_v1';
+let state = {};
+try { state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch (e) { state = {}; }
+
+function saveState() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  const el = document.getElementById('save-status');
+  if (el) el.textContent = 'saved ' + new Date().toLocaleTimeString();
+  updateProgress();
+}
+
+function updateProgress() {
+  const items = document.querySelectorAll('.item');
+  let done = 0;
+  items.forEach(item => {
+    const k = item.dataset.itemId;
+    const s = state[k] || {};
+    const needsRelation = item.dataset.hasRelation === '1';
+    const ok = s.appearance && (!needsRelation || s.relation);
+    if (ok) done++;
+    item.classList.toggle('mark-done', !!ok);
+  });
+  const el = document.getElementById('progress');
+  if (el) el.textContent = done + ' / ' + items.length + ' answered';
+}
+
+document.querySelectorAll('.item').forEach(item => {
+  const k = item.dataset.itemId;
+  const s = state[k] || {};
+  item.querySelectorAll('.choices').forEach(group => {
+    const qkey = group.dataset.q;
+    const val = s[qkey];
+    group.querySelectorAll('button').forEach(b => {
+      b.classList.toggle('selected', val === b.dataset.choice);
+      b.addEventListener('click', () => {
+        state[k] = state[k] || {};
+        state[k][qkey] = b.dataset.choice;
+        group.querySelectorAll('button').forEach(bb => bb.classList.toggle('selected', bb === b));
+        saveState();
+      });
+    });
+  });
+});
+updateProgress();
+
+function csvEscape(v) {
+  v = String(v === undefined || v === null ? '' : v);
+  if (/[",\r\n]/.test(v)) {
+    v = '"' + v.replace(/"/g, '""') + '"';
+  }
+  return v;
+}
+
+document.getElementById('export-btn').addEventListener('click', () => {
+  const rows = [['blind_id', 'relation_choice', 'appearance_choice']];
+  document.querySelectorAll('.item').forEach(item => {
+    const k = item.dataset.itemId;
+    const s = state[k] || {};
+    rows.push([k, s.relation || '', s.appearance || '']);
+  });
+  const csv = rows.map(r => r.map(csvEscape).join(',')).join('\r\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'agreement_check_blind.csv';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+});
+</script>
+</body>
+</html>

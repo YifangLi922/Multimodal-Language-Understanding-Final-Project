@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Blind inter-annotator agreement check -- answer_key.csv holds the ground
+# truth for review/galleries/agreement_check_blind.html. Repo is public;
+# this must never be pushed or the second annotator (or anyone else) could
+# find it and the blind test would be worthless.
+review/agreement_check/
